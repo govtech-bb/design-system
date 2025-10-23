@@ -1,0 +1,23 @@
+{
+  "name": "@govtech-bb/design",
+  "version": "0.0.1",
+  "description": "Design tokens and Tailwind CSS utilities for GovTechBB Design System",
+  "private": false,
+  "type": "module",
+  "main": "./src/index.css",
+  "exports": {
+    ".": "./src/index.css"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/govtechbb/design-system.git",
+    "directory": "packages/design"
+  }
+}

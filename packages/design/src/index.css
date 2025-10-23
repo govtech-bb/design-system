@@ -1,0 +1,137 @@
+/* GovTechBB Design Tokens for Tailwind CSS 4 */
+
+@theme {
+  /* Brand Colors - Blue */
+  --color-blue-100: #00267f;
+  --color-blue-40: #99a8cc;
+  --color-blue-10: #e5e9f2;
+
+  /* Brand Colors - Yellow */
+  --color-yellow-100: #ffc726;
+  --color-yellow-40: #ffe9a8;
+  --color-yellow-10: #fff9e9;
+
+  /* Brand Colors - Green */
+  --color-green-100: #1fbf84;
+  --color-green-40: #a5e5ce;
+  --color-green-10: #e9f9f3;
+
+  /* Brand Colors - Red */
+  --color-red-100: #ff6b6b;
+  --color-red-40: #ffc4c4;
+  --color-red-10: #fff0f0;
+
+  /* Brand Colors - Purple */
+  --color-purple-100: #a962c7;
+  --color-purple-40: #ddc0e9;
+  --color-purple-10: #f6eff9;
+
+  /* Brand Colors - Pink */
+  --color-pink-100: #ff94d9;
+  --color-pink-40: #ffd4f0;
+  --color-pink-10: #fff4fb;
+
+  /* Brand Colors - Teal */
+  --color-teal-100: #30c0c8;
+  --color-teal-40: #ace6e9;
+  --color-teal-10: #eaf9f9;
+
+  /* Legacy Brand Colors */
+  --color-brand-teal-darker: #0a4549;
+  --color-brand-teal-dark: #0e5f64;
+  --color-brand-teal: #0e5f64;
+  --color-brand-teal-light: #1a777d;
+  --color-brand-teal-lighter: #ace6e9;
+
+  --color-brand-neutral-white: #ffffff;
+  --color-brand-neutral-black: #000000;
+  --color-brand-neutral-gray-light: #e0e4e9;
+  --color-brand-neutral-gray: #d7dce2;
+  --color-brand-neutral-gray-dark: #b9c0c6;
+
+  --color-brand-red-dark: #a42c2c;
+
+  /* Focus ring color */
+  --color-focus-visible: #ace6e9;
+
+  /* Typography - Font Sizes */
+  --font-size-display: 5rem; /* 80px */
+  --font-size-h1: 3.5rem; /* 56px */
+  --font-size-h2: 2.5rem; /* 40px */
+  --font-size-h3: 1.5rem; /* 24px */
+  --font-size-h4: 1.25rem; /* 20px */
+  --font-size-body-lg: 2rem; /* 32px */
+  --font-size-body: 1.25rem; /* 20px */
+
+  /* Typography - Line Heights */
+  --line-height-display: 1;
+  --line-height-h1: 1.15;
+  --line-height-h2: 1.25;
+  --line-height-h3: 1.25;
+  --line-height-h4: 1.4;
+  --line-height-body-lg: 1.5;
+  --line-height-body: 1.7;
+
+  /* Typography - Font Weights */
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+
+  /* Shadows */
+  --shadow-form-hover: inset 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
+
+  /* Disabled State */
+  /* TODO: Components dont have a disabled state on figma, need Jack to confirm what is needed. */
+  --opacity-disabled: 0.4;
+}
+
+/* Disabled State Utility */
+/* TODO: Components dont have a disabled state on figma, need Jack to confirm what is needed. */
+@utility disabled-state {
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+}
+
+/* Typography Utilities */
+@utility text-display {
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-body-lg {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  font-weight: var(--font-weight-normal);
+}
+
+@utility text-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-normal);
+}
