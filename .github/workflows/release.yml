@@ -23,9 +23,9 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm run build
-      - run: pnpm --filter @govtechbb/design publish --no-git-checks
+      - run: pnpm --filter @govtech-bb/design publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pnpm --filter @govtechbb/react publish --no-git-checks
+      - run: pnpm --filter @govtech-bb/react publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
