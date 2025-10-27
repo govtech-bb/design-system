@@ -21,9 +21,9 @@ const config: StorybookConfig = {
   typescript: {
     check: true,
   },
-  async viteFinal(config) {
+  async viteFinal(config, { configType }) {
     return mergeConfig(config, {
-      ...config,
+      base: configType === 'PRODUCTION' ? '/design-system/' : '/',
       plugins: [tailwindcss()],
     });
   },

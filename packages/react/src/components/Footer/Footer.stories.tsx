@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Footer } from './Footer.js';
 
 // Logo URL from public directory - served via Storybook staticDirs
-const LOGO_URL = '/images/coat-of-arms.png';
+const LOGO_URL = `${import.meta.env.BASE_URL || '/'}images/coat-of-arms.png`.replace(/\/+/g, '/');
 
 const meta: Meta<typeof Footer> = {
   title: 'Components/Footer',

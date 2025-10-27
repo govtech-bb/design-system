@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { OfficialBanner } from './OfficialBanner.js';
 
+const imagePath = `${import.meta.env.BASE_URL || '/'}images/coat-of-arms.png`.replace(/\/+/g, '/');
+
 const meta: Meta<typeof OfficialBanner> = {
   title: 'Components/OfficialBanner',
   component: OfficialBanner,
@@ -27,12 +29,14 @@ type Story = StoryObj<typeof OfficialBanner>;
 
 export const Default: Story = {
   args: {
+    imageSrc: imagePath,
     showLearnMore: true,
   },
 };
 
 export const WithoutLink: Story = {
   args: {
+    imageSrc: imagePath,
     showLearnMore: false,
   },
   parameters: {
@@ -47,7 +51,7 @@ export const WithoutLink: Story = {
 export const InPageLayout: Story = {
   render: () => (
     <div>
-      <OfficialBanner />
+      <OfficialBanner imageSrc={imagePath} />
       <div style={{ padding: '2rem' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Government Website</h1>
         <p>This demonstrates how the Official Government Banner appears at the top of a page.</p>

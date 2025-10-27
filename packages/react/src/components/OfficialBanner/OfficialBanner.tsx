@@ -3,17 +3,22 @@ import { cn } from '../../utils/css';
 
 export interface OfficialBannerProps extends HTMLAttributes<HTMLDivElement> {
   showLearnMore?: boolean;
+  imageSrc: string;
+  imageAlt?: string;
 }
 
 const OfficialBanner = forwardRef<HTMLDivElement, OfficialBannerProps>(
-  ({ showLearnMore = true, className, ...props }, ref) => {
+  (
+    { showLearnMore = true, imageSrc, imageAlt = 'Government of Barbados', className, ...props },
+    ref,
+  ) => {
     return (
       <div ref={ref} className={cn('bg-blue-100 w-full', className)} {...props}>
         <div className="flex gap-2 items-center px-4 py-2">
           <div className="shrink-0 w-4 h-4 relative">
             <img
-              src="/images/coat-of-arms.png"
-              alt="Government of Barbados"
+              src={imageSrc}
+              alt={imageAlt}
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </div>
