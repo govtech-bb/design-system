@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/govtechbb/design-system.git",
+    "url": "https://github.com/govtech-bb/design-system.git",
     "directory": "packages/design"
   },
   "license": "MIT"
