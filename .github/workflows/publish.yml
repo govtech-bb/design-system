@@ -33,15 +33,11 @@ jobs:
         run: pnpm run build --filter=@govtech-bb/react
 
       - name: Publish design package
-        run: |
-          cd packages/design
-          npm publish --provenance --access public
+        run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react package
-        run: |
-          cd packages/react
-          npm publish --provenance --access public
+        run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
