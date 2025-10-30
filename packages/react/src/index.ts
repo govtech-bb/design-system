@@ -6,6 +6,7 @@ export * from './components/Link';
 export * from './components/Logo';
 export * from './components/OfficialBanner';
 export * from './components/Radio';
+export * from './components/Select';
 export * from './components/StatusBanner';
 export * from './components/TextArea';
 export * from './components/Typography';
