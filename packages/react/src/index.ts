@@ -7,5 +7,6 @@ export * from './components/Logo';
 export * from './components/OfficialBanner';
 export * from './components/Radio';
 export * from './components/StatusBanner';
+export * from './components/TextArea';
 export * from './components/Typography';
 export * from './utils/css';
