@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Typography } from './Typography';
 
 const meta: Meta<typeof Typography> = {
-  title: 'Foundation/Typography',
+  title: 'Foundations/Typography',
   component: Typography,
   tags: ['autodocs'],
   parameters: {
@@ -134,8 +134,8 @@ export const ContentExample: Story = {
     <article className="max-w-2xl space-y-4">
       <Typography variant="h1">Article Title</Typography>
       <Typography variant="body-lg">
-        This is an introductory paragraph with larger text to draw attention and provide context
-        for the article content.
+        This is an introductory paragraph with larger text to draw attention and provide context for
+        the article content.
       </Typography>
       <Typography variant="h2">Section Heading</Typography>
       <Typography variant="body">
