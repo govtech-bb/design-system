@@ -1,0 +1,110 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Spacing" />
+
+export const SpacingTable = () => {
+  const spacing = [
+    { label: 'xs', px: 8, rem: 0.5 },
+    { label: 's', px: 16, rem: 1 },
+    { label: 'm', px: 32, rem: 2 },
+    { label: 'l', px: 64, rem: 4 },
+    { label: 'xl', px: 128, rem: 8 },
+  ];
+  return (
+    <table
+      style={{
+        width: '100%',
+        borderCollapse: 'collapse',
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        overflow: 'hidden',
+      }}
+    >
+      <thead>
+        <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+          {['', 'Comparative size', 'Pixels', 'REMs', 'Difference'].map((heading, i) => (
+            <th
+              key={i}
+              style={{
+                textAlign: 'left',
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: '#374151',
+                padding: '0.75rem 1rem',
+              }}
+            >
+              {heading}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {spacing.map(({ label, px, rem }, index) => {
+          const prevPx = index > 0 ? spacing[index - 1].px : 0;
+          const diff = index === 0 ? '–' : `+${px - prevPx}px`;
+          return (
+            <tr
+              key={label}
+              style={{
+                borderBottom: '1px solid #f3f4f6',
+              }}
+            >
+              <td style={{ padding: '1rem' }}>
+                <div
+                  style={{
+                    width: px,
+                    height: 32,
+                    backgroundColor: '#f3e8ff',
+                    display: 'inline-block',
+                  }}
+                />
+              </td>
+              <td
+                style={{
+                  padding: '1rem',
+                  fontSize: '0.875rem',
+                  color: '#111827',
+                }}
+              >
+                {label}
+              </td>
+              <td
+                style={{
+                  padding: '1rem',
+                  fontSize: '0.875rem',
+                  color: '#111827',
+                }}
+              >
+                {px}
+              </td>
+              <td
+                style={{
+                  padding: '1rem',
+                  fontSize: '0.875rem',
+                  color: '#111827',
+                }}
+              >
+                {rem}
+              </td>
+              <td
+                style={{
+                  padding: '1rem',
+                  fontSize: '0.875rem',
+                  color: '#111827',
+                }}
+              >
+                {diff}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+
+# Spacing
+
+GovTechBB follows an 8px base spacing scale. Each step doubles in size, represented in pixels and REMs for consistent proportional spacing.
+
+<SpacingTable />
