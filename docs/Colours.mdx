@@ -1,0 +1,171 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colours" />
+
+export const getContrastColor = (hexColor) => {
+  const hex = hexColor.replace('#', '');
+  const r = parseInt(hex.substr(0, 2), 16);
+  const g = parseInt(hex.substr(2, 2), 16);
+  const b = parseInt(hex.substr(4, 2), 16);
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return luminance > 0.5 ? '#000000' : '#FFFFFF';
+};
+
+export const ColorSwatch = ({ color, label, hex, contrast, token }) => (
+  <div className="inline-block flex-1">
+    <div
+      className="w-full h-20 flex items-center justify-center font-semibold text-sm"
+      style={{
+        backgroundColor: color,
+        color: getContrastColor(color),
+      }}
+    >
+      {contrast}
+    </div>
+    <div className="py-2 text-xs">
+      <div className="font-semibold mb-0.5">{label}</div>
+      <div style={{ color: '#6b7280', marginBottom: '2px' }}>{hex}</div>
+      {token && <div style={{ color: '#6b7280', fontSize: '11px' }}>{token}</div>}
+    </div>
+  </div>
+);
+
+export const ColorRow = ({ colors }) => (
+  <div className="flex gap-0 mb-10">
+    {colors.map((color, index) => (
+      <ColorSwatch key={index} {...color} />
+    ))}
+  </div>
+);
+
+export const SectionTitle = ({ children }) => (
+  <h3 className="text-lg font-semibold mt-8 mb-4">{children}</h3>
+);
+
+# Colour
+
+Always use the GovTechBB colour palette.
+
+# Colour palette
+
+## Brand colours
+
+<SectionTitle>Yellow</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#E8A833', label: '00', hex: '#E8A833', contrast: 'AAA', token: '--color-yellow-00' },
+    {
+      color: '#FFC726',
+      label: '100',
+      hex: '#FFC726',
+      contrast: 'AAA',
+      token: '--color-yellow-100',
+    },
+    { color: '#FFE9A8', label: '40', hex: '#FFE9A8', contrast: 'AAA', token: '--color-yellow-40' },
+    { color: '#FFF9E9', label: '10', hex: '#FFF9E9', contrast: 'AAA', token: '--color-yellow-10' },
+  ]}
+/>
+
+<SectionTitle>Blue</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#00164A', label: '00', hex: '#00164A', contrast: 'AAA', token: '--color-blue-00' },
+    { color: '#00267F', label: '100', hex: '#00267F', contrast: 'AAA', token: '--color-blue-100' },
+    { color: '#99A8CC', label: '40', hex: '#99A8CC', contrast: 'AAA', token: '--color-blue-40' },
+    { color: '#E5E9F2', label: '10', hex: '#E5E9F2', contrast: 'AAA', token: '--color-blue-10' },
+  ]}
+/>
+
+## Neutral colours
+
+<ColorRow
+  colors={[
+    {
+      color: '#000000',
+      label: 'black',
+      hex: '#000000',
+      contrast: 'AAA',
+      token: '--color-neutral-black',
+    },
+    {
+      color: '#595959',
+      label: 'mid-grey',
+      hex: '#595959',
+      contrast: 'AAA',
+      token: '--color-neutral-mid-grey',
+    },
+    {
+      color: '#E0E4E9',
+      label: 'grey',
+      hex: '#E0E4E9',
+      contrast: 'AAA',
+      token: '--color-neutral-grey',
+    },
+    {
+      color: '#FFFFFF',
+      label: 'white',
+      hex: '#FFFFFF',
+      contrast: 'AAA',
+      token: '--color-neutral-white',
+    },
+  ]}
+/>
+
+## Accent colours
+
+<SectionTitle>Red</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#A42C2C', label: '00', hex: '#A42C2C', contrast: 'AAA', token: '--color-red-00' },
+    { color: '#FF6B6B', label: '100', hex: '#FF6B6B', contrast: 'AAA', token: '--color-red-100' },
+    { color: '#FFC4C4', label: '40', hex: '#FFC4C4', contrast: 'AAA', token: '--color-red-40' },
+    { color: '#FFF0F0', label: '10', hex: '#FFF0F0', contrast: 'AAA', token: '--color-red-10' },
+  ]}
+/>
+
+<SectionTitle>Pink</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#AD1157', label: '00', hex: '#AD1157', contrast: 'AAA', token: '--color-pink-00' },
+    { color: '#FF94D9', label: '100', hex: '#FF94D9', contrast: 'AAA', token: '--color-pink-100' },
+    { color: '#FFD4F0', label: '40', hex: '#FFD4F0', contrast: 'AAA', token: '--color-pink-40' },
+    { color: '#FFF4FB', label: '10', hex: '#FFF4FB', contrast: 'AAA', token: '--color-pink-10' },
+  ]}
+/>
+
+<SectionTitle>Purple</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#4A235A', label: '00', hex: '#4A235A', contrast: 'AAA', token: '--color-purple-00' },
+    { color: '#A962C7', label: '100', hex: '#A962C7', contrast: 'AA', token: '--color-purple-100' },
+    { color: '#DDC0E9', label: '40', hex: '#DDC0E9', contrast: 'AAA', token: '--color-purple-40' },
+    { color: '#F6EFF9', label: '10', hex: '#F6EFF9', contrast: 'AAA', token: '--color-purple-10' },
+  ]}
+/>
+
+<SectionTitle>Teal</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#0E5F64', label: '00', hex: '#0E5F64', contrast: 'AAA', token: '--color-teal-00' },
+    { color: '#30C0C8', label: '100', hex: '#30C0C8', contrast: 'AAA', token: '--color-teal-100' },
+    { color: '#ACE6E9', label: '40', hex: '#ACE6E9', contrast: 'AAA', token: '--color-teal-40' },
+    { color: '#EAF9F9', label: '10', hex: '#EAF9F9', contrast: 'AAA', token: '--color-teal-10' },
+  ]}
+/>
+
+<SectionTitle>Green</SectionTitle>
+
+<ColorRow
+  colors={[
+    { color: '#00654A', label: '00', hex: '#00654A', contrast: 'AAA', token: '--color-green-00' },
+    { color: '#1FBF84', label: '100', hex: '#1FBF84', contrast: 'AAA', token: '--color-green-100' },
+    { color: '#A5E5CE', label: '40', hex: '#A5E5CE', contrast: 'AAA', token: '--color-green-40' },
+    { color: '#E9F9F3', label: '10', hex: '#E9F9F3', contrast: 'AAA', token: '--color-green-10' },
+  ]}
+/>

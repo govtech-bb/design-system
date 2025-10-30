@@ -8,9 +8,9 @@ const linkVariants = cva(
     variants: {
       variant: {
         default:
-          'text-brand-teal underline hover:text-brand-teal-hover focus-visible:text-brand-teal-hover active:bg-brand-yellow-bright focus-visible:bg-brand-yellow-bright visited:text-purple-dark visited:underline',
+          'text-teal-dark underline hover:text-brand-teal-hover focus-visible:text-brand-teal-hover active:bg-yellow-100 focus-visible:bg-yellow-100 visited:text-purple-dark visited:underline',
         secondary:
-          'text-brand-neutral-black underline hover:bg-brand-neutral-white active:bg-brand-yellow-bright focus-visible:bg-brand-yellow-bright visited:text-[#555555] visited:underline',
+          'text-neutral-black underline hover:bg-neutral-white active:bg-yellow-100 focus-visible:bg-yellow-100 visited:text-[#555555] visited:underline',
       },
     },
     defaultVariants: {

@@ -7,9 +7,11 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   description?: string;
 }
 
-export const inputContainer = 'relative inline-flex w-full rounded-sm border-2 border-brand-neutral-black items-center gap-2 transition-all text-body bg-brand-neutral-white hover:shadow-form-hover focus-within:ring-4 focus-within:ring-teal-100 [&:has(:disabled,:focus-visible,[aria-invalid])]:shadow-none';
+export const inputContainer =
+  'relative inline-flex w-full rounded-sm border-2 border-neutral-black items-center gap-2 transition-all text-body bg-neutral-white hover:shadow-form-hover focus-within:ring-4 focus-within:ring-teal-100 [&:has(:disabled,:focus-visible,[aria-invalid])]:shadow-none';
 export const inputDisabled = 'disabled-state';
-export const inputInvalid = 'has-aria-invalid:border-brand-red-dark has-aria-invalid:focus-within:border-brand-red-dark';
+export const inputInvalid =
+  'has-aria-invalid:border-red-dark has-aria-invalid:focus-within:border-red-dark';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -35,32 +37,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full">
         {label && (
           <div className="mb-2">
-            <label htmlFor={id} className="block text-h4 text-brand-neutral-black">
+            <label htmlFor={id} className="block text-h4 text-neutral-black">
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-body text-brand-neutral-black">
+              <p id={descriptionId} className="text-body text-neutral-black">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-body text-brand-red-dark">
+              <p id={errorId} role="alert" className="text-body text-red-dark">
                 {error}
               </p>
             )}
           </div>
         )}
 
-        <div
-          className={cn(
-            inputContainer,
-            inputDisabled,
-            inputInvalid,
-            className,
-          )}
-        >
+        <div className={cn(inputContainer, inputDisabled, inputInvalid, className)}>
           <input
             ref={ref}
             type={type}
@@ -71,7 +66,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={error ? errorId : description ? descriptionId : undefined}
             aria-required={required}
             className={cn(
-              'w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] placeholder:text-brand-neutral-black/60',
+              'w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] placeholder:text-neutral-black/60',
             )}
             {...props}
           />

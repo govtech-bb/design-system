@@ -2,77 +2,93 @@
 
 /* CSS Custom Properties - Always output */
 :root {
-  /* Brand Colors - Blue */
-  --color-blue-dark: #00164a;
-  --color-blue-100: #00267f;
-  --color-blue-40: #99a8cc;
-  --color-blue-10: #e5e9f2;
-
-  /* Brand Colors - Yellow */
+  /* Brand Colours - Yellow */
   --color-yellow-dark: #e8a833;
   --color-yellow-100: #ffc726;
   --color-yellow-40: #ffe9a8;
   --color-yellow-10: #fff9e9;
 
-  /* Brand Colours - Neutral */
-  --colour-neutral-black: #000000;
-  --colour-neutral-midgrey: #595959;
-  --colour-neutral-grey: #e0e4e9;
-  --colour-neutral-white: #ffffff;
+  /* Brand Colours - Blue */
+  --color-blue-dark: #00164a;
+  --color-blue-100: #00267f;
+  --color-blue-40: #99a8cc;
+  --color-blue-10: #e5e9f2;
 
-  /* Brand Colors - Green */
-  --colour-green-dark: #00654a;
+  /* Brand Colours - Neutral */
+  --color-neutral-black: #000000;
+  --color-neutral-midgrey: #595959;
+  --color-neutral-grey: #e0e4e9;
+  --color-neutral-white: #ffffff;
+
+  /* Brand Colours - Green */
+  --color-green-dark: #00654a;
   --color-green-100: #1fbf84;
   --color-green-40: #a5e5ce;
   --color-green-10: #e9f9f3;
 
-  /* Brand Colors - Red */
-  --colour-red-dark: #a42c2c;
+  /* Brand Colours - Red */
+  --color-red-dark: #a42c2c;
   --color-red-100: #ff6b6b;
   --color-red-40: #ffc4c4;
   --color-red-10: #fff0f0;
 
-  /* Brand Colors - Purple */
+  /* Brand Colours - Purple */
   --color-purple-dark: #4a235a;
   --color-purple-100: #a962c7;
   --color-purple-40: #ddc0e9;
   --color-purple-10: #f6eff9;
 
-  /* Brand Colors - Pink */
-  --colour-pink-dark: #ad1157;
+  /* Brand Colours - Pink */
+  --color-pink-dark: #ad1157;
   --color-pink-100: #ff94d9;
   --color-pink-40: #ffd4f0;
   --color-pink-10: #fff4fb;
 
-  /* Brand Colors - Teal */
-  --colour-teal-dark: #0e5f64;
+  /* Brand Colours - Teal */
+  --color-teal-dark: #0e5f64;
   --color-teal-100: #30c0c8;
   --color-teal-40: #ace6e9;
   --color-teal-10: #eaf9f9;
 
-  /* Legacy Brand Colors */
-  --color-brand-teal-darker: #0a4549;
-  --color-brand-teal-dark: #0e5f64;
-  --color-brand-teal-hover: #083a3d;
-  --color-brand-teal: #0e5f64;
-  --color-brand-teal-light: #1a777d;
-  --color-brand-teal-lighter: #ace6e9;
+  /* Deprecated Colours */
 
-  --color-brand-neutral-white: #ffffff;
-  --color-brand-neutral-black: #000000;
+  /* Deprecated Colours - Yellow */
+  --color-deprecated-yellow-dark: #e8a833;
+  --color-deprecated-yellow-bright: #ffc726;
+  --color-deprecated-yellow-light: #ffeaa7;
+
+  /* Deprecated Colours - Blue */
+  --color-deprecated-blue-dark: #00267f;
+  --color-deprecated-blue-bright: #409cf8;
+  --color-deprecated-blue-light: #b3d9ff;
+
+  /* Deprecated Colours - Red */
+  --color-deprecated-red-bright: #ff6b6b;
+  --color-deprecated-red-light: #ffd6d6;
+
+  /* Deprecated Colours - Pink */
+  --color-deprecated-pink-bright: #ff94d9;
+  --color-deprecated-pink-light: #ffd4f0;
+
+  /* Deprecated Colours - Purple */
+  --color-deprecated-purple-bright: #a962c7;
+  --color-deprecated-purple-light: #e1bee7;
+
+  /* Deprecated Colours - Teal */
+  --color-deprecated-teal-bright: #30c0c8;
+  --color-deprecated-teal-light: #def5f6;
+
+  /* Deprecated Colours - Green */
+  --color-deprecated-green-bright: #1fbf84;
+  --color-deprecated-green-light: #a8e6cf;
+
+  --color-brand-teal-darker: #0a4549;
+  --color-brand-teal-hover: #083a3d;
+  --color-brand-teal-light: #1a777d;
+
   --color-brand-neutral-gray-light: #e0e4e9;
   --color-brand-neutral-gray: #d7dce2;
   --color-brand-neutral-gray-dark: #b9c0c6;
-
-  --color-brand-red-dark: #a42c2c;
-
-  --color-brand-blue-dark: #00267f;
-  --color-brand-blue-bright: #409cf8;
-  --color-brand-blue-light: #b3d9ff;
-
-  --color-brand-yellow-dark: #e8a833;
-  --color-brand-yellow-bright: #ffc726;
-  --color-brand-yellow-light: #ffeaa7;
 
   --color-brand-pink-dark: #ad1157;
   --color-brand-pink-bright: #ff94d9;
@@ -112,84 +128,93 @@
 
 /* Tailwind Theme Configuration - For utility generation */
 @theme {
-  /* Brand Colors - Blue */
+  /* Brand Colours - Blue */
   --color-blue-dark: #00164a;
   --color-blue-100: #00267f;
   --color-blue-40: #99a8cc;
   --color-blue-10: #e5e9f2;
 
-  /* Brand Colors - Yellow */
+  /* Brand Colours - Yellow */
   --color-yellow-dark: #e8a833;
   --color-yellow-100: #ffc726;
   --color-yellow-40: #ffe9a8;
   --color-yellow-10: #fff9e9;
 
   /* Brand Colours - Neutral */
-  --colour-neutral-black: #000000;
-  --colour-neutral-midgrey: #595959;
-  --colour-neutral-grey: #e0e4e9;
-  --colour-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-midgrey: #595959;
+  --color-neutral-grey: #e0e4e9;
+  --color-neutral-white: #ffffff;
 
-  /* Brand Colors - Green */
-  --colour-green-dark: #00654a;
+  /* Brand Colours - Green */
+  --color-green-dark: #00654a;
   --color-green-100: #1fbf84;
   --color-green-40: #a5e5ce;
   --color-green-10: #e9f9f3;
 
-  /* Brand Colors - Red */
-  --colour-red-dark: #a42c2c;
+  /* Brand Colours - Red */
+  --color-red-dark: #a42c2c;
   --color-red-100: #ff6b6b;
   --color-red-40: #ffc4c4;
   --color-red-10: #fff0f0;
 
-  /* Brand Colors - Purple */
+  /* Brand Colours - Purple */
   --color-purple-dark: #4a235a;
   --color-purple-100: #a962c7;
   --color-purple-40: #ddc0e9;
   --color-purple-10: #f6eff9;
 
-  /* Brand Colors - Pink */
-  --colour-pink-dark: #ad1157;
+  /* Brand Colours - Pink */
+  --color-pink-dark: #ad1157;
   --color-pink-100: #ff94d9;
   --color-pink-40: #ffd4f0;
   --color-pink-10: #fff4fb;
 
-  /* Brand Colors - Teal */
-  --colour-teal-dark: #0e5f64;
+  /* Brand Colours - Teal */
+  --color-teal-dark: #0e5f64;
   --color-teal-100: #30c0c8;
   --color-teal-40: #ace6e9;
   --color-teal-10: #eaf9f9;
 
-  /* Legacy Brand Colors */
-  --color-brand-teal-darker: #0a4549;
-  --color-brand-teal-dark: #0e5f64;
-  --color-brand-teal-hover: #083a3d;
-  --color-brand-teal: #0e5f64;
-  --color-brand-teal-light: #1a777d;
-  --color-brand-teal-lighter: #ace6e9;
+  /* Deprecated Colours */
 
-  --color-brand-neutral-white: #ffffff;
-  --color-brand-neutral-black: #000000;
+  /* Deprecated Colours - Yellow */
+  --color-deprecated-yellow-dark: #e8a833;
+  --color-deprecated-yellow-bright: #ffc726;
+  --color-deprecated-yellow-light: #ffeaa7;
+
+  /* Deprecated Colours - Blue */
+  --color-deprecated-blue-dark: #00267f;
+  --color-deprecated-blue-bright: #409cf8;
+  --color-deprecated-blue-light: #b3d9ff;
+
+  /* Deprecated Colours - Red */
+  --color-deprecated-red-bright: #ff6b6b;
+  --color-deprecated-red-light: #ffd6d6;
+
+  /* Deprecated Colours - Pink */
+  --color-deprecated-pink-bright: #ff94d9;
+  --color-deprecated-pink-light: #ffd4f0;
+
+  /* Deprecated Colours - Purple */
+  --color-deprecated-purple-bright: #a962c7;
+  --color-deprecated-purple-light: #e1bee7;
+
+  /* Deprecated Colours - Teal */
+  --color-deprecated-teal-bright: #30c0c8;
+  --color-deprecated-teal-light: #def5f6;
+
+  /* Deprecated Colours - Green */
+  --color-deprecated-green-bright: #1fbf84;
+  --color-deprecated-green-light: #a8e6cf;
+
+  --color-brand-teal-darker: #0a4549;
+  --color-brand-teal-hover: #083a3d;
+  --color-brand-teal-light: #1a777d;
+
   --color-brand-neutral-gray-light: #e0e4e9;
   --color-brand-neutral-gray: #d7dce2;
   --color-brand-neutral-gray-dark: #b9c0c6;
-
-  --color-brand-red-dark: #a42c2c;
-
-  --color-brand-blue-dark: #00267f;
-  --color-brand-blue-bright: #409cf8;
-  --color-brand-blue-light: #b3d9ff;
-
-  --color-brand-yellow-dark: #e8a833;
-  --color-brand-yellow-bright: #ffc726;
-  --color-brand-yellow-light: #ffeaa7;
-
-  --color-brand-pink-dark: #ad1157;
-  --color-brand-pink-bright: #ff94d9;
-  --color-brand-pink-light: #ffd4f0;
-
-  /* Focus ring color */
-  --color-focus-visible: #ace6e9;
 
   /* Typography - Font Sizes */
   --font-size-display: 5rem; /* 80px */

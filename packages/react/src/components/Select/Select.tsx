@@ -32,18 +32,18 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <div className="w-full">
         {label && (
           <div className="mb-2">
-            <label htmlFor={id} className="block text-h4 text-brand-neutral-black">
+            <label htmlFor={id} className="block text-h4 text-neutral-black">
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-body text-brand-neutral-black">
+              <p id={descriptionId} className="text-body text-neutral-black">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-body text-brand-red-dark">
+              <p id={errorId} role="alert" className="text-body text-red-dark">
                 {error}
               </p>
             )}
@@ -72,7 +72,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
               className={cn(
                 'pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-center',
                 'bg-neutral-grey/50',
-                'border-l-2 border-brand-neutral-black',
+                'border-l-2 border-neutral-black',
               )}
             >
               <svg
