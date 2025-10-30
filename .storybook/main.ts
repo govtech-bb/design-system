@@ -7,7 +7,7 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  stories: ['../packages/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../stories/**/*.mdx'],
+  stories: ['../packages/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../packages/**/*.mdx', '../docs/**/*.mdx'],
   staticDirs: ['../public'],
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),
