@@ -3,37 +3,49 @@
 /* CSS Custom Properties - Always output */
 :root {
   /* Brand Colors - Blue */
+  --color-blue-dark: #00164a;
   --color-blue-100: #00267f;
   --color-blue-40: #99a8cc;
   --color-blue-10: #e5e9f2;
 
   /* Brand Colors - Yellow */
+  --color-yellow-dark: #e8a833;
   --color-yellow-100: #ffc726;
   --color-yellow-40: #ffe9a8;
   --color-yellow-10: #fff9e9;
 
+  /* Brand Colours - Neutral */
+  --colour-neutral-black: #000000;
+  --colour-neutral-midgrey: #595959;
+  --colour-neutral-grey: #e0e4e9;
+  --colour-neutral-white: #ffffff;
+
   /* Brand Colors - Green */
+  --colour-green-dark: #00654a;
   --color-green-100: #1fbf84;
   --color-green-40: #a5e5ce;
   --color-green-10: #e9f9f3;
 
   /* Brand Colors - Red */
+  --colour-red-dark: #a42c2c;
   --color-red-100: #ff6b6b;
   --color-red-40: #ffc4c4;
   --color-red-10: #fff0f0;
 
   /* Brand Colors - Purple */
-  --color-purple-100: #a962c7;
   --color-purple-dark: #4a235a;
+  --color-purple-100: #a962c7;
   --color-purple-40: #ddc0e9;
   --color-purple-10: #f6eff9;
 
   /* Brand Colors - Pink */
+  --colour-pink-dark: #ad1157;
   --color-pink-100: #ff94d9;
   --color-pink-40: #ffd4f0;
   --color-pink-10: #fff4fb;
 
   /* Brand Colors - Teal */
+  --colour-teal-dark: #0e5f64;
   --color-teal-100: #30c0c8;
   --color-teal-40: #ace6e9;
   --color-teal-10: #eaf9f9;
@@ -101,37 +113,49 @@
 /* Tailwind Theme Configuration - For utility generation */
 @theme {
   /* Brand Colors - Blue */
+  --color-blue-dark: #00164a;
   --color-blue-100: #00267f;
   --color-blue-40: #99a8cc;
   --color-blue-10: #e5e9f2;
 
   /* Brand Colors - Yellow */
+  --color-yellow-dark: #e8a833;
   --color-yellow-100: #ffc726;
   --color-yellow-40: #ffe9a8;
   --color-yellow-10: #fff9e9;
 
+  /* Brand Colours - Neutral */
+  --colour-neutral-black: #000000;
+  --colour-neutral-midgrey: #595959;
+  --colour-neutral-grey: #e0e4e9;
+  --colour-neutral-white: #ffffff;
+
   /* Brand Colors - Green */
+  --colour-green-dark: #00654a;
   --color-green-100: #1fbf84;
   --color-green-40: #a5e5ce;
   --color-green-10: #e9f9f3;
 
   /* Brand Colors - Red */
+  --colour-red-dark: #a42c2c;
   --color-red-100: #ff6b6b;
   --color-red-40: #ffc4c4;
   --color-red-10: #fff0f0;
 
   /* Brand Colors - Purple */
-  --color-purple-100: #a962c7;
   --color-purple-dark: #4a235a;
+  --color-purple-100: #a962c7;
   --color-purple-40: #ddc0e9;
   --color-purple-10: #f6eff9;
 
   /* Brand Colors - Pink */
+  --colour-pink-dark: #ad1157;
   --color-pink-100: #ff94d9;
   --color-pink-40: #ffd4f0;
   --color-pink-10: #fff4fb;
 
   /* Brand Colors - Teal */
+  --colour-teal-dark: #0e5f64;
   --color-teal-100: #30c0c8;
   --color-teal-40: #ace6e9;
   --color-teal-10: #eaf9f9;
