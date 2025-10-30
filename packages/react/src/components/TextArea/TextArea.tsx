@@ -19,18 +19,18 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="w-full">
         {label && (
           <div className="mb-2">
-            <label htmlFor={id} className="block text-h4 text-brand-neutral-black">
+            <label htmlFor={id} className="block text-h4 text-neutral-black">
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-body text-brand-neutral-black">
+              <p id={descriptionId} className="text-body text-neutral-black">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-body text-brand-red-dark">
+              <p id={errorId} role="alert" className="text-body text-red-dark">
                 {error}
               </p>
             )}
@@ -47,7 +47,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             aria-describedby={error ? errorId : description ? descriptionId : undefined}
             aria-required={required}
             className={cn(
-              'w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] placeholder:text-brand-neutral-black/60 resize-y',
+              'w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] placeholder:text-neutral-black/60 resize-y',
             )}
             {...props}
           />

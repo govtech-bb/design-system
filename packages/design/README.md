@@ -4,7 +4,9 @@ Design tokens and Tailwind CSS utilities for the GovTechBB Design System.
 
 ## Installation
 
-This package is part of the GovTechBB Design System monorepo and is already available in your workspace.
+```bash
+npm install @govtech-bb/design
+```
 
 ## Usage
 
@@ -12,77 +14,132 @@ Import the design tokens in your Tailwind CSS file:
 
 ```css
 @import 'tailwindcss';
-@import '@govtechbb/design';
+
+/* Import the design tokens */
+@import '@govtech-bb/design';
+
+/* You need to add the path to the react components */
+@source "../../node_modules/@govtech-bb/react/dist/**/*.js";
 ```
 
 ## Design Tokens
 
 ### Colors
 
-#### Brand Color Palette
+#### Color Palette
 
-Each color has three shades (100, 40, 10) for AAA accessibility compliance:
+Each color has four shades (dark, 100, 40, 10):
 
 **Blue:**
 
+- `blue-dark` - #00164A
 - `blue-100` - #00267F (Primary)
-- `blue-40` - #99A8CC (Light)
-- `blue-10` - #E5E9F2 (Lightest)
+- `blue-40` - #99A8CC
+- `blue-10` - #E5E9F2
 
 **Yellow:**
 
+- `yellow-dark` - #E8A833
 - `yellow-100` - #FFC726
 - `yellow-40` - #FFE9A8
 - `yellow-10` - #FFF9E9
 
 **Green:**
 
+- `green-dark` - #00654A
 - `green-100` - #1FBF84
 - `green-40` - #A5E5CE
 - `green-10` - #E9F9F3
 
 **Red:**
 
+- `red-dark` - #A42C2C
 - `red-100` - #FF6B6B
 - `red-40` - #FFC4C4
 - `red-10` - #FFF0F0
 
 **Purple:**
 
+- `purple-dark` - #4A235A
 - `purple-100` - #A962C7
 - `purple-40` - #DDC0E9
 - `purple-10` - #F6EFF9
 
 **Pink:**
 
+- `pink-dark` - #AD1157
 - `pink-100` - #FF94D9
 - `pink-40` - #FFD4F0
 - `pink-10` - #FFF4FB
 
 **Teal:**
 
+- `teal-dark` - #0E5F64
 - `teal-100` - #30C0C8
 - `teal-40` - #ACE6E9
 - `teal-10` - #EAF9F9
 
-#### Legacy Colors
+#### Neutral Colors
 
-- `brand-teal-dark` - #0E5F64
-- `brand-teal` - #0E5F64
+**Neutral:**
+
+- `neutral-black` - #000000
+- `neutral-midgrey` - #595959
+- `neutral-grey` - #E0E4E9
+- `neutral-white` - #FFFFFF
+
+#### Deprecated Colors
+
+**Deprecated Yellow:**
+
+- `deprecated-yellow-dark` - #E8A833
+- `deprecated-yellow-bright` - #FFC726
+- `deprecated-yellow-light` - #FFEAA7
+
+**Deprecated Blue:**
+
+- `deprecated-blue-dark` - #00267F
+- `deprecated-blue-bright` - #409CF8
+- `deprecated-blue-light` - #B3D9FF
+
+**Deprecated Red:**
+
+- `deprecated-red-bright` - #FF6B6B
+- `deprecated-red-light` - #FFD6D6
+
+**Deprecated Pink:**
+
+- `deprecated-pink-bright` - #FF94D9
+- `deprecated-pink-light` - #FFD4F0
+
+**Deprecated Purple:**
+
+- `deprecated-purple-bright` - #A962C7
+- `deprecated-purple-light` - #E1BEE7
+
+**Deprecated Teal:**
+
+- `deprecated-teal-bright` - #30C0C8
+- `deprecated-teal-light` - #DEF5F6
+
+**Deprecated Green:**
+
+- `deprecated-green-bright` - #1FBF84
+- `deprecated-green-light` - #A8E6CF
+
+**Other Deprecated:**
+
+- `brand-teal-darker` - #0A4549
+- `brand-teal-hover` - #083A3D
 - `brand-teal-light` - #1A777D
-- `brand-teal-lighter` - #ACE6E9
-- `brand-neutral-white` - #FFFFFF
-- `brand-neutral-black` - #000000
 - `brand-neutral-gray-light` - #E0E4E9
 - `brand-neutral-gray` - #D7DCE2
 - `brand-neutral-gray-dark` - #B9C0C6
-- `brand-error` - #A42C2C
-- `focus-visible` - #ACE6E9
 
 Example:
 
 ```tsx
-<div className="bg-blue-100 text-brand-neutral-white">Hello World</div>
+<div className="bg-blue-100 text-neutral-white">Hello World</div>
 ```
 
 ### Typography

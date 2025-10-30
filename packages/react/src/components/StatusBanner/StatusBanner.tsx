@@ -7,8 +7,8 @@ const statusBannerVariants = cva(
   {
     variants: {
       variant: {
-        alpha: 'bg-brand-blue-light border-blue-100',
-        beta: 'bg-brand-yellow-light border-yellow-100',
+        alpha: 'bg-deprecated-blue-light border-blue-100',
+        beta: 'bg-deprecated-yellow-light border-yellow-100',
         migrated: 'bg-pink-10 border-pink-100',
         'service-issue': 'bg-red-10 border-red-100',
       },
@@ -46,7 +46,7 @@ const StatusBanner = forwardRef<HTMLDivElement, StatusBannerProps>(
         {...props}
       >
         <div className="flex flex-col items-start justify-center flex-1">
-          <div className="text-body text-brand-neutral-black w-full">{children}</div>
+          <div className="text-body text-neutral-black w-full">{children}</div>
         </div>
       </div>
     );
