@@ -1,6 +1,6 @@
 export * from './components/Button';
 export * from './components/Checkbox';
-export * from './components/DatePicker';
+export * from './components/DateInput';
 export * from './components/ErrorSummary';
 export * from './components/Footer';
 export * from './components/Input';
@@ -9,6 +9,7 @@ export * from './components/Logo';
 export * from './components/OfficialBanner';
 export * from './components/Radio';
 export * from './components/Select';
+export * from './components/ShowHide';
 export * from './components/StatusBanner';
 export * from './components/TextArea';
 export * from './components/Typography';
