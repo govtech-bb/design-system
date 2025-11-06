@@ -1,5 +1,6 @@
 export * from './components/Button';
 export * from './components/Checkbox';
+export * from './components/ErrorSummary';
 export * from './components/Footer';
 export * from './components/Input';
 export * from './components/Link';
