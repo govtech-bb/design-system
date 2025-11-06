@@ -119,6 +119,9 @@
   --font-weight-bold: 700;
   --font-weight-normal: 400;
 
+  /* Typography - Font Family */
+  --font-family-base: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   /* Shadows */
   --shadow-form-hover: inset 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
 
@@ -238,6 +241,9 @@
   --font-weight-bold: 700;
   --font-weight-normal: 400;
 
+  /* Typography - Font Family */
+  --font-family-base: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   /* Shadows */
   --shadow-form-hover: inset 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
 
@@ -302,4 +308,8 @@
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-normal);
+}
+
+body {
+  font-family: var(--font-family-base);
 }
