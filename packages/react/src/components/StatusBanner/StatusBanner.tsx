@@ -1,36 +1,29 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
-const statusBannerVariants = cva(
-  'border-x-4 border-solid box-border flex items-center px-4 py-2 w-full',
-  {
-    variants: {
-      variant: {
-        alpha: 'bg-deprecated-blue-light border-blue-100',
-        beta: 'bg-deprecated-yellow-light border-yellow-100',
-        migrated: 'bg-pink-10 border-pink-100',
-        'service-issue': 'bg-red-10 border-red-100',
-      },
-    },
-    defaultVariants: {
-      variant: 'alpha',
+const statusBannerVariants = cva('box-border flex items-center p-4 w-full rounded-sm', {
+  variants: {
+    variant: {
+      alpha: 'bg-blue-10 border-blue-100',
+      beta: 'bg-yellow-40 border-yellow-100',
+      migrated: 'bg-pink-10 border-pink-100',
+      'service-issue': 'bg-red-10 border-red-100',
     },
   },
-);
+  defaultVariants: {
+    variant: 'alpha',
+  },
+});
 
 export interface StatusBannerProps
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof statusBannerVariants> {
-  /**
-   * Aria label for screen readers (defaults to variant name if not provided)
-   */
   'aria-label'?: string;
 }
 
 const StatusBanner = forwardRef<HTMLDivElement, StatusBannerProps>(
   ({ variant, className, children, style, 'aria-label': ariaLabel, ...props }, ref) => {
-    // Generate a default aria-label based on variant if not provided
     const defaultAriaLabel = variant
       ? `${variant.replace('-', ' ')} status banner`
       : 'alpha status banner';
