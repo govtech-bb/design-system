@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
 const linkVariants = cva(
-  'inline text-body font-normal transition-colors duration-200 outline-none underline-offset-2',
+  'inline-flex text-body font-normal transition-colors duration-200 outline-none underline-offset-2',
   {
     variants: {
       variant: {
