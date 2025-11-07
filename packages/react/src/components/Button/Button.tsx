@@ -1,10 +1,10 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from '@radix-ui/react-slot';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center gap-2 rounded-sm text-[20px] whitespace-nowrap transition-[background-color,box-shadow] duration-200 outline-none disabled-state',
+  'relative inline-flex items-center justify-center gap-2 rounded-sm text-[20px] leading-[1.7] whitespace-nowrap transition-[background-color,box-shadow] duration-200 outline-none disabled-state',
   {
     variants: {
       variant: {
@@ -34,7 +34,7 @@ export interface ButtonProps
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild, onClick, children, variant, size, className, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : 'button';
     return (
       <Comp
         ref={ref}
