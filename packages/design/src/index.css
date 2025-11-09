@@ -310,6 +310,25 @@
   font-weight: var(--font-weight-normal);
 }
 
+@utility text-caption {
+  @apply font-normal leading-normal text-[16px];
+}
+
+@utility text-caption-sm {
+  @apply font-normal leading-normal text-[12px];
+}
+
 body {
   font-family: var(--font-family-base);
+}
+
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem; /* Mobile: 16px */
+
+  @media (width >= 1024px) {
+    /* Desktop */
+    padding-inline: 8rem; /* 128px */
+  }
 }
