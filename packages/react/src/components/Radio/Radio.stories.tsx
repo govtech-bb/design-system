@@ -210,3 +210,41 @@ export const MultipleGroups: Story = {
     </div>
   ),
 };
+
+export const GroupWithError: Story = {
+  render: () => (
+    <RadioGroup label="Contact Preference" error="Please select a contact preference">
+      <Radio value="email" id="error-email" label="Email" />
+      <Radio value="phone" id="error-phone" label="Phone" />
+      <Radio value="mail" id="error-mail" label="Mail" />
+    </RadioGroup>
+  ),
+};
+
+export const GroupWithErrorAndSelection: Story = {
+  render: () => (
+    <RadioGroup
+      label="Delivery Time"
+      error="This time slot is no longer available"
+      defaultValue="morning"
+    >
+      <Radio value="morning" id="time-morning" label="Morning (8am - 12pm)" />
+      <Radio value="afternoon" id="time-afternoon" label="Afternoon (12pm - 5pm)" />
+      <Radio value="evening" id="time-evening" label="Evening (5pm - 9pm)" />
+    </RadioGroup>
+  ),
+};
+
+export const GroupWithDescriptionAndError: Story = {
+  render: () => (
+    <RadioGroup
+      label="Newsletter Subscription"
+      description="Select your preferred newsletter frequency"
+      error="You must select a subscription option to continue"
+    >
+      <Radio value="daily" id="freq-daily" label="Daily updates" />
+      <Radio value="weekly" id="freq-weekly" label="Weekly digest" />
+      <Radio value="monthly" id="freq-monthly" label="Monthly summary" />
+    </RadioGroup>
+  ),
+};

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode, useId } from 'react';
 import {
   Indicator,
   Item,
@@ -16,6 +16,7 @@ export interface RadioProps extends RadioGroupItemProps {
 export interface RadioGroupProps extends RadioGroupPropsPrimitive {
   label?: string;
   description?: string;
+  error?: string;
   children: ReactNode;
   className?: string;
 }
@@ -56,14 +57,39 @@ const Radio = forwardRef<HTMLButtonElement, RadioProps>(
 Radio.displayName = 'Radio';
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ label, description, children, className, ...props }, ref) => {
+  ({ label, description, error, children, className, id: providedId, ...props }, ref) => {
+    const generatedId = useId();
+    const id = providedId || generatedId;
+    const errorId = `${id}-error`;
+    const descriptionId = `${id}-description`;
+
+    const ariaDescribedBy = [description ? descriptionId : null, error ? errorId : null]
+      .filter(Boolean)
+      .join(' ');
+
     return (
-      <Root ref={ref} className={cn('flex gap-2 items-center', className)} {...props}>
+      <Root
+        ref={ref}
+        id={id}
+        className={cn('flex gap-2 items-center', className)}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={ariaDescribedBy || undefined}
+        {...props}
+      >
         <div className="flex flex-col gap-4 items-start w-full">
-          {(label || description) && (
+          {(label || description || error) && (
             <div className="flex flex-col items-start text-neutral-black">
               {label && <p className="text-h4">{label}</p>}
-              {description && <p className="text-body">{description}</p>}
+              {description && (
+                <p id={descriptionId} className="text-[20px] leading-[1.7] text-neutral-midgrey">
+                  {description}
+                </p>
+              )}
+              {error && (
+                <p id={errorId} role="alert" className="text-[20px] leading-[1.7] text-red-dark">
+                  {error}
+                </p>
+              )}
             </div>
           )}
           <div className="flex flex-col gap-4 items-start w-full">{children}</div>
