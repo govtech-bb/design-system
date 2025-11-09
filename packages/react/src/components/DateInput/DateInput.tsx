@@ -68,9 +68,8 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     };
 
     const ariaDescribedBy =
-      [error && `${id}-error`, !error && description && `${id}-description`]
-        .filter(Boolean)
-        .join(' ') || undefined;
+      [description && `${id}-description`, error && `${id}-error`].filter(Boolean).join(' ') ||
+      undefined;
 
     return (
       <div
@@ -84,27 +83,27 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           <div className="mb-2">
             <label className="block text-h4 text-neutral-black">{label}</label>
 
-            {!error && description && (
-              <p id={`${id}-description`} className="text-body text-neutral-black mt-1">
+            {description && (
+              <p id={`${id}-description`} className="text-body text-neutral-midgrey">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={`${id}-error`} role="alert" className="text-body text-red-dark mt-1">
+              <p id={`${id}-error`} role="alert" className="text-body text-red-dark mt-4">
                 {error}
               </p>
             )}
           </div>
         )}
 
-        <div className="flex gap-4 items-end flex-wrap">
+        <div className="flex gap-4 items-end flex-wrap pt-2">
           {/* Day */}
-          <div className="flex flex-col">
-            <label htmlFor={`${id}-day`} className="text-sm font-medium text-neutral-black mb-1">
+          <div className="flex flex-col gap-2">
+            <label htmlFor={`${id}-day`} className="text-body text-neutral-black">
               Day
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-16')}>
+            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[81px]')}>
               <input
                 id={`${id}-day`}
                 name={dayName}
@@ -121,11 +120,11 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           </div>
 
           {/* Month */}
-          <div className="flex flex-col">
-            <label htmlFor={`${id}-month`} className="text-sm font-medium text-neutral-black mb-1">
+          <div className="flex flex-col gap-2">
+            <label htmlFor={`${id}-month`} className="text-body text-neutral-black">
               Month
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-16')}>
+            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[81px]')}>
               <input
                 id={`${id}-month`}
                 name={monthName}
@@ -142,11 +141,11 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           </div>
 
           {/* Year */}
-          <div className="flex flex-col">
-            <label htmlFor={`${id}-year`} className="text-sm font-medium text-neutral-black mb-1">
+          <div className="flex flex-col gap-2">
+            <label htmlFor={`${id}-year`} className="text-body text-neutral-black">
               Year
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-24')}>
+            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[138px]')}>
               <input
                 id={`${id}-year`}
                 name={yearName}
