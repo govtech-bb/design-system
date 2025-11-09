@@ -1,9 +1,10 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center gap-2 rounded-sm text-body whitespace-nowrap transition-[background-color,box-shadow] duration-200 outline-none disabled-state',
+  'relative inline-flex items-center justify-center gap-2 rounded-sm text-[20px] leading-[1.7] whitespace-nowrap transition-[background-color,box-shadow] duration-200 outline-none disabled-state',
   {
     variants: {
       variant: {
@@ -27,13 +28,15 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   onClick?: () => void;
+  asChild?: boolean;
   children: React.ReactNode;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ onClick, children, variant, size, className, ...props }, ref) => {
+  ({ asChild, onClick, children, variant, size, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button';
     return (
-      <button
+      <Comp
         ref={ref}
         onClick={onClick}
         className={cn(buttonVariants({ variant, size, className }))}
@@ -41,7 +44,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {children}
-      </button>
+      </Comp>
     );
   },
 );
