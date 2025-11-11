@@ -41,7 +41,7 @@ const ErrorSummary = forwardRef<HTMLDivElement, ErrorSummaryProps>(
         {...props}
       >
         <h2 id="error-summary-title" className="text-xl font-bold leading-[1.7]">
-          {title}
+          {title}s
         </h2>
         {errors.length > 0 && (
           <div className="flex flex-col items-start">
