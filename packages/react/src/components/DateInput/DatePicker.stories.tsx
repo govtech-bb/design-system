@@ -34,6 +34,27 @@ export const WithError: Story = {
   },
 };
 
+export const WithFieldSpecificErrors: Story = {
+  args: {
+    label: 'Date of birth',
+    description: 'For example, 31 3 1980',
+    error: {
+      day: 'Day must be between 1 and 31',
+      month: 'Month must be between 1 and 12',
+    },
+  },
+};
+
+export const WithSingleFieldError: Story = {
+  args: {
+    label: 'Date of birth',
+    description: 'For example, 31 3 1980',
+    error: {
+      year: 'Year must be in the past',
+    },
+  },
+};
+
 export const WithOnChangeCallback: Story = {
   render: () => {
     const DateInputWithCallback = () => {

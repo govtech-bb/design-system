@@ -1,8 +1,49 @@
-import { forwardRef, useId, useState } from 'react';
+import { forwardRef, ReactNode, useId, useState } from 'react';
 import { cn } from '../../utils/css';
 import { inputContainer, inputDisabled, inputInvalid } from '../Input/Input';
 
-type DateParts = { day: string; month: string; year: string };
+export type DateInputValue = { day: string; month: string; year: string };
+
+export type DateInputPartValidationError = {
+  day?: string;
+  month?: string;
+  year?: string;
+};
+
+export type DateInputError = ReactNode | DateInputPartValidationError;
+
+export const isPreValidateError = (v: DateInputError): v is DateInputPartValidationError => {
+  if (!v || typeof v !== 'object') return false;
+  if ('$$typeof' in v) return false;
+  return 'day' in v || 'month' in v || 'year' in v;
+};
+
+const getInvalidFields = (error: DateInputError | undefined) => {
+  if (!error) return { day: false, month: false, year: false };
+
+  if (isPreValidateError(error)) {
+    return {
+      day: !!error.day,
+      month: !!error.month,
+      year: !!error.year,
+    };
+  }
+  return { day: true, month: true, year: true };
+};
+
+const getErrorMessage = (error: DateInputError | undefined): ReactNode => {
+  if (!error) return undefined;
+
+  if (isPreValidateError(error)) {
+    return error.day || error.month || error.year;
+  }
+
+  return error;
+};
+
+const normalizeValue = (v: string | undefined): string => {
+  return v ?? '';
+};
 
 export interface DateInputProps
   extends Omit<
@@ -11,22 +52,19 @@ export interface DateInputProps
   > {
   label?: string;
   description?: string;
-  error?: string;
+  error?: DateInputError;
   className?: string;
   disabled?: boolean;
   required?: boolean;
   id?: string;
+  name: string;
 
-  value?: DateParts;
-  defaultValue?: DateParts;
+  value?: DateInputValue;
+  defaultValue?: DateInputValue;
 
-  onChange?: (date: DateParts) => void;
-  onFocus?: (date: DateParts) => void;
-  onBlur?: (date: DateParts) => void;
-
-  dayName?: string;
-  monthName?: string;
-  yearName?: string;
+  onChange?: (date: DateInputValue) => void;
+  onFocus?: (date: DateInputValue) => void;
+  onBlur?: (date: DateInputValue) => void;
 }
 
 const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
@@ -39,14 +77,12 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       disabled,
       required,
       id: providedId,
+      name,
       value,
       defaultValue,
       onChange,
       onFocus,
       onBlur,
-      dayName = 'day',
-      monthName = 'month',
-      yearName = 'year',
       ...rest
     },
     ref,
@@ -55,17 +91,24 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     const id = providedId || autoId;
 
     const isControlled = value !== undefined;
-    const [local, setLocal] = useState<DateParts>(defaultValue ?? { day: '', month: '', year: '' });
-    const state = isControlled ? (value as DateParts) : local;
+    const [local, setLocal] = useState<DateInputValue>(
+      defaultValue ?? { day: '', month: '', year: '' },
+    );
+    const state = isControlled ? (value as DateInputValue) : local;
 
-    const updateDate = (next: DateParts) => {
+    // Get invalid fields and error message
+    const invalidFields = getInvalidFields(error);
+    const errorMessage = getErrorMessage(error);
+
+    const updateDate = (next: DateInputValue) => {
       if (!isControlled) setLocal(next);
       onChange?.(next);
     };
 
-    const handleChange = (key: keyof DateParts) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      updateDate({ ...state, [key]: e.target.value });
-    };
+    const handleChange =
+      (key: keyof DateInputValue) => (e: React.ChangeEvent<HTMLInputElement>) => {
+        updateDate({ ...state, [key]: e.target.value });
+      };
 
     const ariaDescribedBy =
       [description && `${id}-description`, error && `${id}-error`].filter(Boolean).join(' ') ||
@@ -89,9 +132,9 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               </p>
             )}
 
-            {error && (
+            {errorMessage && (
               <p id={`${id}-error`} role="alert" className="text-body text-red-dark mt-4">
-                {error}
+                {errorMessage}
               </p>
             )}
           </div>
@@ -103,16 +146,23 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
             <label htmlFor={`${id}-day`} className="text-body text-neutral-black">
               Day
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[81px]')}>
+            <div
+              className={cn(
+                inputContainer,
+                disabled && inputDisabled,
+                invalidFields.day && inputInvalid,
+                'w-[81px]',
+              )}
+            >
               <input
                 id={`${id}-day`}
-                name={dayName}
+                name={`${name}[day]`}
                 type="text"
+                inputMode="numeric"
                 value={state.day}
                 onChange={handleChange('day')}
-                onBlur={() => {}}
                 disabled={disabled}
-                aria-invalid={error ? true : undefined}
+                aria-invalid={invalidFields.day || undefined}
                 aria-describedby={ariaDescribedBy}
                 className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
               />
@@ -124,16 +174,23 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
             <label htmlFor={`${id}-month`} className="text-body text-neutral-black">
               Month
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[81px]')}>
+            <div
+              className={cn(
+                inputContainer,
+                disabled && inputDisabled,
+                invalidFields.month && inputInvalid,
+                'w-[81px]',
+              )}
+            >
               <input
                 id={`${id}-month`}
-                name={monthName}
+                name={`${name}[month]`}
                 type="text"
+                inputMode="numeric"
                 value={state.month}
                 onChange={handleChange('month')}
-                onBlur={() => {}}
                 disabled={disabled}
-                aria-invalid={error ? true : undefined}
+                aria-invalid={invalidFields.month || undefined}
                 aria-describedby={ariaDescribedBy}
                 className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
               />
@@ -145,16 +202,23 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
             <label htmlFor={`${id}-year`} className="text-body text-neutral-black">
               Year
             </label>
-            <div className={cn(inputContainer, inputDisabled, inputInvalid, 'w-[138px]')}>
+            <div
+              className={cn(
+                inputContainer,
+                disabled && inputDisabled,
+                invalidFields.year && inputInvalid,
+                'w-[138px]',
+              )}
+            >
               <input
                 id={`${id}-year`}
-                name={yearName}
+                name={`${name}[year]`}
                 type="text"
+                inputMode="numeric"
                 value={state.year}
                 onChange={handleChange('year')}
-                onBlur={() => {}}
                 disabled={disabled}
-                aria-invalid={error ? true : undefined}
+                aria-invalid={invalidFields.year || undefined}
                 aria-describedby={ariaDescribedBy}
                 className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
               />
