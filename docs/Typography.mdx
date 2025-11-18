@@ -1,0 +1,99 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { Heading } from '../packages/react/src/components/Typography/Heading/Heading';
+import { Text } from '../packages/react/src/components/Typography/Text/Text';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Complete typography system for the GOV.BB design system. Use the **Heading** component for headings and the **Text** component for body text, labels, and inline elements.
+
+## Type Scale
+
+### Headings
+
+<div className="space-y-8">
+  <div className="border-b border-gray-200 pb-4">
+    <Text as="p" size="small-caption" className="text-gray-600 mb-2">Display / 80px</Text>
+    <Heading as="display">The quick brown fox</Heading>
+  </div>
+
+<div className="border-b border-gray-200 pb-4">
+  <Text as="p" size="small-caption" className="text-gray-600 mb-2">
+    H1 / 56px
+  </Text>
+  <Heading as="h1">The quick brown fox jumps</Heading>
+</div>
+
+<div className="border-b border-gray-200 pb-4">
+  <Text as="p" size="small-caption" className="text-gray-600 mb-2">
+    H2 / 40px
+  </Text>
+  <Heading as="h2">The quick brown fox jumps over</Heading>
+</div>
+
+<div className="border-b border-gray-200 pb-4">
+  <Text as="p" size="small-caption" className="text-gray-600 mb-2">
+    H3 / 24px
+  </Text>
+  <Heading as="h3">The quick brown fox jumps over the lazy dog</Heading>
+</div>
+
+  <div className="border-b border-gray-200 pb-4">
+    <Text as="p" size="small-caption" className="text-gray-600 mb-2">
+      H4-H6 / 20px
+    </Text>
+    <Heading as="h4">The quick brown fox jumps over the lazy dog</Heading>
+  </div>
+</div>
+
+### Body Text
+
+<div className="space-y-8 mt-8">
+  <div className="border-b border-gray-200 pb-4">
+    <Text as="p" size="small-caption" className="text-gray-600 mb-2">Body / 20px</Text>
+    <Text as="p" size="body">
+      The quick brown fox jumps over the lazy dog. This is the default text size used for most
+      content throughout the application with optimal line height for readability.
+    </Text>
+  </div>
+
+<div className="border-b border-gray-200 pb-4">
+  <Text as="p" size="small-caption" className="text-gray-600 mb-2">
+    Caption / 16px
+  </Text>
+  <Text as="p" size="caption">
+    The quick brown fox jumps over the lazy dog. This text size is used for supporting content and
+    secondary information.
+  </Text>
+</div>
+
+  <div className="border-b border-gray-200 pb-4">
+    <Text as="p" size="small-caption" className="text-gray-600 mb-2">Small Caption / 12px</Text>
+    <Text as="p" size="small-caption">
+      The quick brown fox jumps over the lazy dog. This text size is used for fine print, metadata,
+      or supplementary details.
+    </Text>
+  </div>
+</div>
+
+## Usage
+
+```jsx
+import { Heading, Text } from '@govtech-bb/react';
+
+// Headings
+<Heading as="h1">Page Title</Heading>
+<Heading as="h2" weight="semibold">Section Title</Heading>
+<Heading as="display" align="center">Hero Title</Heading>
+
+// Text
+<Text as="p">Regular paragraph text</Text>
+<Text as="label" weight="semibold">Form Label</Text>
+<Text as="span" size="caption" className="text-gray-600">Helper text</Text>
+```
+
+For more examples and interactive playground, see the individual component documentation:
+
+- [Heading Component](/?path=/docs/components-typography-heading--docs)
+- [Text Component](/?path=/docs/components-typography-text--docs)
