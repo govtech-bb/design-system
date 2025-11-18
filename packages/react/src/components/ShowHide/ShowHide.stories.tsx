@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from '../Input/Input.js';
-import { Typography } from '../Typography/Typography.js';
+import { Text } from '../Typography/Text/Text.js';
+import { Heading } from '../Typography/Heading/Heading.js';
 import { ShowHide } from './ShowHide.js';
 
 const meta: Meta<typeof ShowHide> = {
@@ -44,9 +45,9 @@ export const SimpleText: Story = {
   args: {
     summary: 'More information',
     children: (
-      <Typography variant="body" className="text-neutral-midgrey">
+      <Text as="p" className="text-neutral-midgrey">
         This is additional information that can be shown or hidden by clicking the summary.
-      </Typography>
+      </Text>
     ),
   },
 };
@@ -56,7 +57,7 @@ export const NestedContent: Story = {
     summary: 'View detailed instructions',
     children: (
       <div className="space-y-4">
-        <Typography variant="h4">Step-by-step guide</Typography>
+        <Heading as="h4">Step-by-step guide</Heading>
         <ol className="list-decimal list-inside space-y-2 text-neutral-midgrey">
           <li>First, gather all required documents</li>
           <li>Fill out the application form completely</li>
@@ -73,9 +74,9 @@ export const DefaultOpen: Story = {
     summary: 'Already expanded',
     open: true,
     children: (
-      <Typography variant="body" className="text-neutral-midgrey">
+      <Text as="p" className="text-neutral-midgrey">
         This ShowHide component is open by default.
-      </Typography>
+      </Text>
     ),
   },
 };
