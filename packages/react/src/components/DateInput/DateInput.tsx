@@ -164,7 +164,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 disabled={disabled}
                 aria-invalid={invalidFields.day || undefined}
                 aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
+                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
               />
             </div>
           </div>
@@ -192,7 +192,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 disabled={disabled}
                 aria-invalid={invalidFields.month || undefined}
                 aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
+                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
               />
             </div>
           </div>
@@ -220,7 +220,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 disabled={disabled}
                 aria-invalid={invalidFields.year || undefined}
                 aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit] text-center"
+                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
               />
             </div>
           </div>
