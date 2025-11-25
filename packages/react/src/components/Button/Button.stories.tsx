@@ -32,6 +32,12 @@ export const Secondary: Story = {
   },
 };
 
+export const Link: Story = {
+  args: {
+    variant: 'link',
+  },
+};
+
 // Show all states
 // export const AllStates: Story = {
 //   render: () => (
