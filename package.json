@@ -13,7 +13,9 @@
     "lint": "turbo run lint",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build --disable-telemetry",
-    "create-component": "node scripts/create-component.js"
+    "create-component": "node scripts/create-component.js",
+    "changelog": "git cliff --output CHANGELOG.md",
+    "changelog:unreleased": "git cliff --unreleased --tag unreleased --output CHANGELOG.md"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",
