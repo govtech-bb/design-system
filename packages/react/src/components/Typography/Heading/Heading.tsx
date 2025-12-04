@@ -30,13 +30,11 @@ const headingVariants = cva('font-semibold', {
   },
   defaultVariants: {
     size: 'h2',
-    align: 'left',
   },
 });
 
 export interface HeadingProps
-  extends HTMLAttributes<HTMLHeadingElement>,
-    VariantProps<typeof headingVariants> {
+  extends HTMLAttributes<HTMLHeadingElement>, VariantProps<typeof headingVariants> {
   children: ReactNode;
   as?: HeadingLevel;
 }
