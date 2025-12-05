@@ -34,7 +34,10 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       return (
         <div className="flex gap-5 items-center">
           {checkbox}
-          <label htmlFor={id} className="text-body text-neutral-black cursor-pointer">
+          <label
+            htmlFor={id}
+            className="text-[1.25rem] leading-normal text-neutral-black cursor-pointer"
+          >
             {label}
           </label>
         </div>
@@ -51,14 +54,16 @@ const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
   ({ label, description, children, className }, ref) => {
     return (
       <div ref={ref} className={cn('flex gap-2 items-center', className)}>
-        <div className="flex flex-col gap-4 items-start w-full">
+        <div className="flex flex-col gap-xs items-start w-full">
           {(label || description) && (
             <div className="flex flex-col items-start text-neutral-black">
-              {label && <p className="text-h4">{label}</p>}
-              {description && <p className="text-body">{description}</p>}
+              {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
+              {description && (
+                <p className="text-[1.25rem] leading-normal text-neutral-midgrey">{description}</p>
+              )}
             </div>
           )}
-          <div className="flex flex-col gap-4 items-start w-full">{children}</div>
+          <div className="flex flex-col gap-s items-start w-full">{children}</div>
         </div>
       </div>
     );

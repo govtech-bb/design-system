@@ -4,8 +4,10 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 export const SpacingTable = () => {
   const spacing = [
+    { label: 'xxs', px: 4, rem: 0.25 },
     { label: 'xs', px: 8, rem: 0.5 },
     { label: 's', px: 16, rem: 1 },
+    { label: 'xm', px: 24, rem: 1.5 },
     { label: 'm', px: 32, rem: 2 },
     { label: 'l', px: 64, rem: 4 },
     { label: 'xl', px: 128, rem: 8 },
@@ -105,6 +107,36 @@ export const SpacingTable = () => {
 
 # Spacing
 
-GovTechBB follows an 8px base spacing scale. Each step doubles in size, represented in pixels and REMs for consistent proportional spacing.
+GovTechBB uses a structured spacing scale based on the Figma design system. The scale includes semantic tokens that can be used in Tailwind utilities like `p-s`, `gap-xs`, `m-xm`, etc.
+
+## Usage Examples
+
+```tsx
+// Padding
+<div className="p-s">        {/* 16px padding */}
+<div className="px-xm py-s"> {/* 24px horizontal, 16px vertical */}
+
+// Margin
+<div className="mt-xs">      {/* 8px top margin */}
+<div className="mb-m">       {/* 32px bottom margin */}
+
+// Gap (Flexbox/Grid)
+<div className="flex gap-s"> {/* 16px gap between children */}
+<div className="flex flex-col gap-xs"> {/* 8px gap in column */}
+```
+
+## Spacing Scale
 
 <SpacingTable />
+
+## Design Tokens
+
+All spacing values are available as CSS custom properties and Tailwind utilities:
+
+- `--spacing-xxs` / `xxs` → 4px (0.25rem)
+- `--spacing-xs` / `xs` → 8px (0.5rem)
+- `--spacing-s` / `s` → 16px (1rem)
+- `--spacing-xm` / `xm` → 24px (1.5rem)
+- `--spacing-m` / `m` → 32px (2rem)
+- `--spacing-l` / `l` → 64px (4rem)
+- `--spacing-xl` / `xl` → 128px (8rem)

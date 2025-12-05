@@ -43,7 +43,10 @@ const Radio = forwardRef<HTMLButtonElement, RadioProps>(
       return (
         <div className="flex gap-5 items-center">
           {radio}
-          <label htmlFor={id} className="text-body text-neutral-black cursor-pointer">
+          <label
+            htmlFor={id}
+            className="text-[1.25rem] leading-normal text-neutral-black cursor-pointer"
+          >
             {label}
           </label>
         </div>
@@ -76,23 +79,30 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         aria-describedby={ariaDescribedBy || undefined}
         {...props}
       >
-        <div className="flex flex-col gap-4 items-start w-full">
+        <div className="flex flex-col gap-xs items-start w-full">
           {(label || description || error) && (
             <div className="flex flex-col items-start text-neutral-black">
-              {label && <p className="text-h4">{label}</p>}
+              {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
               {description && (
-                <p id={descriptionId} className="text-[20px] leading-[1.7] text-neutral-midgrey">
+                <p
+                  id={descriptionId}
+                  className="text-[1.25rem] leading-normal text-neutral-midgrey"
+                >
                   {description}
                 </p>
               )}
               {error && (
-                <p id={errorId} role="alert" className="text-[20px] leading-[1.7] text-red-dark">
+                <p
+                  id={errorId}
+                  role="alert"
+                  className="text-[1.25rem] leading-normal text-red-dark"
+                >
                   {error}
                 </p>
               )}
             </div>
           )}
-          <div className="flex flex-col gap-4 items-start w-full">{children}</div>
+          <div className="flex flex-col gap-s items-start w-full">{children}</div>
         </div>
       </Root>
     );

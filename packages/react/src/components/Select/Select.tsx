@@ -29,28 +29,31 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const descriptionId = `${id}-description`;
 
     return (
-      <div className="w-full">
+      <div className="flex flex-col gap-xs w-full items-start">
         {label && (
-          <div className="mb-2">
-            <label htmlFor={id} className="block text-h4 text-neutral-black">
+          <div className="flex flex-col">
+            <label
+              htmlFor={id}
+              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+            >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-body text-neutral-black">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-body text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
                 {error}
               </p>
             )}
           </div>
         )}
 
-        <div className="relative">
+        <div className="relative w-full">
           <div className={cn(inputContainer, inputDisabled, inputInvalid, className)}>
             <select
               ref={ref}
@@ -60,9 +63,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
               aria-invalid={error ? true : undefined}
               aria-describedby={error ? errorId : description ? descriptionId : undefined}
               aria-required={required}
-              className={cn(
-                'w-full min-w-0 px-4 py-4 pr-20 outline-none appearance-none bg-transparent',
-              )}
+              className={cn('w-full min-w-0 p-s pr-20 outline-none appearance-none bg-transparent')}
               {...props}
             >
               {children}

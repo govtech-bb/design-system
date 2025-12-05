@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
-const statusBannerVariants = cva('box-border flex items-center p-4 w-full rounded-sm', {
+const statusBannerVariants = cva('flex items-center p-s w-full rounded-sm', {
   variants: {
     variant: {
       alpha: 'bg-blue-10 border-blue-100',
@@ -39,7 +39,7 @@ const StatusBanner = forwardRef<HTMLDivElement, StatusBannerProps>(
         {...props}
       >
         <div className="flex flex-col items-start justify-center flex-1">
-          <div className="text-body text-neutral-black w-full">{children}</div>
+          <div className="text-[1.25rem] leading-normal text-neutral-black w-full">{children}</div>
         </div>
       </div>
     );
