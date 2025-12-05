@@ -12,10 +12,10 @@ export interface ShowHideProps extends DetailsHTMLAttributes<HTMLDetailsElement>
 const ShowHide = forwardRef<HTMLDetailsElement, ShowHideProps>(
   ({ summary, children, className, summaryClassName, contentClassName, ...props }, ref) => {
     return (
-      <details ref={ref} className={cn('mt-4', className)} {...props}>
+      <details ref={ref} className={cn('flex flex-col gap-xs items-start', className)} {...props}>
         <summary
           className={cn(
-            'cursor-pointer list-none inline-flex items-center gap-3 text-body font-normal leading-[1.7] text-[20px] transition-colors duration-200 outline-none underline-offset-2 text-teal-dark underline hover:text-brand-teal-hover focus-visible:text-brand-teal-hover active:bg-yellow-100 focus-visible:bg-yellow-100',
+            'cursor-pointer list-none inline-flex items-center gap-3 text-[1.25rem] leading-normal font-normal transition-colors duration-200 outline-none underline-offset-2 text-teal-dark underline hover:text-brand-teal-hover focus-visible:text-brand-teal-hover active:bg-yellow-100 focus-visible:bg-yellow-100',
             summaryClassName,
           )}
         >
@@ -30,7 +30,12 @@ const ShowHide = forwardRef<HTMLDetailsElement, ShowHideProps>(
           </svg>
           {summary}
         </summary>
-        <div className={cn('mt-2 border-l-4 border-neutral-grey pl-4', contentClassName)}>
+        <div
+          className={cn(
+            'flex flex-col gap-s border-l-4 border-neutral-grey pl-xm',
+            contentClassName,
+          )}
+        >
           {children}
         </div>
       </details>
