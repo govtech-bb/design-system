@@ -1,12 +1,15 @@
-import { forwardRef, InputHTMLAttributes, useId } from 'react';
+import { forwardRef, InputHTMLAttributes, useCallback, useId, useRef } from 'react';
 import { cn } from '../../utils/css';
+import { mergeRefs } from '../../utils/refs';
 
 export interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
   error?: string;
   description?: string;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  value?: number | '';
 }
 
 function UpIcon(props: React.ComponentProps<'svg'>) {
@@ -32,9 +35,10 @@ function DownIcon(props: React.ComponentProps<'svg'>) {
       viewBox="0 0 12 8"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      className="rotate-180"
       {...props}
     >
-      <path d="M12 0L6 8L0 -5.24537e-07L12 0Z" />
+      <path d="M0 8 6 0 12 8z" />
     </svg>
   );
 }
@@ -49,24 +53,28 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       disabled,
       required,
       id: providedId,
-      onIncrement,
-      onDecrement,
+      min,
+      max,
+      step = 1,
       ...props
     },
     ref,
   ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
     const generatedId = useId();
     const id = providedId || generatedId;
     const errorId = `${id}-error`;
     const descriptionId = `${id}-description`;
 
-    const handleIncrement = () => {
-      // TODO: implement increment
-    };
+    const onIncrement = useCallback(() => {
+      inputRef.current?.stepUp();
+      inputRef.current?.dispatchEvent(new Event('input', { bubbles: true }));
+    }, []);
 
-    const handleDecrement = () => {
-      // TODO: implement decrement
-    };
+    const onDecrement = useCallback(() => {
+      inputRef.current?.stepDown();
+      inputRef.current?.dispatchEvent(new Event('input', { bubbles: true }));
+    }, []);
 
     return (
       <div className="flex flex-col gap-xs w-full items-start">
@@ -102,7 +110,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           role="group"
         >
           <input
-            ref={ref}
+            ref={mergeRefs(ref, inputRef)}
             id={id}
             inputMode="numeric"
             autoComplete="off"
@@ -117,10 +125,15 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             className={cn(
               'w-full min-w-0 border-2 rounded-l-sm p-s outline-none bg-white',
               'group-hover:group-[:not(:focus-within)]:shadow-form-hover',
+              '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none',
+              'text-[1.125rem] leading-[1.56]',
               error ? 'border-red-dark' : 'border-neutral-black',
               disabled && 'opacity-40 cursor-not-allowed',
             )}
-            type="text"
+            type="number"
+            min={min}
+            max={max}
+            step={step}
             {...props}
           />
           <div
@@ -133,7 +146,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             <button
               type="button"
               tabIndex={-1}
-              onClick={handleIncrement}
+              onClick={onIncrement}
               disabled={disabled}
               aria-label="Increment"
               aria-controls={id}
@@ -147,7 +160,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               tabIndex={-1}
               aria-label="Decrement"
               aria-controls={id}
-              onClick={handleDecrement}
+              onClick={onDecrement}
               disabled={disabled}
               className="flex-1 flex items-center justify-center hover:bg-neutral-grey/70 active:bg-neutral-grey disabled:cursor-not-allowed transition-colors"
             >
