@@ -53,7 +53,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </div>
         )}
 
-        <div className="relative">
+        <div className="relative w-full">
           <div className={cn(inputContainer, inputDisabled, inputInvalid, className)}>
             <select
               ref={ref}
