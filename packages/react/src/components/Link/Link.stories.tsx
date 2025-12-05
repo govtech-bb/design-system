@@ -42,6 +42,20 @@ export const Secondary: Story = {
   ],
 };
 
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    children: 'This is a link',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#00267f', padding: '1rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
 export const External: Story = {
   args: {
     variant: 'default',
@@ -49,57 +63,4 @@ export const External: Story = {
     href: 'https://alpha.gov.bb/',
     external: true,
   },
-};
-
-export const AllStates: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      <div>
-        <h3 style={{ marginBottom: '1rem' }}>Default variant</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <div>
-            <Link href="#">This is a link</Link> <span>- Default</span>
-          </div>
-          <div>
-            <Link href="#">This is a link</Link> <span>- Hover</span>
-          </div>
-          <div>
-            <Link href="#">This is a link</Link> <span>- Active / Focus</span>
-          </div>
-          <div>
-            <Link href="#">This is a link</Link> <span>- Visited</span>
-          </div>
-        </div>
-      </div>
-      <div style={{ backgroundColor: '#eaf9f9', padding: '1rem' }}>
-        <h3 style={{ marginBottom: '1rem' }}>On Background</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <div>
-            <Link href="#" variant="secondary">
-              This is a link
-            </Link>{' '}
-            <span>- Default</span>
-          </div>
-          <div>
-            <Link href="#" variant="secondary">
-              This is a link
-            </Link>{' '}
-            <span>- Hover (white background)</span>
-          </div>
-          <div>
-            <Link href="#" variant="secondary">
-              This is a link
-            </Link>{' '}
-            <span>- Active / Focus</span>
-          </div>
-          <div>
-            <Link href="#" variant="secondary">
-              This is a link
-            </Link>{' '}
-            <span>- Visited</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
 };
