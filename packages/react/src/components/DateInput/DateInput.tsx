@@ -117,61 +117,45 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     return (
       <div
         ref={ref}
-        className={cn('w-full', className)}
+        className={cn('flex flex-col gap-xs w-full items-start', className)}
         onFocus={() => onFocus?.(state)}
         onBlur={() => onBlur?.(state)}
         {...rest}
       >
         {label && (
-          <div className="mb-2">
-            <label className="block text-h4 text-neutral-black">{label}</label>
+          <div className="flex flex-col gap-xs">
+            <label className="block text-[1.25rem] leading-normal font-bold text-neutral-black">
+              {label}
+            </label>
 
             {description && (
-              <p id={`${id}-description`} className="text-body text-neutral-midgrey">
+              <p
+                id={`${id}-description`}
+                className="text-[1.25rem] leading-normal text-neutral-midgrey"
+              >
                 {description}
               </p>
             )}
 
             {errorMessage && (
-              <p id={`${id}-error`} role="alert" className="text-body text-red-dark mt-4">
+              <p
+                id={`${id}-error`}
+                role="alert"
+                className="text-[1.25rem] leading-normal text-red-dark"
+              >
                 {errorMessage}
               </p>
             )}
           </div>
         )}
 
-        <div className="flex gap-4 items-end flex-wrap pt-2">
-          {/* Day */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor={`${id}-day`} className="text-body text-neutral-black">
-              Day
-            </label>
-            <div
-              className={cn(
-                inputContainer,
-                disabled && inputDisabled,
-                invalidFields.day && inputInvalid,
-                'w-[81px]',
-              )}
-            >
-              <input
-                id={`${id}-day`}
-                name={`${name}[day]`}
-                type="text"
-                inputMode="numeric"
-                value={state.day}
-                onChange={handleChange('day')}
-                disabled={disabled}
-                aria-invalid={invalidFields.day || undefined}
-                aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
-              />
-            </div>
-          </div>
-
+        <div className="flex gap-s items-end flex-wrap">
           {/* Month */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor={`${id}-month`} className="text-body text-neutral-black">
+          <div className="flex flex-col gap-xs">
+            <label
+              htmlFor={`${id}-month`}
+              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+            >
               Month
             </label>
             <div
@@ -179,7 +163,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 inputContainer,
                 disabled && inputDisabled,
                 invalidFields.month && inputInvalid,
-                'w-[81px]',
+                'w-20',
               )}
             >
               <input
@@ -192,14 +176,48 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 disabled={disabled}
                 aria-invalid={invalidFields.month || undefined}
                 aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
+                className="w-full min-w-0 p-s outline-none rounded-[inherit]"
+              />
+            </div>
+          </div>
+
+          {/* Day */}
+          <div className="flex flex-col gap-xs">
+            <label
+              htmlFor={`${id}-day`}
+              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+            >
+              Day
+            </label>
+            <div
+              className={cn(
+                inputContainer,
+                disabled && inputDisabled,
+                invalidFields.day && inputInvalid,
+                'w-20',
+              )}
+            >
+              <input
+                id={`${id}-day`}
+                name={`${name}[day]`}
+                type="text"
+                inputMode="numeric"
+                value={state.day}
+                onChange={handleChange('day')}
+                disabled={disabled}
+                aria-invalid={invalidFields.day || undefined}
+                aria-describedby={ariaDescribedBy}
+                className="w-full min-w-0 p-s outline-none rounded-[inherit]"
               />
             </div>
           </div>
 
           {/* Year */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor={`${id}-year`} className="text-body text-neutral-black">
+          <div className="flex flex-col gap-xs">
+            <label
+              htmlFor={`${id}-year`}
+              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+            >
               Year
             </label>
             <div
@@ -207,7 +225,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 inputContainer,
                 disabled && inputDisabled,
                 invalidFields.year && inputInvalid,
-                'w-[138px]',
+                'w-40',
               )}
             >
               <input
@@ -220,7 +238,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 disabled={disabled}
                 aria-invalid={invalidFields.year || undefined}
                 aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 px-4 py-4 outline-none rounded-[inherit]"
+                className="w-full min-w-0 p-s outline-none rounded-[inherit]"
               />
             </div>
           </div>
