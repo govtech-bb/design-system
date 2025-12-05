@@ -127,6 +127,15 @@
 
   /* Disabled State */
   --opacity-disabled: 0.4;
+
+  /* Spacing Scale */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-s: 1rem; /* 16px */
+  --spacing-xm: 1.5rem; /* 24px */
+  --spacing-m: 2rem; /* 32px */
+  --spacing-l: 4rem; /* 64px */
+  --spacing-xl: 8rem; /* 128px */
 }
 
 /* Tailwind Theme Configuration - For utility generation */
@@ -250,6 +259,15 @@
   /* Disabled State */
   /* TODO: Components dont have a disabled state on figma, need Jack to confirm what is needed. */
   --opacity-disabled: 0.4;
+
+  /* Spacing Scale */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-s: 1rem; /* 16px */
+  --spacing-xm: 1.5rem; /* 24px */
+  --spacing-m: 2rem; /* 32px */
+  --spacing-l: 4rem; /* 64px */
+  --spacing-xl: 8rem; /* 128px */
 }
 
 @utility container {
