@@ -7,6 +7,7 @@ export * from './components/Footer';
 export * from './components/Input';
 export * from './components/Link';
 export * from './components/Logo';
+export * from './components/NumberInput';
 export * from './components/OfficialBanner';
 export * from './components/Radio';
 export * from './components/Select';
