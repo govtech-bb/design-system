@@ -1,9 +1,58 @@
 # Versions
 
-## Unreleased
+## 1.0.0-alpha.8
+_Dec 06, 2025_
+
+### BackButton
+- Add back navigation component by @AaronHarris
+
+### Button
+- Update spacing to use design system scale by @AaronHarris
+
+### Checkbox
+- Update spacing to use design system scale by @AaronHarris
 
 ### DateInput
 - Remove unnecessary text-center class by @AaronHarris
+- Update to match Figma design specifications by @AaronHarris
+
+### ErrorSummary
+- Update spacing and border to match Figma by @AaronHarris
+
+### Input
+- Update spacing to use design system scale by @AaronHarris
+
+### Link
+- Add tertiary variant and refactor link styles by @AaronHarris
+
+### NumberInput
+- Add NumberInput component with base styling only by @AaronHarris
+- Implement increment and decrement functionality with min/max support by @AaronHarris
+
+### Radio
+- Update spacing to use design system scale by @AaronHarris
+
+### Select
+- Update spacing to use design system scale by @AaronHarris
+- Add w-full to relative wrapper for proper width by @AaronHarris
+
+### ShowHide
+- Update spacing to use design system scale by @AaronHarris
+
+### Spacing
+- Update documentation with complete spacing scale by @AaronHarris
+
+### StatusBanner
+- Update spacing to use design system scale by @AaronHarris
+
+### TextArea
+- Update spacing to use design system scale by @AaronHarris
+
+### security
+- Patch CVE-2025-55182 vulnerability in React Server Components by @AaronHarris
+
+### tokens
+- Add spacing scale to Tailwind 4 theme by @AaronHarris
 ## 1.0.0-alpha.7
 _Nov 18, 2025_
 
