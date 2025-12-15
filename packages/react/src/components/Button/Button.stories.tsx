@@ -15,6 +15,13 @@ const meta: Meta<typeof Button> = {
       },
     },
   },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'destructive', 'link', 'destructive-link'],
+      description: 'The visual style of the button',
+    },
+  },
 };
 
 export default meta;
@@ -32,14 +39,23 @@ export const Secondary: Story = {
   },
 };
 
-// Show all states
-// export const AllStates: Story = {
-//   render: () => (
-//     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-//       <Button>Base</Button>
-//       <Button>Hover (simulated)</Button>
-//       <Button>Pressed (simulated)</Button>
-//       <Button>Focus (simulated)</Button>
-//     </div>
-//   ),
-// };
+export const Destructive: Story = {
+  args: {
+    variant: 'destructive',
+    children: 'Delete',
+  },
+};
+
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    children: 'Learn more',
+  },
+};
+
+export const DestructiveLink: Story = {
+  args: {
+    variant: 'destructive-link',
+    children: 'Remove',
+  },
+};
