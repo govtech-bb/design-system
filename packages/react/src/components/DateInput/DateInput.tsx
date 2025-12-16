@@ -124,14 +124,14 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       >
         {label && (
           <div className="flex flex-col gap-xs">
-            <label className="block text-[1.25rem] leading-normal font-bold text-neutral-black">
+            <label className="block text-[1.25rem] leading-normal font-bold text-black-00">
               {label}
             </label>
 
             {description && (
               <p
                 id={`${id}-description`}
-                className="text-[1.25rem] leading-normal text-neutral-midgrey"
+                className="text-[1.25rem] leading-normal text-mid-grey-00"
               >
                 {description}
               </p>
@@ -141,7 +141,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               <p
                 id={`${id}-error`}
                 role="alert"
-                className="text-[1.25rem] leading-normal text-red-dark"
+                className="text-[1.25rem] leading-normal text-red-00"
               >
                 {errorMessage}
               </p>
@@ -154,7 +154,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           <div className="flex flex-col gap-xs">
             <label
               htmlFor={`${id}-month`}
-              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="text-[1.25rem] leading-normal font-bold text-black-00"
             >
               Month
             </label>
@@ -185,7 +185,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           <div className="flex flex-col gap-xs">
             <label
               htmlFor={`${id}-day`}
-              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="text-[1.25rem] leading-normal font-bold text-black-00"
             >
               Day
             </label>
@@ -216,7 +216,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           <div className="flex flex-col gap-xs">
             <label
               htmlFor={`${id}-year`}
-              className="text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="text-[1.25rem] leading-normal font-bold text-black-00"
             >
               Year
             </label>

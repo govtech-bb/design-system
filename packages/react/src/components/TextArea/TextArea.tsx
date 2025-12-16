@@ -21,19 +21,19 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <div className="flex flex-col">
             <label
               htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="block text-[1.25rem] leading-normal font-bold text-black-00"
             >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
                 {error}
               </p>
             )}
@@ -50,7 +50,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             aria-describedby={error ? errorId : description ? descriptionId : undefined}
             aria-required={required}
             className={cn(
-              'w-full min-w-0 p-s outline-none rounded-[inherit] placeholder:text-neutral-black/60 resize-y',
+              'w-full min-w-0 p-s outline-none rounded-[inherit] placeholder:text-black-00/60 resize-y',
             )}
             {...props}
           />

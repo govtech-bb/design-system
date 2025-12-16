@@ -39,7 +39,7 @@ const StatusBanner = forwardRef<HTMLDivElement, StatusBannerProps>(
         {...props}
       >
         <div className="flex flex-col items-start justify-center flex-1">
-          <div className="text-[1.25rem] leading-normal text-neutral-black w-full">{children}</div>
+          <div className="text-[1.25rem] leading-normal text-black-00 w-full">{children}</div>
         </div>
       </div>
     );

@@ -9,8 +9,8 @@ const fileUploadVariants = cva(
   {
     variants: {
       state: {
-        default: 'border border-dashed border-neutral-grey cursor-pointer [border-style:dashed]',
-        uploaded: 'border border-solid border-neutral-grey rounded-sm bg-neutral-grey/10',
+        default: 'border border-dashed border-grey-00 cursor-pointer [border-style:dashed]',
+        uploaded: 'border border-solid border-grey-00 rounded-sm bg-grey-00/10',
       },
     },
     defaultVariants: {
@@ -40,8 +40,8 @@ interface FileItemProps {
 
 const FileItem = ({ file, onRemove, removeFileText }: FileItemProps) => {
   return (
-    <div className="flex gap-s items-center w-full px-0 py-xs border-b border-neutral-midgrey/40">
-      <p className="flex-1 text-[1.25rem] leading-normal text-neutral-black truncate">
+    <div className="flex gap-s items-center w-full px-0 py-xs border-b border-mid-grey-00/40">
+      <p className="flex-1 text-[1.25rem] leading-normal text-black-00 truncate">
         {file.name}
       </p>
       <Button variant="destructive-link" onClick={onRemove}>
@@ -118,19 +118,19 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           <div className="flex flex-col">
             <label
               htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="block text-[1.25rem] leading-normal font-bold text-black-00"
             >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
                 {error}
               </p>
             )}
@@ -148,7 +148,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             </Button>
 
             {!hasFiles && (
-              <p className="text-[1.25rem] leading-normal text-neutral-black">{noFileText}</p>
+              <p className="text-[1.25rem] leading-normal text-black-00">{noFileText}</p>
             )}
           </div>
           {hasFiles &&

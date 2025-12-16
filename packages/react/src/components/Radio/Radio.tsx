@@ -28,13 +28,13 @@ const Radio = forwardRef<HTMLButtonElement, RadioProps>(
         ref={ref}
         id={id}
         className={cn(
-          'relative inline-flex size-12 shrink-0 items-center justify-center bg-neutral-white border-2 border-neutral-black border-solid rounded-full transition-all outline-none hover:cursor-pointer hover:shadow-form-hover focus-visible:border-teal-dark focus-visible:shadow-none focus-visible:ring-4 focus-visible:ring-teal-100 aria-invalid:border-red-dark disabled-state',
+          'relative inline-flex size-12 shrink-0 items-center justify-center bg-white-00 border-2 border-black-00 border-solid rounded-full transition-all outline-none hover:cursor-pointer hover:shadow-form-hover focus-visible:border-teal-00 focus-visible:shadow-none focus-visible:ring-4 focus-visible:ring-teal-100 aria-invalid:border-red-00 disabled-state',
           className,
         )}
         {...props}
       >
         <Indicator className="flex items-center justify-center w-full h-full">
-          <div className="absolute bg-teal-dark size-[19px] rounded-full" />
+          <div className="absolute bg-teal-00 size-[19px] rounded-full" />
         </Indicator>
       </Item>
     );
@@ -45,7 +45,7 @@ const Radio = forwardRef<HTMLButtonElement, RadioProps>(
           {radio}
           <label
             htmlFor={id}
-            className="text-[1.25rem] leading-normal text-neutral-black cursor-pointer"
+            className="text-[1.25rem] leading-normal text-black-00 cursor-pointer"
           >
             {label}
           </label>
@@ -81,12 +81,12 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
       >
         <div className="flex flex-col gap-xs items-start w-full">
           {(label || description || error) && (
-            <div className="flex flex-col items-start text-neutral-black">
+            <div className="flex flex-col items-start text-black-00">
               {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
               {description && (
                 <p
                   id={descriptionId}
-                  className="text-[1.25rem] leading-normal text-neutral-midgrey"
+                  className="text-[1.25rem] leading-normal text-mid-grey-00"
                 >
                   {description}
                 </p>
@@ -95,7 +95,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 <p
                   id={errorId}
                   role="alert"
-                  className="text-[1.25rem] leading-normal text-red-dark"
+                  className="text-[1.25rem] leading-normal text-red-00"
                 >
                   {error}
                 </p>

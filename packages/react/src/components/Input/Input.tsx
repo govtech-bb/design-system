@@ -8,10 +8,10 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 }
 
 export const inputContainer =
-  'relative inline-flex w-full rounded-sm border-2 border-neutral-black items-center gap-2 transition-all text-body bg-neutral-white hover:shadow-form-hover focus-within:ring-4 focus-within:ring-teal-100 [&:has(:disabled,:focus-visible,[aria-invalid])]:shadow-none';
+  'relative inline-flex w-full rounded-sm border-2 border-black-00 items-center gap-2 transition-all text-body bg-white-00 hover:shadow-form-hover focus-within:ring-4 focus-within:ring-teal-100 [&:has(:disabled,:focus-visible,[aria-invalid])]:shadow-none';
 export const inputDisabled = 'disabled-state';
 export const inputInvalid =
-  'has-aria-invalid:border-red-dark has-aria-invalid:focus-within:border-red-dark';
+  'has-aria-invalid:border-red-00 has-aria-invalid:focus-within:border-red-00';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -39,19 +39,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <div className="flex flex-col">
             <label
               htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="block text-[1.25rem] leading-normal font-bold text-black-00"
             >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
                 {error}
               </p>
             )}
@@ -69,7 +69,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-describedby={error ? errorId : description ? descriptionId : undefined}
             aria-required={required}
             className={cn(
-              'w-full min-w-0 p-s outline-none rounded-[inherit] placeholder:text-neutral-black/60',
+              'w-full min-w-0 p-s outline-none rounded-[inherit] placeholder:text-black-00/60',
             )}
             {...props}
           />

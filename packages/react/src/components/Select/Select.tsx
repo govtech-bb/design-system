@@ -34,19 +34,19 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           <div className="flex flex-col">
             <label
               htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="block text-[1.25rem] leading-normal font-bold text-black-00"
             >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
                 {error}
               </p>
             )}
@@ -72,8 +72,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
               aria-hidden="true"
               className={cn(
                 'pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-center',
-                'bg-neutral-grey/50',
-                'border-l-2 border-neutral-black',
+                'bg-grey-00/50',
+                'border-l-2 border-black-00',
               )}
             >
               <svg
