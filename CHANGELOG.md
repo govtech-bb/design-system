@@ -1,5 +1,19 @@
 # Versions
 
+## 1.0.0-alpha.9
+_Dec 16, 2025_
+
+### Button
+- Add destructive and link variants with refactored styles by @AaronHarris
+
+### FileUpload
+- Add FileUpload component by @AaronHarris
+
+### LinkButton
+- Add LinkButton component by @AaronHarris
+
+### deps
+- Update dependencies by @AaronHarris
 ## 1.0.0-alpha.8
 _Dec 06, 2025_
 

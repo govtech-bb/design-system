@@ -34,6 +34,10 @@ jobs:
 
       - name: Publish design package
         run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react package
         run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
