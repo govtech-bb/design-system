@@ -1,5 +1,13 @@
 # Versions
 
+## 1.0.0-alpha.10
+_Dec 19, 2025_
+
+### Heading
+- Update typography scale by @AaronHarris
+
+### Text
+- Update typography scale by @AaronHarris
 ## 1.0.0-alpha.9
 _Dec 16, 2025_
 
