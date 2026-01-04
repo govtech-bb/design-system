@@ -26,7 +26,7 @@ export const Default: Story = {
     summary: 'Use passport number instead',
     children: (
       <div>
-        <p className="mb-4 text-neutral-midgrey leading-[1.7] text-[20px]">
+        <p className="mb-4 text-mid-grey-00 leading-[1.7] text-[20px]">
           If you don't have a National Registration number, you can use your passport number
           instead.
         </p>
@@ -45,7 +45,7 @@ export const SimpleText: Story = {
   args: {
     summary: 'More information',
     children: (
-      <Text as="p" className="text-neutral-midgrey">
+      <Text as="p" className="text-mid-grey-00">
         This is additional information that can be shown or hidden by clicking the summary.
       </Text>
     ),
@@ -58,7 +58,7 @@ export const NestedContent: Story = {
     children: (
       <div className="space-y-4">
         <Heading as="h4">Step-by-step guide</Heading>
-        <ol className="list-decimal list-inside space-y-2 text-neutral-midgrey">
+        <ol className="list-decimal list-inside space-y-2 text-mid-grey-00">
           <li>First, gather all required documents</li>
           <li>Fill out the application form completely</li>
           <li>Submit the form and wait for confirmation</li>
@@ -74,7 +74,7 @@ export const DefaultOpen: Story = {
     summary: 'Already expanded',
     open: true,
     children: (
-      <Text as="p" className="text-neutral-midgrey">
+      <Text as="p" className="text-mid-grey-00">
         This ShowHide component is open by default.
       </Text>
     ),

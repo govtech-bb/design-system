@@ -21,12 +21,12 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         ref={ref}
         id={id}
         className={cn(
-          'relative inline-flex size-12 shrink-0 items-center justify-center bg-neutral-white border-2 border-neutral-black border-solid transition-all outline-none hover:cursor-pointer hover:shadow-form-hover focus-visible:border-teal-dark focus-visible:shadow-none focus-visible:ring-4 focus-visible:ring-teal-100 aria-invalid:border-red-dark disabled-state',
+          'relative inline-flex size-12 shrink-0 items-center justify-center bg-white-00 border-2 border-black-00 border-solid transition-all outline-none hover:cursor-pointer hover:shadow-form-hover focus-visible:border-teal-00 focus-visible:shadow-none focus-visible:ring-4 focus-visible:ring-teal-100 aria-invalid:border-red-00 disabled-state',
           className,
         )}
         {...props}
       >
-        <Indicator className="absolute bg-teal-dark size-[19px]" />
+        <Indicator className="absolute bg-teal-00 size-[19px]" />
       </Root>
     );
 
@@ -36,7 +36,7 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
           {checkbox}
           <label
             htmlFor={id}
-            className="text-[1.25rem] leading-normal text-neutral-black cursor-pointer"
+            className="text-[1.25rem] leading-normal text-black-00 cursor-pointer"
           >
             {label}
           </label>
@@ -56,10 +56,10 @@ const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
       <div ref={ref} className={cn('flex gap-2 items-center', className)}>
         <div className="flex flex-col gap-xs items-start w-full">
           {(label || description) && (
-            <div className="flex flex-col items-start text-neutral-black">
+            <div className="flex flex-col items-start text-black-00">
               {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
               {description && (
-                <p className="text-[1.25rem] leading-normal text-neutral-midgrey">{description}</p>
+                <p className="text-[1.25rem] leading-normal text-mid-grey-00">{description}</p>
               )}
             </div>
           )}

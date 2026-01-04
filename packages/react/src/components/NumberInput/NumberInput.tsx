@@ -82,19 +82,19 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           <div className="flex flex-col">
             <label
               htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-neutral-black"
+              className="block text-[1.25rem] leading-normal font-bold text-black-00"
             >
               {label}
             </label>
 
             {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-neutral-midgrey">
+              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
                 {description}
               </p>
             )}
 
             {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-dark">
+              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
                 {error}
               </p>
             )}
@@ -127,7 +127,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               'group-hover:group-[:not(:focus-within)]:shadow-form-hover',
               '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none',
               'text-[1.125rem] leading-[1.56]',
-              error ? 'border-red-dark' : 'border-neutral-black',
+              error ? 'border-red-00' : 'border-black-00',
               disabled && 'opacity-40 cursor-not-allowed',
             )}
             type="number"
@@ -138,8 +138,8 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           />
           <div
             className={cn(
-              'w-[47px] flex flex-col border-2 border-l-0 rounded-r-sm overflow-hidden bg-neutral-grey/50',
-              error ? 'border-red-dark' : 'border-neutral-black',
+              'w-[47px] flex flex-col border-2 border-l-0 rounded-r-sm overflow-hidden bg-grey-00/50',
+              error ? 'border-red-00' : 'border-black-00',
               disabled && 'opacity-40',
             )}
           >
@@ -150,11 +150,11 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               disabled={disabled}
               aria-label="Increment"
               aria-controls={id}
-              className="flex-1 flex items-center justify-center hover:bg-neutral-grey/70 active:bg-neutral-grey disabled:cursor-not-allowed transition-colors"
+              className="flex-1 flex items-center justify-center hover:bg-grey-00/70 active:bg-grey-00 disabled:cursor-not-allowed transition-colors"
             >
               <UpIcon aria-hidden="true" />
             </button>
-            <div className={cn('h-0.5 w-full', error ? 'bg-red-dark' : 'bg-neutral-black')} />
+            <div className={cn('h-0.5 w-full', error ? 'bg-red-00' : 'bg-black-00')} />
             <button
               type="button"
               tabIndex={-1}
@@ -162,7 +162,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               aria-controls={id}
               onClick={onDecrement}
               disabled={disabled}
-              className="flex-1 flex items-center justify-center hover:bg-neutral-grey/70 active:bg-neutral-grey disabled:cursor-not-allowed transition-colors"
+              className="flex-1 flex items-center justify-center hover:bg-grey-00/70 active:bg-grey-00 disabled:cursor-not-allowed transition-colors"
             >
               <DownIcon aria-hidden="true" />
             </button>
