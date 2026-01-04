@@ -36,14 +36,13 @@ type Story = StoryObj<typeof Input>;
 // Basic Examples
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    label: 'Full Name',
   },
 };
 
 export const Required: Story = {
   args: {
     label: 'Full Name',
-    placeholder: 'John Doe',
     required: true,
   },
 };
@@ -51,7 +50,6 @@ export const Required: Story = {
 export const WithError: Story = {
   args: {
     label: 'Email Address',
-    placeholder: 'you@example.com',
     type: 'email',
     error: 'Please enter a valid email address',
     defaultValue: 'invalid-email',
