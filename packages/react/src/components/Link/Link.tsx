@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
 const linkVariants = cva(
-  'inline-flex text-[20px] leading-[1.5] font-normal outline-none underline-offset-2 underline hover:no-underline active:bg-yellow-100 active:no-underline focus-visible:bg-yellow-100 focus-visible:no-underline active:text-neutral-black focus-visible:text-neutral-black',
+  'inline-flex outline-none underline-offset-2 underline hover:no-underline active:bg-yellow-100 active:no-underline focus-visible:bg-yellow-100 focus-visible:no-underline active:text-neutral-black focus-visible:text-neutral-black',
   {
     variants: {
       variant: {
@@ -19,8 +19,7 @@ const linkVariants = cva(
 );
 
 export interface LinkProps
-  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
-    VariantProps<typeof linkVariants> {
+  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>, VariantProps<typeof linkVariants> {
   href: string;
   children: React.ReactNode;
   external?: boolean;
