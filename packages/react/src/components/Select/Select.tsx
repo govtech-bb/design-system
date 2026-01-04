@@ -1,11 +1,26 @@
 import { forwardRef, SelectHTMLAttributes, useId } from 'react';
 import { cn } from '../../utils/css';
-import { inputContainer, inputDisabled, inputInvalid } from '../Input/Input';
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   label?: string;
   error?: string;
   description?: string;
+}
+
+function ChevronDownIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      width="12"
+      height="8"
+      viewBox="0 0 12 8"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className="rotate-180"
+      {...props}
+    >
+      <path d="M0 8 6 0 12 8z" />
+    </svg>
+  );
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -53,47 +68,40 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </div>
         )}
 
-        <div className="relative w-full">
-          <div className={cn(inputContainer, inputDisabled, inputInvalid, className)}>
-            <select
-              ref={ref}
-              id={id}
-              disabled={disabled}
-              required={required}
-              aria-invalid={error ? true : undefined}
-              aria-describedby={error ? errorId : description ? descriptionId : undefined}
-              aria-required={required}
-              className={cn('w-full min-w-0 p-s pr-20 outline-none appearance-none bg-transparent')}
-              {...props}
-            >
-              {children}
-            </select>
-            <span
-              aria-hidden="true"
-              className={cn(
-                'pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-center',
-                'bg-grey-00/50',
-                'border-l-2 border-black-00',
-              )}
-            >
-              <svg
-                className="size-5"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 7.5L10 12.5L15 7.5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </span>
+        <div
+          className={cn(
+            'group flex w-full rounded-sm',
+            'focus-within:ring-4 focus-within:ring-teal-100',
+            className,
+          )}
+        >
+          <select
+            ref={ref}
+            id={id}
+            disabled={disabled}
+            required={required}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? errorId : description ? descriptionId : undefined}
+            aria-required={required}
+            className={cn(
+              'w-full min-w-0 border-2 rounded-l-sm p-s outline-none appearance-none bg-white',
+              'group-hover:group-[:not(:focus-within)]:shadow-form-hover',
+              'text-[1.125rem] leading-[1.56]',
+              error ? 'border-red-00' : 'border-black-00',
+              disabled && 'opacity-40 cursor-not-allowed',
+            )}
+            {...props}
+          >
+            {children}
+          </select>
+          <div
+            className={cn(
+              'w-[62px] flex items-center justify-center border-2 border-l-0 rounded-r-sm bg-grey-00/50',
+              error ? 'border-red-00' : 'border-black-00',
+              disabled && 'opacity-40',
+            )}
+          >
+            <ChevronDownIcon aria-hidden="true" />
           </div>
         </div>
       </div>
