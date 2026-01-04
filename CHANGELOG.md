@@ -1,5 +1,17 @@
 # Versions
 
+## 1.0.0-alpha.11
+_Jan 03, 2026_
+
+### Link
+- Inherit font styles from parent by @AaronHarris
+
+### Select
+- Bleeding hover effect on the select icon box by @AaronHarris
+
+### docs
+- Remove placeholder examples from form inputs by @AaronHarris
+
 ## 1.0.0-alpha.10
 _Dec 19, 2025_
 
