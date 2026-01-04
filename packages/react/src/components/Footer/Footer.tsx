@@ -65,7 +65,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
 
             <div className="flex flex-col items-start gap-6 justify-between pt-8 pb-4 lg:items-end lg:pb-8">
               {logoSrc && <img src={logoSrc} alt={logoAlt} className="block h-28 w-auto" />}
-              <p className="text-neutral-white text-body">{copyrightText}</p>
+              <p className="text-white-00 text-body">{copyrightText}</p>
             </div>
           </div>
         </div>

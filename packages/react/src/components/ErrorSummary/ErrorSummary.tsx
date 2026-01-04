@@ -36,7 +36,7 @@ const ErrorSummary = forwardRef<HTMLDivElement, ErrorSummaryProps>(
         ref={ref}
         role="alert"
         aria-labelledby="error-summary-title"
-        className={cn('border-4 border-red-dark py-xm px-m mb-8', className)}
+        className={cn('border-4 border-red-00 py-xm px-m mb-8', className)}
         tabIndex={-1}
         {...props}
       >
@@ -50,7 +50,7 @@ const ErrorSummary = forwardRef<HTMLDivElement, ErrorSummaryProps>(
                 key={error.target}
                 href={error.target}
                 tabIndex={0}
-                className="text-red-dark text-[1.25rem] leading-normal"
+                className="text-red-00 text-[1.25rem] leading-normal"
                 onClick={(e) => (onErrorClick ?? handleDefaultClick)(error, e)}
               >
                 {error.text}

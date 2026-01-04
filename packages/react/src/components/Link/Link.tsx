@@ -3,13 +3,13 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 
 const linkVariants = cva(
-  'inline-flex outline-none underline-offset-2 underline hover:no-underline active:bg-yellow-100 active:no-underline focus-visible:bg-yellow-100 focus-visible:no-underline active:text-neutral-black focus-visible:text-neutral-black',
+  'inline-flex outline-none underline-offset-2 underline hover:no-underline active:bg-yellow-100 active:no-underline focus-visible:bg-yellow-100 focus-visible:no-underline active:text-black-00 focus-visible:text-black-00',
   {
     variants: {
       variant: {
-        default: 'text-teal-dark hover:text-neutral-black hover:bg-teal-10',
-        secondary: 'text-neutral-black hover:bg-neutral-white hover:text-[#083A3D]',
-        tertiary: 'text-neutral-white hover:bg-teal-10 hover:text-[#083A3D]',
+        default: 'text-teal-00 hover:text-black-00 hover:bg-teal-10',
+        secondary: 'text-black-00 hover:bg-white-00 hover:text-[#083A3D]',
+        tertiary: 'text-white-00 hover:bg-teal-10 hover:text-[#083A3D]',
       },
     },
     defaultVariants: {

@@ -9,13 +9,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-teal-dark text-neutral-white hover:bg-brand-teal-light hover:shadow-[inset_0_0_0_4px_rgba(222,245,246,0.10)] active:bg-brand-teal-darker active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.20)]',
+          'bg-teal-00 text-white-00 hover:bg-[#1a777d] hover:shadow-[inset_0_0_0_4px_rgba(222,245,246,0.10)] active:bg-[#0a4549] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.20)]',
         secondary:
-          'bg-neutral-grey text-neutral-black hover:shadow-[inset_0_0_0_4px_rgba(0,0,0,0.05)] active:bg-brand-neutral-gray-dark active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.10)]',
+          'bg-grey-00 text-black-00 hover:shadow-[inset_0_0_0_4px_rgba(0,0,0,0.05)] active:bg-[#b9c0c6] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.10)]',
         destructive:
-          'bg-red-dark text-neutral-white hover:bg-[#bf3e3e] hover:shadow-[inset_0_0_0_4px_rgba(255,235,235,0.10)] active:bg-[#961e1f] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.20)]',
-        link: 'text-green-dark hover:text-yellow-100 active:text-yellow-dark',
-        'destructive-link': 'text-red-dark hover:text-red-100 active:text-red-dark',
+          'bg-red-00 text-white-00 hover:bg-[#bf3e3e] hover:shadow-[inset_0_0_0_4px_rgba(255,235,235,0.10)] active:bg-[#961e1f] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.20)]',
+        link: 'text-green-00 hover:text-yellow-100 active:text-yellow-00',
+        'destructive-link': 'text-red-00 hover:text-red-100 active:text-red-00',
       },
     },
     defaultVariants: {
