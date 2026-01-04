@@ -33,7 +33,6 @@ export const Default: Story = {
         <Input
           label="Passport number"
           id="passport-number"
-          placeholder="Enter passport number"
           className="w-86"
         />
       </div>

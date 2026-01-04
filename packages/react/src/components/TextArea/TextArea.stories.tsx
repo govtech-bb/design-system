@@ -35,7 +35,7 @@ type Story = StoryObj<typeof TextArea>;
 // Basic Examples
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    label: 'Can you provide more details?',
     rows: 4,
   },
 };
@@ -43,7 +43,6 @@ export const Default: Story = {
 export const WithLabel: Story = {
   args: {
     label: 'Comments',
-    placeholder: 'Enter your comments here...',
     rows: 4,
   },
 };
@@ -51,7 +50,6 @@ export const WithLabel: Story = {
 export const Required: Story = {
   args: {
     label: 'Feedback',
-    placeholder: 'Please provide your feedback...',
     required: true,
     rows: 4,
   },
@@ -61,7 +59,6 @@ export const WithDescription: Story = {
   args: {
     label: 'Additional Information',
     description: 'Please provide any additional details that may be relevant',
-    placeholder: 'Enter additional information...',
     rows: 4,
   },
 };
@@ -69,7 +66,6 @@ export const WithDescription: Story = {
 export const WithError: Story = {
   args: {
     label: 'Message',
-    placeholder: 'Enter your message...',
     error: 'This field is required',
     defaultValue: '',
     rows: 4,
@@ -88,7 +84,6 @@ export const Disabled: Story = {
 export const LargeTextarea: Story = {
   args: {
     label: 'Detailed Description',
-    placeholder: 'Provide a detailed description...',
     rows: 10,
   },
 };
