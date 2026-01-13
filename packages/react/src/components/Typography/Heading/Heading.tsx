@@ -4,16 +4,16 @@ import { cn } from '../../../utils/css';
 
 type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'display';
 
-const headingVariants = cva('font-semibold', {
+const headingVariants = cva('font-bold', {
   variants: {
     size: {
-      display: 'text-[4rem] leading-[1.25]',
-      h1: 'text-[2.75rem] leading-[1.27]',
-      h2: 'text-[1.75rem] leading-[1.29]',
-      h3: 'text-[1.375rem] leading-[1.27]',
-      h4: 'text-[1.125rem] leading-[1.56]',
-      h5: 'text-[0.875rem] leading-[1.71] uppercase tracking-[0.04em] font-normal',
-      h6: 'text-[0.875rem] leading-[1.71] uppercase tracking-[0.04em] font-normal',
+      display: 'text-[5rem] leading-none',
+      h1: 'text-[3.5rem] leading-[1.15]',
+      h2: 'text-[2.5rem] leading-[1.25]',
+      h3: 'text-[1.5rem] leading-[1.25]',
+      h4: 'text-[1.25rem] leading-normal',
+      h5: 'text-[1.25rem] leading-normal',
+      h6: 'text-[1.25rem] leading-normal',
     },
     weight: {
       normal: 'font-normal',

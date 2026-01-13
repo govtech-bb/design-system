@@ -18,8 +18,8 @@ type TextElement =
 const textVariants = cva('font-normal', {
   variants: {
     size: {
-      body: 'text-[1.125rem] leading-[1.56]',
-      caption: 'text-[0.875rem] leading-[1.71]',
+      body: 'text-[1.25rem] leading-[1.5]',
+      caption: 'text-[1rem] leading-[1.5]',
       'small-caption': 'text-[0.75rem] leading-[1.5]',
     },
     weight: {
