@@ -1,7 +1,15 @@
 # Versions
 
+## 1.0.0-alpha.12
+_Jan 13, 2026_
+
+### FileUpload
+- Implement the new file upload design changes by @AaronHarris
+
+### Typography
+- Revert to original typography scale by @AaronHarris
 ## 1.0.0-alpha.11
-_Jan 03, 2026_
+_Jan 04, 2026_
 
 ### Link
 - Inherit font styles from parent by @AaronHarris
@@ -11,7 +19,6 @@ _Jan 03, 2026_
 
 ### docs
 - Remove placeholder examples from form inputs by @AaronHarris
-
 ## 1.0.0-alpha.10
 _Dec 19, 2025_
 
