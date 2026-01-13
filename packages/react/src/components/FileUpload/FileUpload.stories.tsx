@@ -10,11 +10,27 @@ const meta: Meta<typeof FileUpload> = {
     docs: {
       description: {
         component:
-          'A file upload component that allows users to select files via button click or drag and drop. Supports single and multiple file selection with remove functionality.',
+          'A file upload component that allows users to select files. Supports single and multiple file selection with remove functionality.',
       },
     },
   },
   argTypes: {
+    label: {
+      control: 'text',
+      description: 'Label for the file input (shown inside the dropzone)',
+    },
+    subtitle: {
+      control: 'text',
+      description: 'Subtitle shown inside the dropzone',
+    },
+    maxSizeText: {
+      control: 'text',
+      description: 'Maximum file size text shown below button',
+    },
+    error: {
+      control: 'text',
+      description: 'Error message to display',
+    },
     disabled: {
       control: 'boolean',
       description: 'Whether the file upload is disabled',
@@ -37,34 +53,21 @@ const meta: Meta<typeof FileUpload> = {
 export default meta;
 type Story = StoryObj<typeof FileUpload>;
 
-// Default state with hint text
+// Default
 export const Default: Story = {
-  args: {
-    label: 'Upload document',
-  },
-};
-
-// With description
-export const WithDescription: Story = {
-  args: {
-    label: 'Upload document',
-    description: 'Please upload your supporting documents',
-  },
+  args: {},
 };
 
 // With error
 export const WithError: Story = {
   args: {
-    label: 'Upload document',
     error: 'Please upload a valid document',
   },
 };
 
-// Multiple files
+// Multiple files allowed
 export const MultipleFiles: Story = {
   args: {
-    label: 'Upload documents',
-    description: 'You can select multiple files',
     multiple: true,
   },
 };
@@ -72,7 +75,8 @@ export const MultipleFiles: Story = {
 // Accept specific file types
 export const AcceptImages: Story = {
   args: {
-    label: 'Upload image',
+    label: 'Upload an image',
+    subtitle: 'Attach a .jpg, .png, or .gif file',
     accept: 'image/*',
   },
 };
@@ -80,27 +84,11 @@ export const AcceptImages: Story = {
 // Disabled state
 export const Disabled: Story = {
   args: {
-    label: 'Upload document',
     disabled: true,
   },
 };
 
-// Required field
-export const Required: Story = {
-  args: {
-    label: 'Upload document',
-    required: true,
-  },
-};
-
-// Without hint text
-export const WithoutHint: Story = {
-  args: {
-    label: 'Upload document',
-  },
-};
-
-// With single file uploaded
+// With file uploaded
 export const WithFile: Story = {
   render: () => {
     const ControlledFileUpload = () => {
@@ -108,7 +96,7 @@ export const WithFile: Story = {
         new File([''], 'document.pdf', { type: 'application/pdf' }),
       ]);
 
-      return <FileUpload label="Upload document" value={files} onChange={setFiles} />;
+      return <FileUpload value={files} onChange={setFiles} />;
     };
 
     return <ControlledFileUpload />;
@@ -122,28 +110,29 @@ export const WithMultipleFiles: Story = {
       const [files, setFiles] = useState<File[]>([
         new File([''], 'document.pdf', { type: 'application/pdf' }),
         new File([''], "driver's license.png", { type: 'image/png' }),
+        new File([''], 'proof_of_address.docx', { type: 'application/msword' }),
       ]);
 
-      return <FileUpload label="Upload documents" multiple value={files} onChange={setFiles} />;
+      return <FileUpload multiple value={files} onChange={setFiles} />;
     };
 
     return <ControlledFileUpload />;
   },
 };
 
-// Single file with long name
+// Long file name (truncates)
 export const LongFileName: Story = {
   render: () => {
     const ControlledFileUpload = () => {
       const [files, setFiles] = useState<File[]>([
         new File(
           [''],
-          'really really really really really really really really really really really long file name.pdf',
+          'really really really really really really really really really really really really really really really really long file name.pdf',
           { type: 'application/pdf' },
         ),
       ]);
 
-      return <FileUpload label="Upload document" value={files} onChange={setFiles} />;
+      return <FileUpload value={files} onChange={setFiles} />;
     };
 
     return <ControlledFileUpload />;
@@ -153,8 +142,10 @@ export const LongFileName: Story = {
 // Custom text
 export const CustomText: Story = {
   args: {
-    label: 'Attach file',
+    label: 'Attach your documents',
+    subtitle: 'Upload PDF, Word, or image files',
     buttonText: 'Browse files',
+    maxSizeText: 'Max file size: 10MB',
     removeFileText: 'Delete',
   },
 };

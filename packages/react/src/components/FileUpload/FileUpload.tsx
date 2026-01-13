@@ -1,34 +1,28 @@
 import { forwardRef, InputHTMLAttributes, useId, useRef, useState } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/css';
 import { mergeRefs } from '../../utils/refs';
-import { Button } from '../Button/Button';
+import { Button, buttonVariants } from '../Button/Button';
+import { Text } from '../Typography';
 
-const fileUploadVariants = cva(
-  'flex flex-col gap-xs items-start overflow-hidden px-[28px] py-m rounded-sm w-full',
-  {
-    variants: {
-      state: {
-        default: 'border border-dashed border-grey-00 cursor-pointer [border-style:dashed]',
-        uploaded: 'border border-solid border-grey-00 rounded-sm bg-grey-00/10',
-      },
-    },
-    defaultVariants: {
-      state: 'default',
-    },
-  },
-);
-
-export interface FileUploadProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value' | 'onChange'>,
-    VariantProps<typeof fileUploadVariants> {
+export interface FileUploadProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'value' | 'onChange'
+> {
+  /** Label for the file input (shown as title inside the dropzone) */
   label?: string;
-  error?: string;
-  description?: string;
+  /** Subtitle shown inside the dropzone (e.g., accepted file types) */
+  subtitle?: string;
+  /** Text for the choose file button */
   buttonText?: string;
-  noFileText?: string;
+  /** Maximum file size text shown below button */
+  maxSizeText?: string;
+  /** Text for the remove file button */
   removeFileText?: string;
+  /** Error message to display */
+  error?: string;
+  /** Controlled file value */
   value?: File[];
+  /** Callback when files change */
   onChange?: (files: File[]) => void;
 }
 
@@ -40,26 +34,31 @@ interface FileItemProps {
 
 const FileItem = ({ file, onRemove, removeFileText }: FileItemProps) => {
   return (
-    <div className="flex gap-s items-center w-full px-0 py-xs border-b border-mid-grey-00/40">
-      <p className="flex-1 text-[1.25rem] leading-normal text-black-00 truncate">
+    <li className="flex gap-s items-center justify-between w-full p-s bg-blue-10 rounded-sm">
+      <Text as={'span'} size={'body'} className="text-black-00 truncate min-w-0 flex-1">
         {file.name}
-      </p>
-      <Button variant="destructive-link" onClick={onRemove}>
+      </Text>
+      <Button
+        variant="destructive-link"
+        onClick={onRemove}
+        type="button"
+        aria-label={`${removeFileText} ${file.name}`}
+      >
         {removeFileText}
       </Button>
-    </div>
+    </li>
   );
 };
 
 const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
   (
     {
-      label,
-      error,
-      description,
+      label = 'Upload a file',
+      subtitle = 'Attach a .pdf, .docx, or .png file',
       buttonText = 'Choose file',
-      noFileText = 'no file selected',
-      removeFileText = 'Remove file',
+      maxSizeText = 'Maximum size: 25MB',
+      removeFileText = 'Remove',
+      error,
       className,
       disabled,
       required,
@@ -75,18 +74,12 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
     const generatedId = useId();
     const id = providedId || generatedId;
     const errorId = `${id}-error`;
-    const descriptionId = `${id}-description`;
     const inputRef = useRef<HTMLInputElement>(null);
 
     const [internalFiles, setInternalFiles] = useState<File[]>([]);
     const files = controlledFiles !== undefined ? controlledFiles : internalFiles;
 
     const hasFiles = files.length > 0;
-    const state = hasFiles ? 'uploaded' : 'default';
-
-    const handleButtonClick = () => {
-      inputRef.current?.click();
-    };
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const selectedFiles = Array.from(event.target.files || []);
@@ -113,53 +106,29 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
     };
 
     return (
-      <div className="flex flex-col gap-xs w-full items-start">
-        {label && (
-          <div className="flex flex-col">
-            <label
-              htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-black-00"
-            >
+      <div className={cn('flex flex-col gap-xs w-full', className)}>
+        {/* Dropzone - label wraps entire area so clicking anywhere triggers input */}
+        <label
+          htmlFor={id}
+          className={cn(
+            'flex flex-col items-center text-center gap-m px-s py-xm w-full cursor-pointer',
+            'md:flex-row md:items-center md:text-left',
+            'border border-dashed rounded-sm',
+            error ? 'border-red-00' : 'border-grey-00',
+            disabled && 'opacity-40 cursor-not-allowed',
+          )}
+        >
+          {/* Title and subtitle */}
+          <div className="flex flex-col gap-xxs flex-1 md:items-start items-center text-mid-grey-00">
+            <Text as={'span'} size={'body'} weight={'bold'}>
               {label}
-            </label>
-
-            {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
-                {description}
-              </p>
-            )}
-
-            {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
-                {error}
-              </p>
-            )}
+            </Text>
+            <Text as={'span'} size={'caption'} weight={'normal'}>
+              {subtitle}
+            </Text>
           </div>
-        )}
-        <div className={cn(fileUploadVariants({ state }), className)}>
-          <div className="flex gap-5 items-center w-full">
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={handleButtonClick}
-              disabled={disabled}
-            >
-              {buttonText}
-            </Button>
 
-            {!hasFiles && (
-              <p className="text-[1.25rem] leading-normal text-black-00">{noFileText}</p>
-            )}
-          </div>
-          {hasFiles &&
-            files.map((file, index) => (
-              <FileItem
-                key={`${file.name}-${index}`}
-                file={file}
-                onRemove={() => handleRemoveFile(index)}
-                removeFileText={removeFileText}
-              />
-            ))}
+          {/* Hidden file input */}
           <input
             ref={mergeRefs(ref, inputRef)}
             type="file"
@@ -169,13 +138,48 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
             multiple={multiple}
             accept={accept}
             aria-invalid={error ? true : undefined}
-            aria-describedby={error ? errorId : description ? descriptionId : undefined}
+            aria-describedby={error ? errorId : undefined}
             aria-required={required}
             className="sr-only"
             onChange={handleFileChange}
             {...props}
           />
-        </div>
+
+          {/* Choose file styled as button + max size */}
+          <div className="flex flex-col gap-xxs items-center md:items-start">
+            <span
+              className={cn(
+                buttonVariants({ variant: 'tertiary' }),
+                disabled && 'pointer-events-none',
+              )}
+              aria-hidden="true"
+            >
+              {buttonText}
+            </span>
+            <span className="text-caption text-mid-grey-00 leading-normal">{maxSizeText}</span>
+          </div>
+        </label>
+
+        {/* Error message */}
+        {error && (
+          <Text as={'p'} size={'body'} id={errorId} role="alert" className="text-red-00">
+            {error}
+          </Text>
+        )}
+
+        {/* File list */}
+        {hasFiles && (
+          <ul className="flex flex-col gap-xxs w-full list-none m-0 p-0">
+            {files.map((file, index) => (
+              <FileItem
+                key={`${file.name}-${index}`}
+                file={file}
+                onRemove={() => handleRemoveFile(index)}
+                removeFileText={removeFileText}
+              />
+            ))}
+          </ul>
+        )}
       </div>
     );
   },
@@ -183,4 +187,4 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
 
 FileUpload.displayName = 'FileUpload';
 
-export { FileUpload, fileUploadVariants };
+export { FileUpload };

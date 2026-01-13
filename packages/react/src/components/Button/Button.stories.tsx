@@ -18,7 +18,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'destructive', 'link', 'destructive-link'],
+      options: ['primary', 'secondary', 'tertiary', 'destructive', 'link', 'destructive-link'],
       description: 'The visual style of the button',
     },
   },
@@ -36,6 +36,13 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    children: 'Choose file',
   },
 };
 
