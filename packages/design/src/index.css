@@ -61,15 +61,19 @@
   --font-size-h4: 1.25rem; /* 20px */
   --font-size-body-lg: 2rem; /* 32px */
   --font-size-body: 1.25rem; /* 20px */
+  --font-size-caption: 1rem; /* 16px */
+  --font-size-caption-sm: 0.75rem; /* 12px */
 
   /* Typography - Line Heights */
   --line-height-display: 1;
   --line-height-h1: 1.15;
   --line-height-h2: 1.25;
   --line-height-h3: 1.25;
-  --line-height-h4: 1.4;
+  --line-height-h4: 1.5;
   --line-height-body-lg: 1.5;
-  --line-height-body: 1.7;
+  --line-height-body: 1.5;
+  --line-height-caption: 1.5;
+  --line-height-caption-sm: 1.5;
 
   /* Typography - Font Weights */
   --font-weight-bold: 700;
@@ -152,15 +156,19 @@
   --font-size-h4: 1.25rem; /* 20px */
   --font-size-body-lg: 2rem; /* 32px */
   --font-size-body: 1.25rem; /* 20px */
+  --font-size-caption: 1rem; /* 16px */
+  --font-size-caption-sm: 0.75rem; /* 12px */
 
   /* Typography - Line Heights */
   --line-height-display: 1;
   --line-height-h1: 1.15;
   --line-height-h2: 1.25;
   --line-height-h3: 1.25;
-  --line-height-h4: 1.4;
+  --line-height-h4: 1.5;
   --line-height-body-lg: 1.5;
-  --line-height-body: 1.7;
+  --line-height-body: 1.5;
+  --line-height-caption: 1.5;
+  --line-height-caption-sm: 1.5;
 
   /* Typography - Font Weights */
   --font-weight-bold: 700;
@@ -245,11 +253,15 @@
 }
 
 @utility text-caption {
-  @apply font-normal leading-normal text-[16px];
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: var(--font-weight-normal);
 }
 
 @utility text-caption-sm {
-  @apply font-normal leading-normal text-[12px];
+  font-size: var(--font-size-caption-sm);
+  line-height: var(--line-height-caption-sm);
+  font-weight: var(--font-weight-normal);
 }
 
 body {
