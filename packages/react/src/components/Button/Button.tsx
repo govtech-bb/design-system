@@ -14,6 +14,8 @@ const buttonVariants = cva(
           'bg-grey-00 text-black-00 hover:shadow-[inset_0_0_0_4px_rgba(0,0,0,0.05)] active:bg-[#b9c0c6] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.10)]',
         destructive:
           'bg-red-00 text-white-00 hover:bg-[#bf3e3e] hover:shadow-[inset_0_0_0_4px_rgba(255,235,235,0.10)] active:bg-[#961e1f] active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.20)]',
+        tertiary:
+          'border border-green-00 text-green-00 bg-transparent hover:bg-green-10 active:bg-green-00 active:text-green-40 active:shadow-[inset_0_0_0_3px_rgba(0,0,0,0.10)]',
         link: 'text-green-00 hover:text-yellow-100 active:text-yellow-00',
         'destructive-link': 'text-red-00 hover:text-red-100 active:text-red-00',
       },
@@ -24,7 +26,7 @@ const buttonVariants = cva(
     compoundVariants: [
       // Solid button styles
       {
-        variant: ['primary', 'secondary', 'destructive'],
+        variant: ['primary', 'secondary', 'destructive', 'tertiary'],
         class:
           'px-xm py-s rounded-sm leading-[1.7] active:outline-none active:ring-4 active:ring-offset-1 active:rounded-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-1 focus-visible:rounded-sm',
       },
@@ -36,7 +38,7 @@ const buttonVariants = cva(
       },
       // Teal focus ring
       {
-        variant: ['primary', 'secondary', 'link'],
+        variant: ['primary', 'secondary', 'tertiary', 'link'],
         class: 'active:ring-teal-100 focus-visible:ring-teal-100',
       },
       // Red focus ring
