@@ -150,37 +150,6 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         )}
 
         <div className="flex gap-s items-end flex-wrap">
-          {/* Month */}
-          <div className="flex flex-col gap-xs">
-            <label
-              htmlFor={`${id}-month`}
-              className="text-[1.25rem] leading-normal font-bold text-black-00"
-            >
-              Month
-            </label>
-            <div
-              className={cn(
-                inputContainer,
-                disabled && inputDisabled,
-                invalidFields.month && inputInvalid,
-                'w-20',
-              )}
-            >
-              <input
-                id={`${id}-month`}
-                name={`${name}[month]`}
-                type="text"
-                inputMode="numeric"
-                value={state.month}
-                onChange={handleChange('month')}
-                disabled={disabled}
-                aria-invalid={invalidFields.month || undefined}
-                aria-describedby={ariaDescribedBy}
-                className="w-full min-w-0 p-s outline-none rounded-[inherit]"
-              />
-            </div>
-          </div>
-
           {/* Day */}
           <div className="flex flex-col gap-xs">
             <label
@@ -206,6 +175,37 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
                 onChange={handleChange('day')}
                 disabled={disabled}
                 aria-invalid={invalidFields.day || undefined}
+                aria-describedby={ariaDescribedBy}
+                className="w-full min-w-0 p-s outline-none rounded-[inherit]"
+              />
+            </div>
+          </div>
+
+          {/* Month */}
+          <div className="flex flex-col gap-xs">
+            <label
+              htmlFor={`${id}-month`}
+              className="text-[1.25rem] leading-normal font-bold text-black-00"
+            >
+              Month
+            </label>
+            <div
+              className={cn(
+                inputContainer,
+                disabled && inputDisabled,
+                invalidFields.month && inputInvalid,
+                'w-20',
+              )}
+            >
+              <input
+                id={`${id}-month`}
+                name={`${name}[month]`}
+                type="text"
+                inputMode="numeric"
+                value={state.month}
+                onChange={handleChange('month')}
+                disabled={disabled}
+                aria-invalid={invalidFields.month || undefined}
                 aria-describedby={ariaDescribedBy}
                 className="w-full min-w-0 p-s outline-none rounded-[inherit]"
               />
