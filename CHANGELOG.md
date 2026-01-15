@@ -1,5 +1,11 @@
 # Versions
 
+## 1.0.0-alpha.13
+_Jan 15, 2026_
+
+### DateInput
+- Change date format from MM DD YYYY to DD MM YYYY
+
 ## 1.0.0-alpha.12
 _Jan 13, 2026_
 
