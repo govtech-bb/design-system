@@ -1,6 +1,6 @@
 {
   "name": "@govtech-bb/react",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "description": "React components for GovTechBB Design System",
   "private": false,
   "type": "module",

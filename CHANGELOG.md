@@ -1,11 +1,15 @@
 # Versions
 
+## 1.0.0-alpha.14
+_Jan 22, 2026_
+
+### Select
+- Make icon clickable to open dropdown by @AaronHarris
 ## 1.0.0-alpha.13
 _Jan 15, 2026_
 
 ### DateInput
-- Change date format from MM DD YYYY to DD MM YYYY
-
+- Change date format from MM DD YYYY to DD MM YYYY by @AaronHarris
 ## 1.0.0-alpha.12
 _Jan 13, 2026_
 
