@@ -1,5 +1,6 @@
-import { forwardRef, SelectHTMLAttributes, useId } from 'react';
+import { forwardRef, SelectHTMLAttributes, useCallback, useId, useRef } from 'react';
 import { cn } from '../../utils/css';
+import { mergeRefs } from '../../utils/refs';
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   label?: string;
@@ -42,6 +43,16 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const id = providedId || generatedId;
     const errorId = `${id}-error`;
     const descriptionId = `${id}-description`;
+    const selectRef = useRef<HTMLSelectElement>(null);
+
+    const handleIconClick = useCallback(() => {
+      if (disabled || !selectRef.current) return;
+      if (typeof selectRef.current.showPicker === 'function') {
+        selectRef.current.showPicker();
+      } else {
+        selectRef.current.focus();
+      }
+    }, [disabled]);
 
     return (
       <div className="flex flex-col gap-xs w-full items-start">
@@ -76,7 +87,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           )}
         >
           <select
-            ref={ref}
+            ref={mergeRefs(ref, selectRef)}
             id={id}
             disabled={disabled}
             required={required}
@@ -94,15 +105,20 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           >
             {children}
           </select>
-          <div
+          <button
+            type="button"
+            onClick={handleIconClick}
+            tabIndex={-1}
+            aria-hidden="true"
+            disabled={disabled}
             className={cn(
-              'w-[62px] flex items-center justify-center border-2 border-l-0 rounded-r-sm bg-grey-00/50',
+              'w-[62px] flex shrink-0 items-center justify-center border-2 border-l-0 rounded-r-sm bg-grey-00/50',
               error ? 'border-red-00' : 'border-black-00',
-              disabled && 'opacity-40',
+              disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
             )}
           >
-            <ChevronDownIcon aria-hidden="true" />
-          </div>
+            <ChevronDownIcon />
+          </button>
         </div>
       </div>
     );
