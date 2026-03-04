@@ -1,8 +1,9 @@
-import { forwardRef, InputHTMLAttributes, useId, useRef, useState } from 'react';
+import { forwardRef, InputHTMLAttributes, useRef, useState } from 'react';
 import { cn } from '../../utils/css';
 import { mergeRefs } from '../../utils/refs';
 import { Button, buttonVariants } from '../Button/Button';
 import { Text } from '../Typography';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
 
 export interface FileUploadProps extends Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -71,9 +72,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
     },
     ref,
   ) => {
-    const generatedId = useId();
-    const id = providedId || generatedId;
-    const errorId = `${id}-error`;
+    const { id, errorId } = useFormFieldIds(providedId);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const [internalFiles, setInternalFiles] = useState<File[]>([]);
@@ -95,8 +94,8 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
       event.target.value = '';
     };
 
-    const handleRemoveFile = (index: number) => {
-      const newFiles = files.filter((_, i) => i !== index);
+    const handleRemoveFile = (fileToRemove: File) => {
+      const newFiles = files.filter((file) => file !== fileToRemove);
 
       if (onChange) {
         onChange(newFiles);
@@ -170,11 +169,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
         {/* File list */}
         {hasFiles && (
           <ul className="flex flex-col gap-xxs w-full list-none m-0 p-0">
-            {files.map((file, index) => (
+            {files.map((file) => (
               <FileItem
-                key={`${file.name}-${index}`}
+                key={`${file.name}-${file.size}-${file.lastModified}`}
                 file={file}
-                onRemove={() => handleRemoveFile(index)}
+                onRemove={() => handleRemoveFile(file)}
                 removeFileText={removeFileText}
               />
             ))}
