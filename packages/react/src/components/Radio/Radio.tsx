@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useId } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import {
   Indicator,
   Item,
@@ -7,6 +7,7 @@ import {
   Root,
 } from '@radix-ui/react-radio-group';
 import { cn } from '../../utils/css';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
 
 export interface RadioProps extends RadioGroupItemProps {
   className?: string;
@@ -61,12 +62,9 @@ Radio.displayName = 'Radio';
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ label, description, error, children, className, id: providedId, ...props }, ref) => {
-    const generatedId = useId();
-    const id = providedId || generatedId;
-    const errorId = `${id}-error`;
-    const descriptionId = `${id}-description`;
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
 
-    const ariaDescribedBy = [description ? descriptionId : null, error ? errorId : null]
+    const ariaDescribedBy = [!error && description ? descriptionId : null, error ? errorId : null]
       .filter(Boolean)
       .join(' ');
 
@@ -83,7 +81,7 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           {(label || description || error) && (
             <div className="flex flex-col items-start text-black-00">
               {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
-              {description && (
+              {!error && description && (
                 <p
                   id={descriptionId}
                   className="text-[1.25rem] leading-normal text-mid-grey-00"
