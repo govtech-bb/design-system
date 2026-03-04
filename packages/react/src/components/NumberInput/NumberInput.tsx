@@ -1,6 +1,9 @@
-import { forwardRef, InputHTMLAttributes, useCallback, useId, useRef } from 'react';
+import { forwardRef, InputHTMLAttributes, useCallback, useRef } from 'react';
 import { cn } from '../../utils/css';
 import { mergeRefs } from '../../utils/refs';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
+import { FormFieldLabel } from '../FormFieldLabel';
 
 export interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
@@ -61,10 +64,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     ref,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const generatedId = useId();
-    const id = providedId || generatedId;
-    const errorId = `${id}-error`;
-    const descriptionId = `${id}-description`;
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
 
     const onIncrement = useCallback(() => {
       inputRef.current?.stepUp();
@@ -78,28 +78,14 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
     return (
       <div className="flex flex-col gap-xs w-full items-start">
-        {label && (
-          <div className="flex flex-col">
-            <label
-              htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-black-00"
-            >
-              {label}
-            </label>
-
-            {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
-                {description}
-              </p>
-            )}
-
-            {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
-                {error}
-              </p>
-            )}
-          </div>
-        )}
+        <FormFieldLabel
+          id={id}
+          label={label}
+          description={description}
+          error={error}
+          errorId={errorId}
+          descriptionId={descriptionId}
+        />
 
         <div
           className={cn(
@@ -118,7 +104,12 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             spellCheck="false"
             aria-roledescription="Number field"
             aria-invalid={error ? true : undefined}
-            aria-describedby={error ? errorId : description ? descriptionId : undefined}
+            aria-describedby={getAriaDescribedBy({
+              description: !!description,
+              error: !!error,
+              descriptionId,
+              errorId,
+            })}
             aria-required={required}
             disabled={disabled}
             required={required}
