@@ -1,6 +1,9 @@
-import { forwardRef, SelectHTMLAttributes, useCallback, useId, useRef } from 'react';
+import { forwardRef, SelectHTMLAttributes, useCallback, useRef } from 'react';
 import { cn } from '../../utils/css';
 import { mergeRefs } from '../../utils/refs';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
+import { FormFieldLabel } from '../FormFieldLabel';
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   label?: string;
@@ -39,10 +42,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref,
   ) => {
-    const generatedId = useId();
-    const id = providedId || generatedId;
-    const errorId = `${id}-error`;
-    const descriptionId = `${id}-description`;
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
     const selectRef = useRef<HTMLSelectElement>(null);
 
     const handleIconClick = useCallback(() => {
@@ -56,28 +56,14 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     return (
       <div className="flex flex-col gap-xs w-full items-start">
-        {label && (
-          <div className="flex flex-col">
-            <label
-              htmlFor={id}
-              className="block text-[1.25rem] leading-normal font-bold text-black-00"
-            >
-              {label}
-            </label>
-
-            {!error && description && (
-              <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
-                {description}
-              </p>
-            )}
-
-            {error && (
-              <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
-                {error}
-              </p>
-            )}
-          </div>
-        )}
+        <FormFieldLabel
+          id={id}
+          label={label}
+          description={description}
+          error={error}
+          errorId={errorId}
+          descriptionId={descriptionId}
+        />
 
         <div
           className={cn(
@@ -92,7 +78,12 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             disabled={disabled}
             required={required}
             aria-invalid={error ? true : undefined}
-            aria-describedby={error ? errorId : description ? descriptionId : undefined}
+            aria-describedby={getAriaDescribedBy({
+              description: !!description,
+              error: !!error,
+              descriptionId,
+              errorId,
+            })}
             aria-required={required}
             className={cn(
               'w-full min-w-0 border-2 rounded-l-sm p-s outline-none appearance-none bg-white',
