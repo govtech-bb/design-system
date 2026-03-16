@@ -12,6 +12,7 @@ export * from './components/Logo';
 export * from './components/NumberInput';
 export * from './components/OfficialBanner';
 export * from './components/Radio';
+export * from './components/Search';
 export * from './components/Select';
 export * from './components/ShowHide';
 export * from './components/StatusBanner';
