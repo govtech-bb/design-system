@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useId } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import {
   Indicator,
   Item,
@@ -7,6 +7,8 @@ import {
   Root,
 } from '@radix-ui/react-radio-group';
 import { cn } from '../../utils/css';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
 
 export interface RadioProps extends RadioGroupItemProps {
   className?: string;
@@ -61,14 +63,7 @@ Radio.displayName = 'Radio';
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ label, description, error, children, className, id: providedId, ...props }, ref) => {
-    const generatedId = useId();
-    const id = providedId || generatedId;
-    const errorId = `${id}-error`;
-    const descriptionId = `${id}-description`;
-
-    const ariaDescribedBy = [description ? descriptionId : null, error ? errorId : null]
-      .filter(Boolean)
-      .join(' ');
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
 
     return (
       <Root
@@ -76,14 +71,19 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         id={id}
         className={cn('flex gap-2 items-center', className)}
         aria-invalid={error ? true : undefined}
-        aria-describedby={ariaDescribedBy || undefined}
+        aria-describedby={getAriaDescribedBy({
+          hasDescription: !!description,
+          hasError: !!error,
+          descriptionId,
+          errorId,
+        })}
         {...props}
       >
         <div className="flex flex-col gap-xs items-start w-full">
           {(label || description || error) && (
             <div className="flex flex-col items-start text-black-00">
               {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
-              {description && (
+              {!error && description && (
                 <p
                   id={descriptionId}
                   className="text-[1.25rem] leading-normal text-mid-grey-00"

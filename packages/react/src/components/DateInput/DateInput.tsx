@@ -1,6 +1,9 @@
-import { forwardRef, ReactNode, useId, useState } from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import { cn } from '../../utils/css';
 import { inputContainer, inputDisabled, inputInvalid } from '../Input/Input';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
+import { FormFieldLabel } from '../FormFieldLabel';
 
 export type DateInputValue = { day: string; month: string; year: string };
 
@@ -39,10 +42,6 @@ const getErrorMessage = (error: DateInputError | undefined): ReactNode => {
   }
 
   return error;
-};
-
-const normalizeValue = (v: string | undefined): string => {
-  return v ?? '';
 };
 
 export interface DateInputProps
@@ -87,8 +86,7 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
     },
     ref,
   ) => {
-    const autoId = useId();
-    const id = providedId || autoId;
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
 
     const isControlled = value !== undefined;
     const [local, setLocal] = useState<DateInputValue>(
@@ -110,9 +108,12 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         updateDate({ ...state, [key]: e.target.value });
       };
 
-    const ariaDescribedBy =
-      [description && `${id}-description`, error && `${id}-error`].filter(Boolean).join(' ') ||
-      undefined;
+    const ariaDescribedBy = getAriaDescribedBy({
+      hasDescription: !!description,
+      hasError: !!errorMessage,
+      descriptionId,
+      errorId,
+    });
 
     return (
       <div
@@ -122,32 +123,14 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         onBlur={() => onBlur?.(state)}
         {...rest}
       >
-        {label && (
-          <div className="flex flex-col gap-xs">
-            <label className="block text-[1.25rem] leading-normal font-bold text-black-00">
-              {label}
-            </label>
-
-            {description && (
-              <p
-                id={`${id}-description`}
-                className="text-[1.25rem] leading-normal text-mid-grey-00"
-              >
-                {description}
-              </p>
-            )}
-
-            {errorMessage && (
-              <p
-                id={`${id}-error`}
-                role="alert"
-                className="text-[1.25rem] leading-normal text-red-00"
-              >
-                {errorMessage}
-              </p>
-            )}
-          </div>
-        )}
+        <FormFieldLabel
+          id={id}
+          label={label}
+          description={description}
+          error={errorMessage}
+          errorId={errorId}
+          descriptionId={descriptionId}
+        />
 
         <div className="flex gap-s items-end flex-wrap">
           {/* Day */}
