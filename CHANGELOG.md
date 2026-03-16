@@ -1,5 +1,28 @@
 # Versions
 
+## 1.0.0-alpha.15
+_Mar 16, 2026_
+
+### CheckboxGroup
+- Add error state support by @AaronHarris
+
+### DateInput
+- Hide description when error exists and use form field utilities by @AaronHarris
+
+### FileUpload
+- Use stable compound key instead of index to prevent state loss by @AaronHarris
+
+### FormFieldLabel
+- Inline typography classes, remove redundant block by @AaronHarris
+
+### Radio
+- Hide description when error exists and use form field utilities by @AaronHarris
+
+### Search
+- Add Search component to react package by @AaronHarris
+
+### deps
+- Update dependencies including Rollup security patch by @AaronHarris
 ## 1.0.0-alpha.14
 _Jan 22, 2026_
 

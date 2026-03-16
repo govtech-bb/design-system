@@ -1,6 +1,6 @@
 {
   "name": "@govtech-bb/design",
-  "version": "1.0.0-alpha.14",
+  "version": "1.0.0-alpha.15",
   "description": "Design tokens and Tailwind CSS utilities for GovTechBB Design System",
   "private": false,
   "type": "module",
