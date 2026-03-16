@@ -1,6 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 import { CheckboxProps as CheckboxPropsPrimitive, Indicator, Root } from '@radix-ui/react-checkbox';
 import { cn } from '../../utils/css';
+import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
 
 export interface CheckboxProps extends Omit<CheckboxPropsPrimitive, 'onChange'> {
   className?: string;
@@ -10,8 +12,10 @@ export interface CheckboxProps extends Omit<CheckboxPropsPrimitive, 'onChange'> 
 export interface CheckboxGroupProps {
   label?: string;
   description?: string;
+  error?: string;
   children: ReactNode;
   className?: string;
+  id?: string;
 }
 
 const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
@@ -51,15 +55,35 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
 Checkbox.displayName = 'Checkbox';
 
 const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
-  ({ label, description, children, className }, ref) => {
+  ({ label, description, error, children, className, id: providedId }, ref) => {
+    const { id, errorId, descriptionId } = useFormFieldIds(providedId);
+
     return (
-      <div ref={ref} className={cn('flex gap-2 items-center', className)}>
+      <div
+        ref={ref}
+        id={id}
+        className={cn('flex gap-2 items-center', className)}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={getAriaDescribedBy({
+          hasDescription: !!description,
+          hasError: !!error,
+          descriptionId,
+          errorId,
+        })}
+      >
         <div className="flex flex-col gap-xs items-start w-full">
-          {(label || description) && (
+          {(label || description || error) && (
             <div className="flex flex-col items-start text-black-00">
               {label && <p className="text-[1.25rem] leading-normal font-bold">{label}</p>}
-              {description && (
-                <p className="text-[1.25rem] leading-normal text-mid-grey-00">{description}</p>
+              {!error && description && (
+                <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
+                  {description}
+                </p>
+              )}
+              {error && (
+                <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
+                  {error}
+                </p>
               )}
             </div>
           )}
