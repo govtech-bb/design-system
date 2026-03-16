@@ -79,8 +79,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             required={required}
             aria-invalid={error ? true : undefined}
             aria-describedby={getAriaDescribedBy({
-              description: !!description,
-              error: !!error,
+              hasDescription: !!description,
+              hasError: !!error,
               descriptionId,
               errorId,
             })}

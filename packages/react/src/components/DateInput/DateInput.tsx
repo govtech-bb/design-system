@@ -109,8 +109,8 @@ const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       };
 
     const ariaDescribedBy = getAriaDescribedBy({
-      description: !!description,
-      error: !!errorMessage,
+      hasDescription: !!description,
+      hasError: !!errorMessage,
       descriptionId,
       errorId,
     });

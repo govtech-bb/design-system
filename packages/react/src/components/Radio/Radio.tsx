@@ -8,6 +8,7 @@ import {
 } from '@radix-ui/react-radio-group';
 import { cn } from '../../utils/css';
 import { useFormFieldIds } from '../../utils/useFormFieldIds';
+import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
 
 export interface RadioProps extends RadioGroupItemProps {
   className?: string;
@@ -64,17 +65,18 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ label, description, error, children, className, id: providedId, ...props }, ref) => {
     const { id, errorId, descriptionId } = useFormFieldIds(providedId);
 
-    const ariaDescribedBy = [!error && description ? descriptionId : null, error ? errorId : null]
-      .filter(Boolean)
-      .join(' ');
-
     return (
       <Root
         ref={ref}
         id={id}
         className={cn('flex gap-2 items-center', className)}
         aria-invalid={error ? true : undefined}
-        aria-describedby={ariaDescribedBy || undefined}
+        aria-describedby={getAriaDescribedBy({
+          hasDescription: !!description,
+          hasError: !!error,
+          descriptionId,
+          errorId,
+        })}
         {...props}
       >
         <div className="flex flex-col gap-xs items-start w-full">

@@ -105,8 +105,8 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             aria-roledescription="Number field"
             aria-invalid={error ? true : undefined}
             aria-describedby={getAriaDescribedBy({
-              description: !!description,
-              error: !!error,
+              hasDescription: !!description,
+              hasError: !!error,
               descriptionId,
               errorId,
             })}

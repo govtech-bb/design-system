@@ -34,8 +34,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             required={required}
             aria-invalid={error ? true : undefined}
             aria-describedby={getAriaDescribedBy({
-              description: !!description,
-              error: !!error,
+              hasDescription: !!description,
+              hasError: !!error,
               descriptionId,
               errorId,
             })}
