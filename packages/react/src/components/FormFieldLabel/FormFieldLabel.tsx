@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { DESCRIPTION_CLASS, ERROR_CLASS, LABEL_CLASS } from '../../utils/typography';
 
 export interface FormFieldLabelProps {
   id: string;
@@ -26,18 +25,18 @@ export const FormFieldLabel = ({
 
   return (
     <div className="flex flex-col">
-      <label htmlFor={id} className={`block ${LABEL_CLASS}`}>
+      <label htmlFor={id} className="text-[1.25rem] leading-normal font-bold text-black-00">
         {label}
       </label>
 
       {!error && description && (
-        <p id={descriptionId} className={DESCRIPTION_CLASS}>
+        <p id={descriptionId} className="text-[1.25rem] leading-normal text-mid-grey-00">
           {description}
         </p>
       )}
 
       {error && (
-        <p id={errorId} role="alert" className={ERROR_CLASS}>
+        <p id={errorId} role="alert" className="text-[1.25rem] leading-normal text-red-00">
           {error}
         </p>
       )}
