@@ -33,7 +33,7 @@ jobs:
         run: pnpm build:storybook
 
       - name: Build LLM docs
-        run: pnpm --filter @govtech-bb/styles2 build:llm
+        run: pnpm --filter @govtech-bb/styles build:llm
 
       - name: Assemble Pages artifact
         run: |
