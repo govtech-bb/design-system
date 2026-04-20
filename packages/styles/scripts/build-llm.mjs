@@ -13,6 +13,7 @@ const outDir = join(root, 'llm');
 const outComponents = join(outDir, 'components');
 const outBlocks = join(outDir, 'blocks');
 const outTemplates = join(outDir, 'templates');
+const BASE_URL = 'https://govtech-bb.github.io/design-system/llm';
 
 async function exists(p) {
   try {
@@ -33,14 +34,14 @@ async function listDirs(dir) {
 }
 
 function rewriteComponentLinks(markdown) {
-  return markdown.replace(/\]\(\.\.\/([^/]+)\/README\.md\)/g, '](./$1.md)');
+  return markdown.replace(/\]\(\.\.\/([^/]+)\/README\.md\)/g, `](${BASE_URL}/components/$1.md)`);
 }
 
 function rewriteIndexLinks(markdown) {
   return markdown
-    .replace(/\]\(\.\/components\/([^/]+)\/README\.md\)/g, '](./components/$1.md)')
-    .replace(/\]\(\.\.\/blocks\/([^/]+)\/[^)]+\.html\)/g, '](./blocks/$1.md)')
-    .replace(/\]\(\.\.\/templates\/([^/]+)\.html\)/g, '](./templates/$1.md)');
+    .replace(/\]\(\.\/components\/([^/]+)\/README\.md\)/g, `](${BASE_URL}/components/$1.md)`)
+    .replace(/\]\(\.\.\/blocks\/([^/]+)\/[^)]+\.html\)/g, `](${BASE_URL}/blocks/$1.md)`)
+    .replace(/\]\(\.\.\/templates\/([^/]+)\.html\)/g, `](${BASE_URL}/templates/$1.md)`);
 }
 
 async function buildComponents() {
