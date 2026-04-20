@@ -1,0 +1,68 @@
+@utility govbb-font-base {
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility govbb-font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility govbb-font-regular {
+  font-weight: var(--font-weight-normal);
+}
+
+@utility govbb-font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+@utility govbb-font-display {
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+}
+
+@utility govbb-font-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+@utility govbb-font-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+@utility govbb-font-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+@utility govbb-font-h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+@utility govbb-font-body-lg {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+}
+
+@utility govbb-font-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+@utility govbb-font-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+}
+
+@utility govbb-font-caption-sm {
+  font-size: var(--font-size-caption-sm);
+  line-height: var(--line-height-caption-sm);
+}
+
+@utility govbb-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

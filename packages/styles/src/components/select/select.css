@@ -1,0 +1,43 @@
+@layer base {
+  .govbb-select-wrapper {
+    @apply govbb-input-group;
+    display: grid;
+    grid-template-columns: 1fr 3.875rem;
+  }
+
+  .govbb-select {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-right: 3.875rem;
+    appearance: none;
+    @apply govbb-font-body;
+    color: var(--color-text);
+  }
+
+  .govbb-select__chevron {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--color-grey-00) 50%, var(--color-background));
+    border-left: var(--border-width-form) solid var(--color-text);
+    border-start-end-radius: inherit;
+    border-end-end-radius: inherit;
+    color: var(--color-text);
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+
+    .govbb-select-wrapper:has(.govbb-select[aria-invalid='true']) & {
+      border-left-color: var(--color-error);
+    }
+
+    > svg {
+      width: 0.75rem;
+      height: 0.5rem;
+      transform: rotate(180deg);
+      fill: currentColor;
+    }
+  }
+}

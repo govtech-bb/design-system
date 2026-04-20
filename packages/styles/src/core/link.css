@@ -1,0 +1,24 @@
+@layer base {
+  .govbb-link {
+    @apply govbb-link-base;
+    @apply govbb-link-default;
+  }
+
+  .govbb-link--secondary {
+    @apply govbb-link-base;
+    @apply govbb-link-secondary;
+  }
+
+  .govbb-link--tertiary {
+    @apply govbb-link-base;
+    @apply govbb-link-tertiary;
+  }
+
+  .govbb-link--no-underline {
+    @apply govbb-link-no-underline;
+  }
+
+  .govbb-link--no-visited {
+    @apply govbb-link-no-visited;
+  }
+}

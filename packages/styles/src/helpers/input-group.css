@@ -1,0 +1,54 @@
+@utility govbb-input-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+  background: var(--color-background);
+  border: var(--border-width-form) solid var(--color-text);
+  border-radius: var(--radius-sm);
+  transition:
+    box-shadow 200ms,
+    border-color 200ms;
+
+  &:hover {
+    box-shadow: var(--shadow-form-hover);
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 4px var(--color-teal-100);
+  }
+
+  &:has([aria-invalid='true']) {
+    border-color: var(--color-error);
+  }
+
+  &:has(:disabled, [aria-invalid='true']) {
+    box-shadow: none;
+  }
+
+  &:has(:focus-visible) {
+    box-shadow: 0 0 0 4px var(--color-teal-100);
+  }
+
+  &:has(:disabled) {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+
+  > :where(input, select, textarea) {
+    width: 100%;
+    min-width: 0;
+    padding: var(--spacing-s);
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    border-radius: inherit;
+
+    &::placeholder {
+      color: color-mix(in srgb, currentColor 60%, transparent);
+    }
+  }
+}

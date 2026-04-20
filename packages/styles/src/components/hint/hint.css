@@ -1,0 +1,7 @@
+@layer base {
+  .govbb-hint {
+    display: block;
+    @apply govbb-font-body;
+    color: var(--color-text-muted);
+  }
+}

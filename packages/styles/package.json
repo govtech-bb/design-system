@@ -1,0 +1,27 @@
+{
+  "name": "@govtech-bb/styles",
+  "version": "0.0.0",
+  "description": "CSS-first design system styles",
+  "type": "module",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    ".": "./src/build.css"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./src/build.css -o ./dist/styles.css --optimize && mkdir -p ./dist/assets/fonts ./dist/assets/images && cp ./src/assets/fonts/*.woff2 ./dist/assets/fonts/ && cp -R ./src/assets/images/. ./dist/assets/images/",
+    "build:llm": "node scripts/build-llm.mjs",
+    "dev:css": "tailwindcss -i ./src/build.css -o ./src/dist.css --watch",
+    "serve": "browser-sync start --server ./src --files 'src/dist.css,src/*.html' --index home.html --no-open",
+    "dev": "concurrently \"pnpm dev:css\" \"pnpm serve\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.2.2"
+  }
+}

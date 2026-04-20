@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy GitHub Pages (Storybook + LLM docs)
 on:
   push:
     branches:
@@ -31,6 +31,15 @@ jobs:
 
       - name: Build Storybook
         run: pnpm build:storybook
+
+      - name: Build LLM docs
+        run: pnpm --filter @govtech-bb/styles2 build:llm
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p storybook-static/llm
+          cp -R packages/styles/llm/. storybook-static/llm/
+          touch storybook-static/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

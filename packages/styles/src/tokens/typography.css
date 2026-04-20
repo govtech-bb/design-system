@@ -1,0 +1,25 @@
+@theme {
+  --font-size-display: 5rem;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --font-size-body-lg: 2rem;
+  --font-size-body: 1.25rem;
+  --font-size-caption: 1rem;
+  --font-size-caption-sm: 0.75rem;
+
+  --line-height-display: 1;
+  --line-height-h1: 1.15;
+  --line-height-h2: 1.25;
+  --line-height-h3: 1.25;
+  --line-height-h4: 1.5;
+  --line-height-body-lg: 1.5;
+  --line-height-body: 1.5;
+  --line-height-caption: 1.5;
+  --line-height-caption-sm: 1.5;
+
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --font-family-base: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

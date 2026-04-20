@@ -1,0 +1,41 @@
+@layer base {
+  .govbb-radio {
+    @apply govbb-control;
+    border-radius: 50%;
+
+    &::before {
+      border-radius: 50%;
+    }
+  }
+
+  .govbb-radio-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .govbb-radio-item__label {
+    @apply govbb-font-body;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .govbb-radio:disabled + .govbb-radio-item__label {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+
+  .govbb-radio-item__conditional {
+    display: none;
+    margin-top: var(--spacing-xs);
+    margin-left: 1.25rem;
+    margin-bottom: var(--spacing-s);
+    padding-left: 2.5rem;
+    padding-bottom: var(--spacing-s);
+    border-left: 8px solid var(--color-grey-00);
+  }
+
+  .govbb-radio-item:has(> .govbb-radio:checked) + .govbb-radio-item__conditional {
+    display: block;
+  }
+}

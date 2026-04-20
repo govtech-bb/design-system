@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter block — GOVBB</title>
+    <link rel="stylesheet" href="../../src/dist.css" />
+    <link rel="stylesheet" href="./filter.css" />
+    <style>
+      body {
+        padding: var(--spacing-m);
+        max-width: 640px;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="govbb-filter">
+      <button class="govbb-filter__toggle" type="button" aria-expanded="true">Filter</button>
+
+      <div class="govbb-filter__body">
+        <details class="govbb-filter__group">
+          <summary class="govbb-filter__group-title"><span>Service type</span></summary>
+          <div class="govbb-filter__options">
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-type-information" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-type-information"
+                >Information service</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-type-digital" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-type-digital"
+                >Digital service</label
+              >
+            </div>
+          </div>
+        </details>
+
+        <details class="govbb-filter__group" open>
+          <summary class="govbb-filter__group-title"><span>Category</span></summary>
+          <div class="govbb-filter__options">
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-family" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-family"
+                >Family, birth and relationships</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-work" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-work"
+                >Work and employment</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-money" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-money"
+                >Money and financial support</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-travel" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-travel"
+                >Travel, ID and citizenship</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-business" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-business"
+                >Business and trade</label
+              >
+            </div>
+            <div class="govbb-checkbox-item">
+              <input class="govbb-checkbox" id="filter-category-safety" type="checkbox" />
+              <label class="govbb-checkbox-item__label" for="filter-category-safety"
+                >Public safety</label
+              >
+            </div>
+          </div>
+        </details>
+
+        <div class="govbb-filter__apply">
+          <button class="govbb-btn" type="button">Apply</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

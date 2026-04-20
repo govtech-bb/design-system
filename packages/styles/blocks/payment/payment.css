@@ -1,0 +1,85 @@
+.govbb-payment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xm);
+  padding: var(--spacing-xm);
+  border-radius: var(--spacing-xxs);
+  background: var(--color-blue-10);
+  color: var(--color-text);
+}
+
+.govbb-payment--success {
+  background: var(--color-green-00);
+  color: var(--color-white-00);
+}
+
+.govbb-payment--failed {
+  background: var(--color-red-00);
+  color: var(--color-white-00);
+}
+
+.govbb-payment__header {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: var(--spacing-xm);
+  border-bottom: 1px solid var(--color-mid-grey-00);
+}
+
+.govbb-payment--success .govbb-payment__header,
+.govbb-payment--failed .govbb-payment__header {
+  border-bottom-color: var(--color-grey-00);
+}
+
+.govbb-payment__title {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.govbb-payment__description {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  margin: 0;
+}
+
+.govbb-payment__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.govbb-payment__item {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.govbb-payment__item-label {
+  flex: 1 0 0;
+  min-width: 0;
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+}
+
+.govbb-payment__item-value {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.govbb-payment__note {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  margin: 0;
+  font-style: italic;
+  color: var(--color-mid-grey-00);
+}
+
+.govbb-payment--success .govbb-payment__note,
+.govbb-payment--failed .govbb-payment__note {
+  color: inherit;
+  font-style: normal;
+}

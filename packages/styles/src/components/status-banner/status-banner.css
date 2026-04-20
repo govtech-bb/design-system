@@ -1,0 +1,37 @@
+@layer base {
+  .govbb-status-banner {
+    display: block;
+    width: 100%;
+    padding-block: var(--spacing-s);
+    @apply govbb-font-body;
+    color: var(--color-text);
+
+    > p {
+      margin: 0;
+    }
+
+    > p + p {
+      margin-top: var(--spacing-xs);
+    }
+  }
+
+  .govbb-status-banner--rounded {
+    border-radius: var(--radius-sm);
+  }
+
+  .govbb-status-banner--alpha {
+    background: var(--color-blue-10);
+  }
+
+  .govbb-status-banner--beta {
+    background: var(--color-yellow-40);
+  }
+
+  .govbb-status-banner--migrated {
+    background: var(--color-pink-10);
+  }
+
+  .govbb-status-banner--service {
+    background: var(--color-red-10);
+  }
+}

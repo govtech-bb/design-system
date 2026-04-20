@@ -1,0 +1,11 @@
+@layer base {
+  .govbb-visually-hidden {
+    @apply sr-only;
+  }
+
+  .govbb-visually-hidden-focusable {
+    &:not(:focus):not(:focus-visible) {
+      @apply not-sr-only;
+    }
+  }
+}

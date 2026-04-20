@@ -1,0 +1,165 @@
+@layer base {
+  .govbb-btn,
+  .govbb-btn--secondary,
+  .govbb-btn--destructive,
+  .govbb-btn--tertiary,
+  .govbb-btn--link,
+  .govbb-btn--destructive-link {
+    @apply govbb-font-base;
+
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    transition:
+      background-color 200ms,
+      box-shadow 200ms;
+
+    @apply govbb-disabled-state;
+  }
+
+  .govbb-btn,
+  .govbb-btn--secondary,
+  .govbb-btn--destructive,
+  .govbb-btn--tertiary {
+    padding: var(--spacing-s) var(--spacing-xm);
+    line-height: 1.7;
+    border-radius: 0.25rem;
+    outline: 4px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .govbb-btn {
+    background-color: var(--color-teal-00);
+    color: var(--color-white-00);
+
+    &:hover:not(:disabled) {
+      background-color: #1a777d;
+      box-shadow: inset 0 0 0 4px rgba(222, 245, 246, 0.1);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      background-color: #0a4549;
+      outline-color: var(--color-teal-100);
+    }
+
+    &:active:not(:disabled) {
+      box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .govbb-btn--secondary {
+    background-color: var(--color-grey-00);
+    color: var(--color-black-00);
+
+    &:hover:not(:disabled) {
+      box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.05);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      background-color: #b9c0c6;
+      outline-color: var(--color-teal-100);
+    }
+
+    &:active:not(:disabled) {
+      box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .govbb-btn--destructive {
+    background-color: var(--color-red-00);
+    color: var(--color-white-00);
+
+    &:hover:not(:disabled) {
+      background-color: #bf3e3e;
+      box-shadow: inset 0 0 0 4px rgba(255, 235, 235, 0.1);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      background-color: #961e1f;
+      outline-color: var(--color-red-100);
+    }
+
+    &:active:not(:disabled) {
+      box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .govbb-btn--tertiary {
+    background-color: transparent;
+    color: var(--color-green-00);
+    box-shadow: inset 0 0 0 1px var(--color-green-00);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-green-10);
+      box-shadow: inset 0 0 0 1px var(--color-green-00);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      outline-color: var(--color-teal-100);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--color-green-00);
+      color: var(--color-green-40);
+      box-shadow:
+        inset 0 0 0 1px var(--color-green-00),
+        inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .govbb-btn--link,
+  .govbb-btn--destructive-link {
+    @apply govbb-link-base;
+    padding: 0;
+    outline: 4px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .govbb-btn--link {
+    color: var(--color-green-00);
+
+    &:hover:not(:disabled) {
+      color: var(--color-yellow-100);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      color: var(--color-yellow-00);
+      outline-color: var(--color-teal-100);
+    }
+  }
+
+  .govbb-btn--destructive-link {
+    color: var(--color-red-00);
+
+    &:hover:not(:disabled) {
+      color: var(--color-red-100);
+    }
+
+    &:active:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      color: var(--color-red-00);
+      outline-color: var(--color-red-100);
+    }
+  }
+
+  .govbb-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xm);
+  }
+}

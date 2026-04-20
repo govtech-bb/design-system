@@ -1,0 +1,10 @@
+@layer base {
+  .govbb-input-wrapper {
+    @apply govbb-input-group;
+  }
+
+  .govbb-input {
+    @apply govbb-font-body;
+    color: var(--color-text);
+  }
+}

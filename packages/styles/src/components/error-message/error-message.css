@@ -1,0 +1,7 @@
+@layer base {
+  .govbb-error-message {
+    display: block;
+    @apply govbb-font-body;
+    color: var(--color-error);
+  }
+}
