@@ -1,0 +1,22 @@
+@layer base {
+  .govbb-checkbox {
+    @apply govbb-control;
+  }
+
+  .govbb-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .govbb-checkbox-item__label {
+    @apply govbb-font-body;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .govbb-checkbox:disabled + .govbb-checkbox-item__label {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+}

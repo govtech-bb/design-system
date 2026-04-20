@@ -1,0 +1,31 @@
+@layer base {
+  .govbb-header {
+    display: block;
+    width: 100%;
+    background: var(--color-yellow-100);
+    color: var(--color-text);
+  }
+
+  .govbb-header__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    padding-block: var(--spacing-s);
+  }
+
+  .govbb-header__logo {
+    display: block;
+    height: 1.6875rem;
+    width: auto;
+  }
+
+  @media (min-width: 1024px) {
+    .govbb-header__inner {
+      padding-block: var(--spacing-xm);
+    }
+
+    .govbb-header__logo {
+      height: 2.1875rem;
+    }
+  }
+}

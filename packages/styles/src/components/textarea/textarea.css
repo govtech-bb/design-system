@@ -1,0 +1,8 @@
+@layer base {
+  .govbb-textarea {
+    @apply govbb-font-body;
+    color: var(--color-text);
+    resize: vertical;
+    min-height: 6rem;
+  }
+}

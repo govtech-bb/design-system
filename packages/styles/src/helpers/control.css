@@ -1,0 +1,49 @@
+@utility govbb-control {
+  appearance: none;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  padding: 0;
+  background: var(--color-background);
+  border: var(--border-width-form) solid var(--color-text);
+  outline: 0;
+  cursor: pointer;
+  transition:
+    box-shadow 200ms,
+    border-color 200ms;
+
+  &::before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background: var(--color-teal-00);
+    transform: scale(0);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-form-hover);
+  }
+
+  &:focus-visible {
+    border-color: var(--color-teal-00);
+    box-shadow: 0 0 0 4px var(--color-teal-100);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+  }
+
+  &:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}

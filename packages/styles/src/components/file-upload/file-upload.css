@@ -1,0 +1,114 @@
+@layer base {
+  .govbb-file-upload {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+  }
+
+  .govbb-file-upload__dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-m);
+    width: 100%;
+    padding: var(--spacing-xm) var(--spacing-s);
+    cursor: pointer;
+    border: 1px dashed var(--color-grey-00);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+
+    &:has(.govbb-file-upload__input[aria-invalid='true']) {
+      border-color: var(--color-error);
+    }
+
+    &:has(.govbb-file-upload__input:disabled) {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .govbb-file-upload__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-xxs);
+    min-width: 0;
+  }
+
+  .govbb-file-upload__title {
+    @apply govbb-font-body;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .govbb-file-upload__subtitle {
+    @apply govbb-font-caption;
+    font-weight: var(--font-weight-normal);
+  }
+
+  .govbb-file-upload__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xxs);
+    flex-shrink: 0;
+  }
+
+  .govbb-file-upload__max-size {
+    @apply govbb-font-caption;
+    color: var(--color-text-muted);
+  }
+
+  .govbb-file-upload__input {
+    @apply govbb-visually-hidden;
+  }
+
+  .govbb-file-upload__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .govbb-file-upload__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-s);
+    width: 100%;
+    padding: var(--spacing-s);
+    background: var(--color-blue-10);
+    border-radius: var(--radius-sm);
+  }
+
+  .govbb-file-upload__name {
+    flex: 1;
+    min-width: 0;
+    @apply govbb-font-body;
+    color: var(--color-text);
+    @apply govbb-truncate;
+  }
+
+  @media (min-width: 768px) {
+    .govbb-file-upload__dropzone {
+      flex-direction: row;
+      text-align: start;
+      gap: var(--spacing-m);
+    }
+
+    .govbb-file-upload__info {
+      flex: 1;
+      align-items: flex-start;
+      text-align: start;
+    }
+
+    .govbb-file-upload__action {
+      align-items: flex-start;
+    }
+  }
+}

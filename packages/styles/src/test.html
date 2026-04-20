@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styles2 — Breadcrumbs</title>
+    <link rel="stylesheet" href="./dist.css" />
+    <style>
+      body {
+        max-width: 48rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      section {
+        margin-bottom: 2.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Typography — element defaults</h2>
+      <h1>Heading 1 (h1)</h1>
+      <h2>Heading 2 (h2)</h2>
+      <h3>Heading 3 (h3)</h3>
+      <h4>Heading 4 (h4)</h4>
+      <p>Body paragraph — the quick brown fox jumps over the lazy dog.</p>
+    </section>
+
+    <section>
+      <h2>Typography — utility classes (on &lt;span&gt;)</h2>
+      <p><span class="govbb-text-display">Display</span></p>
+      <p><span class="govbb-text-h1">H1</span></p>
+      <p><span class="govbb-text-h2">H2</span></p>
+      <p><span class="govbb-text-h3">H3</span></p>
+      <p><span class="govbb-text-h4">H4</span></p>
+      <p><span class="govbb-text-body-lg">Body large</span></p>
+      <p><span class="govbb-text-body">Body</span></p>
+      <p><span class="govbb-text-caption">Caption</span></p>
+      <p><span class="govbb-text-caption-sm">Caption small</span></p>
+    </section>
+
+    <section>
+      <h2>Lists</h2>
+      <h3>Unstyled</h3>
+      <ul class="govbb-list">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+      </ul>
+
+      <h3>Bulleted</h3>
+      <ul class="govbb-list govbb-list--bullet">
+        <li>Apply online</li>
+        <li>Receive confirmation</li>
+        <li>Attend appointment</li>
+      </ul>
+
+      <h3>Numbered</h3>
+      <ol class="govbb-list govbb-list--number">
+        <li>Gather documents</li>
+        <li>Submit form</li>
+        <li>Wait for review</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Buttons</h2>
+      <div class="row">
+        <button class="govbb-btn">Primary</button>
+        <button class="govbb-btn--secondary">Secondary</button>
+        <button class="govbb-btn--destructive">Destructive</button>
+        <button class="govbb-btn--tertiary">Tertiary</button>
+      </div>
+      <div class="row">
+        <button class="govbb-btn--link">Link</button>
+        <button class="govbb-btn--destructive-link">Destructive Link</button>
+      </div>
+      <div class="row">
+        <button class="govbb-btn" disabled>Disabled Primary</button>
+        <button class="govbb-btn--secondary" disabled>Disabled Secondary</button>
+        <button class="govbb-btn--destructive" disabled>Disabled Destructive</button>
+        <button class="govbb-btn--tertiary" disabled>Disabled Tertiary</button>
+      </div>
+      <div class="row">
+        <button class="govbb-btn--link" disabled>Disabled Link</button>
+        <button class="govbb-btn--destructive-link" disabled>Disabled Destructive Link</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Error Summary</h2>
+      <div class="govbb-error-summary" role="alert" aria-labelledby="err-summary-title">
+        <h2 id="err-summary-title" class="govbb-error-summary__title">There is a problem</h2>
+        <ul class="govbb-error-summary__list">
+          <li>
+            <a class="govbb-error-summary__link" href="#field-email">Enter a valid email address</a>
+          </li>
+          <li><a class="govbb-error-summary__link" href="#field-parish">Select a parish</a></li>
+          <li>
+            <a class="govbb-error-summary__link" href="#field-terms"
+              >Accept the terms and conditions</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Input</h2>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-name">Full name</label>
+        <p class="govbb-hint" id="f-name-hint">As it appears on your ID</p>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-name" type="text" aria-describedby="f-name-hint" />
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-email">Email address</label>
+        <p class="govbb-error-message" id="f-email-error" role="alert">
+          Enter a valid email address
+        </p>
+        <div class="govbb-input-wrapper">
+          <input
+            class="govbb-input"
+            id="f-email"
+            type="email"
+            aria-describedby="f-email-error"
+            aria-invalid="true"
+          />
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-disabled">Disabled input</label>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-disabled" type="text" value="Read only" disabled />
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-placeholder">With placeholder</label>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-placeholder" type="text" placeholder="Start typing…" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Textarea</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-msg">Message</label>
+        <p class="govbb-hint" id="f-msg-hint">Up to 500 characters</p>
+        <div class="govbb-input-wrapper">
+          <textarea
+            class="govbb-textarea"
+            id="f-msg"
+            rows="5"
+            aria-describedby="f-msg-hint"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-msg-err">Message with error</label>
+        <p class="govbb-error-message" id="f-msg-err-error" role="alert">Enter a message</p>
+        <div class="govbb-input-wrapper">
+          <textarea
+            class="govbb-textarea"
+            id="f-msg-err"
+            rows="5"
+            aria-invalid="true"
+            aria-describedby="f-msg-err-error"
+          ></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Select</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-parish">Parish</label>
+        <div class="govbb-select-wrapper">
+          <select class="govbb-select" id="f-parish" name="parish">
+            <option value="">Select a parish</option>
+            <option value="christ-church">Christ Church</option>
+            <option value="st-michael">St. Michael</option>
+            <option value="st-james">St. James</option>
+          </select>
+          <span class="govbb-select__chevron" aria-hidden="true">
+            <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8 6 0 12 8z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-parish-err">Parish (error)</label>
+        <p class="govbb-error-message" id="f-parish-err-error" role="alert">Select a parish</p>
+        <div class="govbb-select-wrapper">
+          <select
+            class="govbb-select"
+            id="f-parish-err"
+            aria-invalid="true"
+            aria-describedby="f-parish-err-error"
+          >
+            <option value="">Select a parish</option>
+            <option value="christ-church">Christ Church</option>
+          </select>
+          <span class="govbb-select__chevron" aria-hidden="true">
+            <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8 6 0 12 8z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>File Upload</h2>
+      <div class="govbb-file-upload">
+        <label class="govbb-file-upload__dropzone" for="f-file">
+          <div class="govbb-file-upload__info">
+            <span class="govbb-file-upload__title">Upload a file</span>
+            <span class="govbb-file-upload__subtitle">Attach a .pdf, .docx, or .png file</span>
+          </div>
+          <input class="govbb-file-upload__input" id="f-file" name="file" type="file" />
+          <div class="govbb-file-upload__action">
+            <span class="govbb-btn--tertiary" aria-hidden="true">Choose file</span>
+            <span class="govbb-file-upload__max-size">Maximum size: 25MB</span>
+          </div>
+        </label>
+        <ul class="govbb-file-upload__list">
+          <li class="govbb-file-upload__item">
+            <span class="govbb-file-upload__name">passport-application.pdf</span>
+            <button type="button" class="govbb-btn--destructive-link" aria-label="Remove passport-application.pdf">Remove</button>
+          </li>
+        </ul>
+      </div>
+
+      <h3>Error state</h3>
+      <div class="govbb-file-upload">
+        <label class="govbb-file-upload__dropzone" for="f-file-err">
+          <div class="govbb-file-upload__info">
+            <span class="govbb-file-upload__title">Upload a file</span>
+            <span class="govbb-file-upload__subtitle">Attach a .pdf, .docx, or .png file</span>
+          </div>
+          <input class="govbb-file-upload__input" id="f-file-err" type="file" aria-invalid="true" aria-describedby="f-file-err-error" />
+          <div class="govbb-file-upload__action">
+            <span class="govbb-btn--tertiary" aria-hidden="true">Choose file</span>
+            <span class="govbb-file-upload__max-size">Maximum size: 25MB</span>
+          </div>
+        </label>
+        <p class="govbb-error-message" id="f-file-err-error" role="alert">Select a file</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Date Input</h2>
+      <div class="govbb-form-group">
+        <fieldset class="govbb-fieldset" aria-describedby="dob-hint">
+          <legend class="govbb-fieldset__legend">Date of birth</legend>
+          <p class="govbb-hint" id="dob-hint">For example, 27 3 1990</p>
+          <div class="govbb-date-input">
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob-day">Day</label>
+              <div class="govbb-date-input-wrapper">
+                <input class="govbb-date-input__field" id="dob-day" name="dob[day]" type="text" inputmode="numeric" />
+              </div>
+            </div>
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob-month">Month</label>
+              <div class="govbb-date-input-wrapper">
+                <input class="govbb-date-input__field" id="dob-month" name="dob[month]" type="text" inputmode="numeric" />
+              </div>
+            </div>
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob-year">Year</label>
+              <div class="govbb-date-input-wrapper govbb-date-input-wrapper--year">
+                <input class="govbb-date-input__field" id="dob-year" name="dob[year]" type="text" inputmode="numeric" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govbb-form-group">
+        <fieldset class="govbb-fieldset" aria-describedby="dob2-error">
+          <legend class="govbb-fieldset__legend">Date of birth (error)</legend>
+          <p class="govbb-error-message" id="dob2-error" role="alert">Enter a valid date</p>
+          <div class="govbb-date-input">
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob2-day">Day</label>
+              <div class="govbb-date-input-wrapper">
+                <input class="govbb-date-input__field" id="dob2-day" name="dob2[day]" type="text" inputmode="numeric" aria-invalid="true" />
+              </div>
+            </div>
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob2-month">Month</label>
+              <div class="govbb-date-input-wrapper">
+                <input class="govbb-date-input__field" id="dob2-month" name="dob2[month]" type="text" inputmode="numeric" aria-invalid="true" />
+              </div>
+            </div>
+            <div class="govbb-date-input__part">
+              <label class="govbb-date-input__label" for="dob2-year">Year</label>
+              <div class="govbb-date-input-wrapper govbb-date-input-wrapper--year">
+                <input class="govbb-date-input__field" id="dob2-year" name="dob2[year]" type="text" inputmode="numeric" aria-invalid="true" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <section>
+      <h2>Number Input</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-qty">Quantity</label>
+        <p class="govbb-hint" id="f-qty-hint">Between 1 and 10</p>
+        <div class="govbb-number-input-wrapper" role="group">
+          <input
+            class="govbb-number-input"
+            id="f-qty"
+            type="number"
+            inputmode="numeric"
+            min="1"
+            max="10"
+            step="1"
+            value="1"
+            aria-describedby="f-qty-hint"
+          />
+          <div class="govbb-number-input__steppers">
+            <button
+              type="button"
+              class="govbb-number-input__step govbb-number-input__step--up"
+              tabindex="-1"
+              aria-label="Increment"
+              aria-controls="f-qty"
+            >
+            </button>
+            <span class="govbb-number-input__divider" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="govbb-number-input__step govbb-number-input__step--down"
+              tabindex="-1"
+              aria-label="Decrement"
+              aria-controls="f-qty"
+            >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-qty-err">Quantity (error)</label>
+        <p class="govbb-error-message" id="f-qty-err-error" role="alert">Enter a valid quantity</p>
+        <div class="govbb-number-input-wrapper" role="group">
+          <input
+            class="govbb-number-input"
+            id="f-qty-err"
+            type="number"
+            inputmode="numeric"
+            aria-invalid="true"
+            aria-describedby="f-qty-err-error"
+          />
+          <div class="govbb-number-input__steppers">
+            <button
+              type="button"
+              class="govbb-number-input__step govbb-number-input__step--up"
+              tabindex="-1"
+              aria-label="Increment"
+              aria-controls="f-qty-err"
+            >
+            </button>
+            <span class="govbb-number-input__divider" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="govbb-number-input__step govbb-number-input__step--down"
+              tabindex="-1"
+              aria-label="Decrement"
+              aria-controls="f-qty-err"
+            >
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Checkbox</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label">Which topics interest you?</label>
+        <div class="govbb-checkbox-item">
+          <input
+            class="govbb-checkbox"
+            id="c-health"
+            type="checkbox"
+            name="topics"
+            value="health"
+          />
+          <label class="govbb-checkbox-item__label" for="c-health">Health</label>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input
+            class="govbb-checkbox"
+            id="c-transport"
+            type="checkbox"
+            name="topics"
+            value="transport"
+            checked
+          />
+          <label class="govbb-checkbox-item__label" for="c-transport">Transport</label>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input
+            class="govbb-checkbox"
+            id="c-edu"
+            type="checkbox"
+            name="topics"
+            value="edu"
+            disabled
+          />
+          <label class="govbb-checkbox-item__label" for="c-edu">Education (disabled)</label>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Radio</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label">Preferred contact method</label>
+        <div class="govbb-radio-item">
+          <input class="govbb-radio" id="r-email" type="radio" name="contact" value="email" />
+          <label class="govbb-radio-item__label" for="r-email">Email</label>
+        </div>
+        <div class="govbb-radio-item__conditional">
+          <div class="govbb-form-group">
+            <label class="govbb-label" for="r-email-addr">Email address</label>
+            <div class="govbb-input-wrapper">
+              <input class="govbb-input" id="r-email-addr" type="email" />
+            </div>
+          </div>
+        </div>
+        <div class="govbb-radio-item">
+          <input
+            class="govbb-radio"
+            id="r-phone"
+            type="radio"
+            name="contact"
+            value="phone"
+            checked
+          />
+          <label class="govbb-radio-item__label" for="r-phone">Phone</label>
+        </div>
+        <div class="govbb-radio-item__conditional">
+          <div class="govbb-form-group">
+            <label class="govbb-label" for="r-phone-num">Phone number</label>
+            <div class="govbb-input-wrapper">
+              <input class="govbb-input" id="r-phone-num" type="tel" />
+            </div>
+          </div>
+        </div>
+        <div class="govbb-radio-item">
+          <input
+            class="govbb-radio"
+            id="r-post"
+            type="radio"
+            name="contact"
+            value="post"
+            disabled
+          />
+          <label class="govbb-radio-item__label" for="r-post">Post (disabled)</label>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Search</h2>
+      <search aria-label="Search">
+        <form class="govbb-search" action="/search">
+          <label class="govbb-search__label" for="search-q">Search</label>
+          <input
+            class="govbb-search__input"
+            id="search-q"
+            name="q"
+            type="search"
+            placeholder="Search government services"
+          />
+          <button class="govbb-search__button" type="submit">Search</button>
+        </form>
+      </search>
+
+      <h3>Borderless</h3>
+      <search aria-label="Search">
+        <form class="govbb-search govbb-search--borderless" action="/search">
+          <label class="govbb-search__label" for="search-q-b">Search</label>
+          <input
+            class="govbb-search__input"
+            id="search-q-b"
+            name="q"
+            type="search"
+            placeholder="Search government services"
+          />
+          <button class="govbb-search__button" type="submit">Search</button>
+        </form>
+      </search>
+    </section>
+
+    <section style="--container-padding: 1rem">
+      <h2>Status banners</h2>
+
+      <h3 class="govbb-text-h4" style="margin-bottom: 0.5rem">Default (sharp corners)</h3>
+      <div
+        class="govbb-status-banner govbb-status-banner--alpha"
+        role="status"
+        aria-label="alpha status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Alpha</a>.
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--beta"
+        role="status"
+        aria-label="beta status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Beta</a>.
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--migrated"
+        role="status"
+        aria-label="migrated status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        <p>
+          This content has been migrated from
+          <a class="govbb-link govbb-link--secondary" href="#">gov.bb</a>. It may be out of date or
+          displayed incorrectly.
+        </p>
+        <p><a class="govbb-link govbb-link--secondary" href="#">View the original source</a>.</p>
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--service"
+        role="status"
+        aria-label="service issue status banner"
+        aria-live="polite"
+        style="margin-bottom: 2rem"
+      >
+        Service
+      </div>
+
+      <h3 class="govbb-text-h4" style="margin-bottom: 0.5rem">Rounded variant</h3>
+      <div
+        class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--alpha"
+        role="status"
+        aria-label="alpha status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Alpha</a>.
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--beta"
+        role="status"
+        aria-label="beta status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Beta</a>.
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--migrated"
+        role="status"
+        aria-label="migrated status banner"
+        aria-live="polite"
+        style="margin-bottom: 1rem"
+      >
+        <p>
+          This content has been migrated from
+          <a class="govbb-link govbb-link--secondary" href="#">gov.bb</a>. It may be out of date or
+          displayed incorrectly.
+        </p>
+        <p><a class="govbb-link govbb-link--secondary" href="#">View the original source</a></p>
+      </div>
+      <div
+        class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--service"
+        role="status"
+        aria-label="service issue status banner"
+        aria-live="polite"
+      >
+        Service
+      </div>
+    </section>
+
+    <section>
+      <h2>Show/Hide</h2>
+      <details class="govbb-show-hide">
+        <summary class="govbb-show-hide__summary">Help with this form</summary>
+        <div class="govbb-show-hide__content">
+          <p>Fill in every field marked as required. Your progress is saved automatically.</p>
+          <p>Contact support on 555-0100 if you need assistance.</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Fieldset</h2>
+      <div class="govbb-form-group">
+        <fieldset class="govbb-fieldset">
+          <legend class="govbb-fieldset__legend">What is your address?</legend>
+          <p class="govbb-hint">Include parish and postcode</p>
+          <p>[address fields go here]</p>
+        </fieldset>
+      </div>
+    </section>
+
+    <h1>Breadcrumbs</h1>
+
+    <section>
+      <h2>Default</h2>
+      <nav class="govbb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govbb-breadcrumbs__list">
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/">Home</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/services">Services</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/services/passports">Passports</a>
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Single level</h2>
+      <nav class="govbb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govbb-breadcrumbs__list">
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/">Home</a>
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Collapse on mobile (resize below 768px)</h2>
+      <nav class="govbb-breadcrumbs govbb-breadcrumbs--collapse-on-mobile" aria-label="Breadcrumb">
+        <ol class="govbb-breadcrumbs__list">
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/">Home</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/a">Section</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/a/b">Subsection</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/a/b/c">Topic</a>
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Long labels (wrapping)</h2>
+      <nav class="govbb-breadcrumbs" aria-label="Breadcrumb">
+        <ol class="govbb-breadcrumbs__list">
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/">Home</a>
+          </li>
+          <li class="govbb-breadcrumbs__item">
+            <a class="govbb-breadcrumbs__link" href="/x"
+              >A very long breadcrumb label that may need to wrap across lines</a
+            >
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <section style="--container-padding: 1rem">
+      <h2>Official Banner</h2>
+      <div class="govbb-official-banner">
+        <div class="govbb-official-banner__inner">
+          <div class="govbb-official-banner__crest">
+            <img
+              class="govbb-official-banner__icon"
+              src="./assets/images/govbb-creast.svg"
+              alt="Government of Barbados coat of arms"
+            />
+          </div>
+
+          <div class="govbb-official-banner__text">
+            <span>Official government website</span>
+            <span class="govbb-official-banner__link" role="link" tabindex="0">Learn more</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="--container-padding: 1rem">
+      <h2>Header</h2>
+      <header class="govbb-header">
+        <div class="govbb-header__inner">
+          <a href="/" aria-label="Government of Barbados">
+            <img
+              class="govbb-header__logo"
+              src="./assets/images/govbb-logo.svg"
+              alt="Government of Barbados"
+            />
+          </a>
+        </div>
+      </header>
+    </section>
+
+    <section style="--container-padding: 1rem">
+      <h2>Footer</h2>
+      <footer class="govbb-footer">
+        <div class="govbb-footer__inner">
+          <nav class="govbb-footer__nav" aria-label="Footer navigation">
+            <a class="govbb-footer__link" href="#">Home</a>
+            <a class="govbb-footer__link" href="#">Cookie Policy</a>
+            <a class="govbb-footer__link" href="#">Terms &amp; Conditions</a>
+            <a class="govbb-footer__link" href="#">Sitemap</a>
+          </nav>
+          <hr class="govbb-footer__divider" aria-hidden="true" />
+          <div class="govbb-footer__end">
+            <img
+              class="govbb-footer__coat"
+              src="./assets/images/govbb-creast.svg"
+              alt="Government of Barbados Coat of Arms"
+            />
+            <p class="govbb-footer__copy">© 2026 Government of Barbados</p>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>

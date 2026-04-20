@@ -1,0 +1,13 @@
+@utility govbb-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  width: 100%;
+
+  > .govbb-label + .govbb-hint,
+  > .govbb-label + .govbb-error-message,
+  > .govbb-hint + .govbb-error-message {
+    margin-top: calc(var(--spacing-xs) * -1);
+  }
+}

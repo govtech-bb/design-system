@@ -1,0 +1,31 @@
+@layer base {
+  .govbb-page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .govbb-page__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-m);
+  }
+
+  @media (width >= 1024px) {
+    .govbb-page__body {
+      grid-template-columns: 16rem 1fr 16rem;
+    }
+
+    .govbb-page__body--no-right {
+      grid-template-columns: 16rem 1fr;
+    }
+
+    .govbb-page__body--no-left {
+      grid-template-columns: 1fr 16rem;
+    }
+
+    .govbb-page__body--main-only {
+      grid-template-columns: 1fr;
+    }
+  }
+}

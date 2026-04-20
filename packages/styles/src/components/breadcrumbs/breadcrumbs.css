@@ -1,0 +1,51 @@
+@layer base {
+  .govbb-breadcrumbs {
+    @apply govbb-font-body;
+    display: flex;
+    align-items: center;
+  }
+
+  .govbb-breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .govbb-breadcrumbs__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .govbb-breadcrumbs__item + .govbb-breadcrumbs__item::before {
+    content: '';
+    display: inline-block;
+    width: 0.4375em;
+    height: 0.4375em;
+    margin: 0 0.5em;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    border-top: 1px solid var(--color-mid-grey-00);
+    border-right: 1px solid var(--color-mid-grey-00);
+  }
+
+  .govbb-breadcrumbs__link {
+    @apply govbb-link-base govbb-link-default;
+    word-break: break-all;
+  }
+
+  .govbb-breadcrumbs--collapse-on-mobile
+    .govbb-breadcrumbs__item:not(:first-child):not(:last-child) {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .govbb-breadcrumbs--collapse-on-mobile
+      .govbb-breadcrumbs__item:not(:first-child):not(:last-child) {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@utility govbb-link-base {
+  @apply govbb-font-base;
+  @apply govbb-link-decoration;
+  outline: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus-visible {
+    text-decoration: none;
+  }
+}
+
+@utility govbb-link-decoration {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@utility govbb-link-default {
+  color: var(--color-link);
+
+  &:visited {
+    color: var(--color-link-visited);
+  }
+
+  &:hover {
+    color: var(--color-link-hover);
+    background-color: var(--color-link-hover-bg);
+  }
+
+  &:active,
+  &:focus-visible {
+    color: var(--color-link-active);
+    background-color: var(--color-link-active-bg);
+  }
+}
+
+@utility govbb-link-secondary {
+  color: var(--color-link-secondary);
+
+  &:visited {
+    color: var(--color-link-secondary-visited);
+  }
+
+  &:hover {
+    color: var(--color-link-secondary-hover);
+    background-color: var(--color-link-secondary-hover-bg);
+  }
+
+  &:active,
+  &:focus-visible {
+    color: var(--color-link-secondary-active);
+    background-color: var(--color-link-secondary-active-bg);
+  }
+}
+
+@utility govbb-link-tertiary {
+  color: var(--color-link-tertiary);
+
+  &:visited {
+    color: var(--color-link-tertiary-visited);
+  }
+
+  &:hover {
+    color: var(--color-link-tertiary-hover);
+    background-color: var(--color-link-tertiary-hover-bg);
+  }
+
+  &:active,
+  &:focus-visible {
+    color: var(--color-link-tertiary-active);
+    background-color: var(--color-link-tertiary-active-bg);
+  }
+}
+
+@utility govbb-link-no-underline {
+  &:not(:hover):not(:active) {
+    text-decoration: none;
+  }
+}
+
+@utility govbb-link-no-visited {
+  &:visited {
+    color: inherit;
+  }
+}

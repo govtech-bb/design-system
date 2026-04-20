@@ -1,0 +1,76 @@
+@layer base {
+  html {
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-body);
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: oldstyle-nums proportional-nums;
+  }
+
+  :where(h1) {
+    @apply govbb-font-h1;
+  }
+
+  :where(h2) {
+    @apply govbb-font-h2;
+  }
+
+  :where(h3) {
+    @apply govbb-font-h3;
+  }
+
+  :where(h4, h5) {
+    @apply govbb-font-h4;
+  }
+
+  :where(h6, p) {
+    @apply govbb-font-body;
+  }
+
+  .govbb-text-display {
+    @apply govbb-font-display govbb-font-bold;
+  }
+
+  .govbb-text-h1 {
+    @apply govbb-font-h1 govbb-font-bold;
+  }
+
+  .govbb-text-h2 {
+    @apply govbb-font-h2 govbb-font-bold;
+  }
+
+  .govbb-text-h3 {
+    @apply govbb-font-h3 govbb-font-bold;
+  }
+
+  .govbb-text-h4 {
+    @apply govbb-font-h4 govbb-font-bold;
+  }
+
+  .govbb-text-body-lg {
+    @apply govbb-font-body-lg govbb-font-regular;
+  }
+
+  .govbb-text-body {
+    @apply govbb-font-body govbb-font-regular;
+  }
+
+  .govbb-text-caption {
+    @apply govbb-font-caption govbb-font-regular;
+  }
+
+  .govbb-text-caption-sm {
+    @apply govbb-font-caption-sm govbb-font-regular;
+  }
+}

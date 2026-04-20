@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment block — GOVBB</title>
+    <link rel="stylesheet" href="../../src/dist.css" />
+    <link rel="stylesheet" href="./payment.css" />
+    <style>
+      body {
+        padding: var(--spacing-m);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        max-width: 652px;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="govbb-payment">
+      <div class="govbb-payment__header">
+        <h2 class="govbb-payment__title">Complete your payment</h2>
+        <p class="govbb-payment__description">
+          Please review and complete your payment to finalize your submission
+        </p>
+      </div>
+
+      <div class="govbb-payment__items">
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Service:</p>
+          <p class="govbb-payment__item-value">Application Fee</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Unit price:</p>
+          <p class="govbb-payment__item-value">$10</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Quantity:</p>
+          <p class="govbb-payment__item-value">2</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Amount:</p>
+          <p class="govbb-payment__item-value">$20</p>
+        </div>
+      </div>
+
+      <a class="govbb-btn" href="#">Continue to payment</a>
+
+      <p class="govbb-payment__note">
+        You will be redirected to EZ Pay to securely complete your payment.
+      </p>
+    </section>
+
+    <section class="govbb-payment govbb-payment--success">
+      <div class="govbb-payment__header">
+        <h2 class="govbb-payment__title">Your payment was successful</h2>
+        <p class="govbb-payment__description">
+          Your payment has been received. We've sent a confirmation email to the address you
+          provided.
+        </p>
+      </div>
+
+      <div class="govbb-payment__items">
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Service:</p>
+          <p class="govbb-payment__item-value">Application Fee</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Amount:</p>
+          <p class="govbb-payment__item-value">$20</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Reference number:</p>
+          <p class="govbb-payment__item-value">UIGWB248U42</p>
+        </div>
+        <div class="govbb-payment__item">
+          <p class="govbb-payment__item-label">Date:</p>
+          <p class="govbb-payment__item-value">12/12/2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="govbb-payment govbb-payment--failed">
+      <div class="govbb-payment__header">
+        <h2 class="govbb-payment__title">Unfortunately, your payment was unsuccessful</h2>
+        <p class="govbb-payment__description">
+          Your payment could not be processed. You have not been charged.
+        </p>
+      </div>
+
+      <p class="govbb-payment__note">
+        Try paying again. If the problem continues, check with your bank or try a different
+        payment method.
+      </p>
+
+      <a class="govbb-btn govbb-btn--secondary" href="#" style="align-self: flex-start"
+        >Try again</a
+      >
+    </section>
+  </body>
+</html>

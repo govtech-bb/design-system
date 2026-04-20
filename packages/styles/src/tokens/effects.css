@@ -1,0 +1,10 @@
+@theme {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+
+  --border-width-form: 2px;
+
+  --shadow-form-hover: inset 4px 4px 0 0 rgba(0, 0, 0, 0.1);
+
+  --opacity-disabled: 0.4;
+}

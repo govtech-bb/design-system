@@ -1,0 +1,22 @@
+@layer base {
+  .govbb-list {
+    @apply govbb-font-body;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .govbb-list > li {
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .govbb-list--bullet {
+    padding-inline-start: var(--spacing-m);
+    list-style-type: disc;
+  }
+
+  .govbb-list--number {
+    padding-inline-start: var(--spacing-m);
+    list-style-type: decimal;
+  }
+}

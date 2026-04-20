@@ -1,0 +1,15 @@
+@layer base {
+  .govbb-fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .govbb-fieldset__legend {
+    padding: 0;
+    @apply govbb-font-body;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+}

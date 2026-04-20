@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H1 Question — The Government of Barbados</title>
+    <link rel="stylesheet" href="../src/dist.css" />
+    <style>
+      .form-page {
+        padding-block: var(--spacing-l);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xm);
+
+        @media (width >= 1024px) {
+          gap: var(--spacing-m);
+        }
+      }
+      .form-page__service-title {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--spacing-xs) var(--spacing-s);
+        border-left: var(--spacing-xxs) solid var(--color-blue-40);
+        color: var(--color-mid-grey-00);
+      }
+      .form-page__heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+      }
+    </style>
+  </head>
+  <body class="govbb-page">
+    <div>
+      <div class="govbb-official-banner">
+        <div class="govbb-container govbb-official-banner__inner">
+          <div class="govbb-official-banner__crest">
+            <img
+              class="govbb-official-banner__icon"
+              src="../src/assets/images/govbb-creast.svg"
+              alt=""
+            />
+          </div>
+          <div class="govbb-official-banner__text">
+            <span>Official government website</span>
+          </div>
+        </div>
+      </div>
+
+      <header class="govbb-header">
+        <div class="govbb-container govbb-header__inner">
+          <a href="/" aria-label="Go to the alpha.gov.bb homepage">
+            <img class="govbb-header__logo" src="../src/assets/images/govbb-logo.svg" alt="GOVBB" />
+          </a>
+        </div>
+      </header>
+    </div>
+
+    <main class="govbb-page__main">
+      <div
+        class="govbb-status-banner govbb-status-banner--alpha"
+        role="status"
+        aria-label="alpha status banner"
+        aria-live="polite"
+      >
+        <div class="govbb-container">
+          <p>
+            This page is in
+            <a class="govbb-link govbb-link--secondary" href="/what-we-mean-by-alpha">Alpha</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="govbb-container">
+        <form class="form-page">
+          <div class="form-page__heading">
+            <span class="form-page__service-title govbb-text-body">Service Title</span>
+            <h1 class="govbb-text-display">Are you a citizen of Barbados?</h1>
+            <p class="govbb-text-body">
+              We need to confirm you meet the basic requirements before we process your application.
+            </p>
+          </div>
+
+          <div class="govbb-form-group">
+            <fieldset class="govbb-fieldset">
+              <legend class="govbb-fieldset__legend">Are you 18 years or older?</legend>
+              <p class="govbb-hint" id="age-hint">Select one option.</p>
+              <div class="govbb-radio-item">
+                <input
+                  class="govbb-radio"
+                  id="age-yes"
+                  type="radio"
+                  name="age"
+                  value="yes"
+                  aria-describedby="age-hint"
+                />
+                <label class="govbb-radio-item__label" for="age-yes">Yes</label>
+              </div>
+              <div class="govbb-radio-item">
+                <input
+                  class="govbb-radio"
+                  id="age-no"
+                  type="radio"
+                  name="age"
+                  value="no"
+                  aria-describedby="age-hint"
+                />
+                <label class="govbb-radio-item__label" for="age-no">No</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govbb-btn-group">
+            <button class="govbb-btn--secondary" type="button">Back</button>
+            <button class="govbb-btn" type="submit">Continue</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="govbb-footer">
+      <div class="govbb-container govbb-footer__inner">
+        <nav class="govbb-footer__nav" aria-label="Footer">
+          <a class="govbb-footer__link" href="/">Home</a>
+          <a class="govbb-footer__link" href="/cookie-policy">Cookie Policy</a>
+          <a class="govbb-footer__link" href="/terms-conditions">Terms &amp; Conditions</a>
+          <a class="govbb-footer__link" href="/sitemap">Sitemap</a>
+        </nav>
+        <hr class="govbb-footer__divider" aria-hidden="true" />
+        <div class="govbb-footer__end">
+          <img
+            class="govbb-footer__coat"
+            src="../src/assets/images/govbb-creast.svg"
+            alt="Government of Barbados Coat of Arms"
+          />
+          <p class="govbb-footer__copy">© 2026 Government of Barbados</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

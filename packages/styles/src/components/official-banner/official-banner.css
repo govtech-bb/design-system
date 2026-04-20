@@ -1,0 +1,45 @@
+@layer base {
+  .govbb-official-banner {
+    display: block;
+    width: 100%;
+    background: var(--color-blue-100);
+    color: var(--color-white-00);
+  }
+
+  .govbb-official-banner__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding-block: var(--spacing-xs);
+    @apply govbb-font-caption;
+
+    :where(span) {
+      @apply govbb-font-caption;
+    }
+  }
+
+  .govbb-official-banner__crest {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .govbb-official-banner__text {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    flex-wrap: wrap;
+  }
+
+  .govbb-official-banner__icon {
+    display: block;
+    flex-shrink: 0;
+    width: auto;
+    height: 24px;
+  }
+
+  .govbb-official-banner__link {
+    @apply govbb-link-base;
+    cursor: pointer;
+  }
+}

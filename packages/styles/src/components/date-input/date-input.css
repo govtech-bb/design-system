@@ -1,0 +1,35 @@
+@layer base {
+  .govbb-date-input {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-s);
+    flex-wrap: wrap;
+  }
+
+  .govbb-date-input__part {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .govbb-date-input__label {
+    @apply govbb-font-body;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+
+  .govbb-date-input-wrapper {
+    @apply govbb-input-group;
+    width: 5rem;
+  }
+
+  .govbb-date-input-wrapper--year {
+    width: 10rem;
+  }
+
+  .govbb-date-input__field {
+    @apply govbb-font-body;
+    color: var(--color-text);
+    text-align: left;
+  }
+}
