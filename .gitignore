@@ -27,6 +27,8 @@ coverage
 out/
 build
 dist
+!packages/styles/dist
+!packages/styles/dist/**
 storybook-static
 
 
