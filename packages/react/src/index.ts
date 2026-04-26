@@ -1,4 +1,5 @@
 export * from './components/BackButton';
+export * from './components/Breadcrumbs';
 export * from './components/Button';
 export * from './components/Checkbox';
 export * from './components/DateInput';
