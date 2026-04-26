@@ -22,7 +22,7 @@ const separatorStyles =
   'before:mx-[0.5em] before:inline-block before:h-[0.4375em] before:w-[0.4375em] before:shrink-0 before:rotate-45 before:border-mid-grey-00 before:border-t before:border-r before:content-[""]';
 
 const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
-  ({ items, className, collapseOnMobile = false, linkAs, homeHref, ...props }, ref) => {
+  ({ items, className, collapseOnMobile = true, linkAs, homeHref, ...props }, ref) => {
     if (items.length === 0 && !homeHref) return null;
 
     return (
