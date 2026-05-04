@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build packages
-        run: pnpm run build --filter=@govtech-bb/react
+        run: pnpm run build --filter=@govtech-bb/react --filter=@govtech-bb/styles
 
       - name: Publish design package
         run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
@@ -39,5 +39,10 @@ jobs:
 
       - name: Publish react package
         run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish styles package
+        run: pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag alpha
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

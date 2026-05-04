@@ -39,8 +39,6 @@
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --radius-sm: .25rem;
-    --default-transition-duration: .15s;
-    --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-yellow-00: #e8a833;
