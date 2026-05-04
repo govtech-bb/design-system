@@ -1,21 +1,34 @@
 {
   "name": "@govtech-bb/styles",
-  "version": "0.0.0",
-  "description": "CSS-first design system styles",
+  "version": "1.0.0-alpha.16",
+  "description": "CSS-first design system styles for the Government of Barbados Design System",
   "type": "module",
   "files": [
-    "src",
-    "dist"
+    "dist",
+    "README.md"
   ],
   "exports": {
-    ".": "./src/build.css"
+    ".": "./dist/styles.css",
+    "./assets/*": "./dist/assets/*",
+    "./package.json": "./package.json"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govtech-bb/design-system.git",
+    "directory": "packages/styles"
+  },
+  "homepage": "https://govtech-bb.github.io/design-system/",
   "scripts": {
     "build": "tailwindcss -i ./src/build.css -o ./dist/styles.css --optimize && mkdir -p ./dist/assets/fonts ./dist/assets/images && cp ./src/assets/fonts/*.woff2 ./dist/assets/fonts/ && cp -R ./src/assets/images/. ./dist/assets/images/",
     "build:llm": "node scripts/build-llm.mjs",
     "dev:css": "tailwindcss -i ./src/build.css -o ./src/dist.css --watch",
     "serve": "browser-sync start --server ./src --files 'src/dist.css,src/*.html' --index home.html --no-open",
-    "dev": "concurrently \"pnpm dev:css\" \"pnpm serve\""
+    "dev": "concurrently \"pnpm dev:css\" \"pnpm serve\"",
+    "prepublishOnly": "pnpm build"
   },
   "license": "MIT",
   "devDependencies": {
