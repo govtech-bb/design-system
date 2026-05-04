@@ -3,6 +3,26 @@
 This is the documentation for the frontend of the Government of Barbados website.
 It contains a collection of components, utilities, pages and other assets for building frontend applications using the [GOVBB Design System](https://github.com/GovTechBB/design-system). The CSS examples are written in HTML.
 
+## Install
+
+Available on npm as [`@govtech-bb/styles`](https://www.npmjs.com/package/@govtech-bb/styles), published under the `alpha` dist-tag.
+
+```sh
+pnpm add @govtech-bb/styles@alpha
+```
+
+```html
+<link rel="stylesheet" href="/node_modules/@govtech-bb/styles/dist/styles.css" />
+```
+
+Or with a JS/TS bundler:
+
+```ts
+import "@govtech-bb/styles";
+```
+
+Assets (fonts, images) are reachable at `@govtech-bb/styles/assets/*`.
+
 ## Components
 
 - [Breadcrumbs](./components/breadcrumbs/README.md) — trail of links showing a user's position in a hierarchy.
