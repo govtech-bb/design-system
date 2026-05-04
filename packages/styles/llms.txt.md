@@ -15,6 +15,12 @@ pnpm add @govtech-bb/styles@alpha
 <link rel="stylesheet" href="/node_modules/@govtech-bb/styles/dist/styles.css" />
 ```
 
+Or use the unpkg CDN with no install (pin a version):
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@govtech-bb/styles@1.0.0-alpha.16/dist/styles.css" />
+```
+
 Or with a JS/TS bundler:
 
 ```ts
