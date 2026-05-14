@@ -20,7 +20,10 @@ Or in JS/TS bundlers:
 import "@govtech-bb/styles";
 ```
 
-Assets (fonts, images) are reachable at `@govtech-bb/styles/assets/*`.
+Assets (fonts, images):
+
+- Bundler import: `@govtech-bb/styles/assets/<path>` (resolved via the package `exports` map).
+- CDN / direct URL (unpkg, raw `node_modules` link): `@govtech-bb/styles/dist/assets/<path>` — `exports` is ignored when files are served by path, so the real `dist/assets/...` path is required.
 
 ## Docs
 
