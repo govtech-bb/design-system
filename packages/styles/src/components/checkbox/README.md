@@ -48,6 +48,44 @@ Use a standalone checkbox for a single opt-in, such as accepting terms.
 </div>
 ```
 
+### With per-option hint
+
+```html
+<div class="govbb-checkbox-item">
+  <input
+    class="govbb-checkbox"
+    id="contact-email"
+    type="checkbox"
+    name="contact"
+    value="email"
+    aria-describedby="contact-email-hint"
+  />
+  <label class="govbb-checkbox-item__label" for="contact-email">Email</label>
+  <div class="govbb-checkbox-item__hint" id="contact-email-hint">
+    We'll only use this to send updates about your application.
+  </div>
+</div>
+```
+
+### Conditional reveal
+
+Place a `.govbb-checkbox-item__conditional` immediately after a `.govbb-checkbox-item`. It is shown only when that checkbox is checked.
+
+```html
+<div class="govbb-checkbox-item">
+  <input class="govbb-checkbox" id="contact-email" type="checkbox" name="contact" value="email" />
+  <label class="govbb-checkbox-item__label" for="contact-email">Email</label>
+</div>
+<div class="govbb-checkbox-item__conditional">
+  <div class="govbb-form-group">
+    <label class="govbb-label" for="contact-email-addr">Email address</label>
+    <div class="govbb-input-wrapper">
+      <input class="govbb-input" id="contact-email-addr" type="email" />
+    </div>
+  </div>
+</div>
+```
+
 ### Disabled
 
 ```html

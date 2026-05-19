@@ -4,19 +4,50 @@
   }
 
   .govbb-checkbox-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacing-s);
+    row-gap: 0;
     align-items: center;
-    gap: var(--spacing-s);
+  }
+
+  .govbb-checkbox-item + .govbb-checkbox-item,
+  .govbb-checkbox-item__conditional + .govbb-checkbox-item {
+    margin-top: var(--spacing-s);
+  }
+
+  .govbb-checkbox-item > .govbb-checkbox {
+    grid-row: 1 / -1;
   }
 
   .govbb-checkbox-item__label {
     @apply govbb-font-body;
+    grid-column: 2;
     color: var(--color-text);
     cursor: pointer;
+  }
+
+  .govbb-checkbox-item__hint {
+    @apply govbb-font-body;
+    grid-column: 2;
+    color: var(--color-text-muted);
   }
 
   .govbb-checkbox:disabled + .govbb-checkbox-item__label {
     opacity: var(--opacity-disabled);
     cursor: not-allowed;
+  }
+
+  .govbb-checkbox-item__conditional {
+    display: none;
+    margin-block: var(--spacing-xs) var(--spacing-s);
+    margin-inline-start: 1.25rem;
+    padding-inline-start: 2.5rem;
+    padding-block-end: var(--spacing-s);
+    border-inline-start: 8px solid var(--color-grey-00);
+  }
+
+  .govbb-checkbox-item:has(> .govbb-checkbox:checked) + .govbb-checkbox-item__conditional {
+    display: block;
   }
 }
