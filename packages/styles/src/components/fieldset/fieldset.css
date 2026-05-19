@@ -8,6 +8,7 @@
 
   .govbb-fieldset__legend {
     padding: 0;
+    margin-bottom: var(--spacing-xs);
     @apply govbb-font-body;
     font-weight: var(--font-weight-bold);
     color: var(--color-text);
