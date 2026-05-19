@@ -2,4 +2,11 @@
   .govbb-form-group {
     @apply govbb-field-container;
   }
+
+  .govbb-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xm);
+  }
 }
+
