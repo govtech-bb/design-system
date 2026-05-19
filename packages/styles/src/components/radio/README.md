@@ -22,6 +22,27 @@
 </fieldset>
 ```
 
+### With per-option hint
+
+Add a hint to a single option to clarify its meaning. Use `aria-describedby` so screen readers announce it.
+
+```html
+<div class="govbb-radio-item">
+  <input
+    class="govbb-radio"
+    id="contact-email"
+    type="radio"
+    name="contact"
+    value="email"
+    aria-describedby="contact-email-hint"
+  />
+  <label class="govbb-radio-item__label" for="contact-email">Email</label>
+  <div class="govbb-radio-item__hint" id="contact-email-hint">
+    We'll only use this to send updates about your application.
+  </div>
+</div>
+```
+
 ### Conditional reveal
 
 Show follow-up content when a specific option is selected. The conditional block sits as a sibling of its `.govbb-radio-item` and appears only when that radio is checked.
