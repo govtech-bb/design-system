@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form heading — pattern</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body {
+        max-width: 48rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      section.demo {
+        margin-bottom: 3rem;
+      }
+
+      /* Pattern-local styles (composition only — promote to a component if reused) */
+      .form-heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+      .form-heading__eyebrow {
+        display: flex;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-s);
+        border-left: var(--spacing-xxs) solid var(--color-blue-40);
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+      .form-heading__title {
+        margin: 0;
+      }
+      .form-heading__description {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="demo">
+      <h2 class="govbb-text-h5">Form heading</h2>
+
+      <div class="form-heading">
+        <p class="form-heading__eyebrow govbb-text-body">Service Title</p>
+        <h1 class="govbb-text-h1 form-heading__title">H1 subject</h1>
+        <p class="form-heading__description">Description</p>
+      </div>
+    </section>
+
+    <section class="demo">
+      <h2 class="govbb-text-h2">In context</h2>
+      <div class="form-heading">
+        <p class="form-heading__eyebrow govbb-text-body">Apply for severance</p>
+        <h1 class="govbb-text-h1 form-heading__title">Your employment details</h1>
+        <p class="form-heading__description">
+          Tell us about your most recent job. You can save your answers and come back later.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

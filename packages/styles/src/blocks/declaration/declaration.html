@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Declaration — pattern</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+
+      /* Reused form-heading eyebrow (copy from blocks/form-heading) */
+      .form-heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+      .form-heading__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-s);
+        border-left: var(--spacing-xxs) solid var(--color-blue-40);
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+      .form-heading__title { margin: 0; }
+
+      /* Declaration pattern */
+      .declaration {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+      }
+      .declaration__facts {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        margin: 0;
+      }
+      .declaration__facts p { margin: 0; }
+      .declaration__actions {
+        display: flex;
+        gap: var(--spacing-xs);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="declaration">
+      <div class="form-heading">
+        <p class="form-heading__eyebrow govbb-text-body">Service Title</p>
+        <h1 class="govbb-text-h1 form-heading__title">Declaration</h1>
+      </div>
+
+      <div class="declaration__facts">
+        <p><strong>Applicant’s name:</strong> First name + middle name + last name</p>
+        <p><strong>Date:</strong> Today’s date (DD/MM/YYYY)</p>
+      </div>
+
+      <div class="govbb-checkbox-item">
+        <input class="govbb-checkbox" id="confirm" type="checkbox" />
+        <label class="govbb-checkbox-item__label" for="confirm">
+          I confirm that my information is correct and I am happy for it to be verified. I understand
+          that false details may lead to my application being rejected, and that the Government of
+          Barbados will keep my information confidential.
+        </label>
+      </div>
+
+      <div class="declaration__actions">
+        <button class="govbb-btn--secondary" type="button">Back</button>
+        <button class="govbb-btn" type="submit">Confirm and continue</button>
+      </div>
+    </div>
+  </body>
+</html>
