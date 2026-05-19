@@ -1,0 +1,90 @@
+@layer base {
+  .govbb-summary-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'heading'
+      'content'
+      'button';
+    row-gap: var(--spacing-xs);
+    padding-bottom: var(--spacing-m);
+    margin-bottom: var(--spacing-m);
+    border-bottom: 4px solid var(--color-grey-00);
+  }
+
+  .govbb-summary-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .govbb-summary-section__title {
+    @apply govbb-font-h2;
+    grid-area: heading;
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+
+  .govbb-summary-section__action {
+    @apply govbb-font-body;
+    grid-area: button;
+    justify-self: start;
+  }
+
+  .govbb-summary-list {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin: 0;
+  }
+
+  .govbb-summary-list__row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .govbb-summary-list__key {
+    @apply govbb-font-body;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+
+  .govbb-summary-list__value {
+    @apply govbb-font-body;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .govbb-summary-section {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'heading button'
+        'content content';
+    }
+
+    .govbb-summary-section__action {
+      justify-self: end;
+      align-self: center;
+    }
+
+    .govbb-summary-list {
+      gap: var(--spacing-s);
+    }
+
+    .govbb-summary-list__row {
+      flex-direction: row;
+      column-gap: var(--spacing-xs);
+    }
+
+    .govbb-summary-list__key {
+      flex: 0 0 33.3333%;
+    }
+
+    .govbb-summary-list__value {
+      flex: 0 0 66.6666%;
+    }
+  }
+}

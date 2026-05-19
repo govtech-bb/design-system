@@ -1,0 +1,16 @@
+@layer base {
+  .govbb-inset-text {
+    border-left: 4px solid var(--color-blue-00);
+    background: var(--color-blue-10);
+    padding: var(--spacing-s);
+
+    > p {
+      @apply govbb-font-body;
+      margin: 0;
+    }
+
+    > p + p {
+      margin-top: var(--spacing-xs);
+    }
+  }
+}
