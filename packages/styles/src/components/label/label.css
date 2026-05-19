@@ -5,4 +5,9 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text);
   }
+
+  .govbb-form-group:has(:is(input, textarea, select):required) .govbb-label::after {
+    content: ' *';
+    color: var(--color-red-00);
+  }
 }
