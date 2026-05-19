@@ -6,8 +6,8 @@
     color: var(--color-text);
   }
 
-  .govbb-form-group:has(:is(input, textarea, select):required) .govbb-label::after {
+  /* .govbb-form-group:has(:is(input, textarea, select):required) .govbb-label::after {
     content: ' *';
     color: var(--color-red-00);
-  }
+  } */
 }
