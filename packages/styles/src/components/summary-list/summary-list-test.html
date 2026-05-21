@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary List — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section.demo { margin-bottom: 3rem; }
+      .demo h1 { margin: 0 0 var(--spacing-s); }
+      .demo > p { margin: 0; }
+      .demo > p + p { margin-bottom: var(--spacing-xm); }
+    </style>
+  </head>
+  <body>
+    <section class="demo">
+      <h1 class="govbb-text-h1">Check your answers</h1>
+      <p>Review the answers you’ve given carefully.</p>
+      <p>Incorrect information may be difficult to change after registration.</p>
+
+      <section class="govbb-summary-section">
+        <h2 class="govbb-summary-section__title">Your name</h2>
+        <div class="govbb-summary-section__action"><a class="govbb-link" href="#">Change</a></div>
+        <dl class="govbb-summary-list">
+          <div class="govbb-summary-list__row">
+            <dt class="govbb-summary-list__key">Title</dt>
+            <dd class="govbb-summary-list__value">Mr</dd>
+          </div>
+          <div class="govbb-summary-list__row">
+            <dt class="govbb-summary-list__key">First name</dt>
+            <dd class="govbb-summary-list__value">John</dd>
+          </div>
+          <div class="govbb-summary-list__row">
+            <dt class="govbb-summary-list__key">Last name</dt>
+            <dd class="govbb-summary-list__value">Smith</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="govbb-summary-section">
+        <h2 class="govbb-summary-section__title">Contact details</h2>
+        <div class="govbb-summary-section__action"><a class="govbb-link" href="#">Change</a></div>
+        <dl class="govbb-summary-list">
+          <div class="govbb-summary-list__row">
+            <dt class="govbb-summary-list__key">Email</dt>
+            <dd class="govbb-summary-list__value">john.smith@example.com</dd>
+          </div>
+          <div class="govbb-summary-list__row">
+            <dt class="govbb-summary-list__key">Phone</dt>
+            <dd class="govbb-summary-list__value">555-0142</dd>
+          </div>
+        </dl>
+      </section>
+    </section>
+  </body>
+</html>

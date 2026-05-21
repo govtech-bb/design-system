@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkbox — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <fieldset class="govbb-fieldset">
+        <legend class="govbb-fieldset__legend">Which topics interest you?</legend>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="c-health" type="checkbox" name="topics" value="health" />
+          <label class="govbb-checkbox-item__label" for="c-health">Health</label>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="c-transport" type="checkbox" name="topics" value="transport" checked />
+          <label class="govbb-checkbox-item__label" for="c-transport">Transport</label>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="c-edu" type="checkbox" name="topics" value="edu" disabled />
+          <label class="govbb-checkbox-item__label" for="c-edu">Education (disabled)</label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section>
+      <h2>With hints</h2>
+      <fieldset class="govbb-fieldset">
+        <legend class="govbb-fieldset__legend">Pick services</legend>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="ch-pass" type="checkbox" name="svc" value="passport" aria-describedby="ch-pass-hint" />
+          <label class="govbb-checkbox-item__label" for="ch-pass">Passport renewal</label>
+          <div class="govbb-checkbox-item__hint" id="ch-pass-hint">Issued within 10 business days.</div>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="ch-id" type="checkbox" name="svc" value="id" aria-describedby="ch-id-hint" />
+          <label class="govbb-checkbox-item__label" for="ch-id">National ID</label>
+          <div class="govbb-checkbox-item__hint" id="ch-id-hint">Required for residents 16 and older.</div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section>
+      <h2>Conditional reveal</h2>
+      <fieldset class="govbb-fieldset">
+        <legend class="govbb-fieldset__legend">How would you like to be contacted?</legend>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="cc-email" type="checkbox" name="contact3" value="email" />
+          <label class="govbb-checkbox-item__label" for="cc-email">Email</label>
+        </div>
+        <div class="govbb-checkbox-item__conditional">
+          <div class="govbb-form-group">
+            <label class="govbb-label" for="cc-email-addr">Email address</label>
+            <div class="govbb-input-wrapper">
+              <input class="govbb-input" id="cc-email-addr" type="email" />
+            </div>
+          </div>
+        </div>
+        <div class="govbb-checkbox-item">
+          <input class="govbb-checkbox" id="cc-phone" type="checkbox" name="contact3" value="phone" checked />
+          <label class="govbb-checkbox-item__label" for="cc-phone">Phone</label>
+        </div>
+        <div class="govbb-checkbox-item__conditional">
+          <div class="govbb-form-group">
+            <label class="govbb-label" for="cc-phone-num">Phone number</label>
+            <div class="govbb-input-wrapper">
+              <input class="govbb-input" id="cc-phone-num" type="tel" />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </body>
+</html>

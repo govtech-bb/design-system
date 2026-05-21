@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default + uploaded item</h2>
+      <div class="govbb-file-upload">
+        <label class="govbb-file-upload__dropzone" for="f-file">
+          <div class="govbb-file-upload__info">
+            <span class="govbb-file-upload__title">Upload a file</span>
+            <span class="govbb-file-upload__subtitle">Attach a .pdf, .docx, or .png file</span>
+          </div>
+          <input class="govbb-file-upload__input" id="f-file" name="file" type="file" />
+          <div class="govbb-file-upload__action">
+            <span class="govbb-btn--tertiary" aria-hidden="true">Choose file</span>
+            <span class="govbb-file-upload__max-size">Maximum size: 25MB</span>
+          </div>
+        </label>
+        <ul class="govbb-file-upload__list">
+          <li class="govbb-file-upload__item">
+            <span class="govbb-file-upload__name">passport-application.pdf</span>
+            <button type="button" class="govbb-btn--destructive-link" aria-label="Remove passport-application.pdf">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Error state</h2>
+      <div class="govbb-file-upload">
+        <label class="govbb-file-upload__dropzone" for="f-file-err">
+          <div class="govbb-file-upload__info">
+            <span class="govbb-file-upload__title">Upload a file</span>
+            <span class="govbb-file-upload__subtitle">Attach a .pdf, .docx, or .png file</span>
+          </div>
+          <input class="govbb-file-upload__input" id="f-file-err" type="file" aria-invalid="true" aria-describedby="f-file-err-error" />
+          <div class="govbb-file-upload__action">
+            <span class="govbb-btn--tertiary" aria-hidden="true">Choose file</span>
+            <span class="govbb-file-upload__max-size">Maximum size: 25MB</span>
+          </div>
+        </label>
+        <p class="govbb-error-message" id="f-file-err-error" role="alert">Select a file</p>
+      </div>
+    </section>
+  </body>
+</html>

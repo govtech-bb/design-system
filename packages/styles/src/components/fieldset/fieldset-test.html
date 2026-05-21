@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fieldset — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <div class="govbb-form-group">
+        <fieldset class="govbb-fieldset">
+          <legend class="govbb-fieldset__legend">What is your address?</legend>
+          <p class="govbb-hint">Include parish and postcode</p>
+          <p>[address fields go here]</p>
+        </fieldset>
+      </div>
+    </section>
+
+    <section>
+      <h2>Legend only</h2>
+      <fieldset class="govbb-fieldset">
+        <legend class="govbb-fieldset__legend">Contact preferences</legend>
+        <p>[choices go here]</p>
+      </fieldset>
+    </section>
+  </body>
+</html>

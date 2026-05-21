@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Message — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Standalone</h2>
+      <p class="govbb-error-message" role="alert">Enter a valid email address</p>
+    </section>
+
+    <section>
+      <h2>Inside form group</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="e-email">Email address</label>
+        <p class="govbb-error-message" id="e-email-error" role="alert">Enter a valid email address</p>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="e-email" type="email" aria-invalid="true" aria-describedby="e-email-error" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

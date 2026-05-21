@@ -7,17 +7,22 @@
 
   .govbb-breadcrumbs__list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    row-gap: 0.25rem;
     list-style: none;
     padding: 0;
     margin: 0;
+    min-width: 0;
   }
 
   .govbb-breadcrumbs__item {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+  }
+
+  .govbb-breadcrumbs__item:last-child {
+    flex-shrink: 1;
   }
 
   .govbb-breadcrumbs__item + .govbb-breadcrumbs__item::before {
@@ -34,18 +39,67 @@
 
   .govbb-breadcrumbs__link {
     @apply govbb-link-base govbb-link-default;
-    word-break: break-all;
   }
 
-  .govbb-breadcrumbs--collapse-on-mobile
-    .govbb-breadcrumbs__item:not(:first-child):not(:last-child) {
+  /* Last crumb: ellipsize when too long for the row. */
+  .govbb-breadcrumbs__item:last-child {
+    min-width: 0;
+  }
+
+  .govbb-breadcrumbs__item:last-child .govbb-breadcrumbs__link {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Collapse middle crumbs to a single ellipsis. When 3+ crumbs and the
+     modifier is active, hide every middle item except the first one — and
+     replace that one's text with `…`. Chevrons still render around it. */
+  .govbb-breadcrumbs--collapse .govbb-breadcrumbs__item:nth-child(n + 3):not(:last-child) {
     display: none;
   }
 
-  @media (min-width: 768px) {
+  .govbb-breadcrumbs--collapse .govbb-breadcrumbs__item:nth-child(2):not(:last-child) > * {
+    display: none;
+  }
+
+  .govbb-breadcrumbs--collapse
+    .govbb-breadcrumbs__item:nth-child(2):not(:last-child)::after {
+    content: '…';
+  }
+
+  /* Mobile-only variant: same collapse behavior but only below 768px. */
+  .govbb-breadcrumbs--collapse-on-mobile .govbb-breadcrumbs__item:nth-child(n + 3):not(:last-child) {
+    display: none;
+  }
+
+  .govbb-breadcrumbs--collapse-on-mobile
+    .govbb-breadcrumbs__item:nth-child(2):not(:last-child)
+    > * {
+    display: none;
+  }
+
+  .govbb-breadcrumbs--collapse-on-mobile
+    .govbb-breadcrumbs__item:nth-child(2):not(:last-child)::after {
+    content: '…';
+  }
+
+  @media (width >= 768px) {
     .govbb-breadcrumbs--collapse-on-mobile
-      .govbb-breadcrumbs__item:not(:first-child):not(:last-child) {
+      .govbb-breadcrumbs__item:nth-child(n + 3):not(:last-child) {
       display: flex;
+    }
+
+    .govbb-breadcrumbs--collapse-on-mobile
+      .govbb-breadcrumbs__item:nth-child(2):not(:last-child)
+      > * {
+      display: revert;
+    }
+
+    .govbb-breadcrumbs--collapse-on-mobile
+      .govbb-breadcrumbs__item:nth-child(2):not(:last-child)::after {
+      content: none;
     }
   }
 }

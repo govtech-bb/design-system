@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-name">Full name</label>
+        <p class="govbb-hint" id="f-name-hint">As it appears on your ID</p>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-name" type="text" aria-describedby="f-name-hint" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Error</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-email">Email address</label>
+        <p class="govbb-error-message" id="f-email-error" role="alert">Enter a valid email address</p>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-email" type="email" aria-describedby="f-email-error" aria-invalid="true" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disabled</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-disabled">Disabled input</label>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-disabled" type="text" value="Read only" disabled />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Placeholder</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-placeholder">With placeholder</label>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="f-placeholder" type="text" placeholder="Start typing…" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -9,8 +9,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required for pushing tags and creating releases
-      id-token: write # Required for provenance
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -34,15 +34,18 @@ jobs:
 
       - name: Publish design package
         run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react package
         run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish styles package
         run: pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag alpha
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

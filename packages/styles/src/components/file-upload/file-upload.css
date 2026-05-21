@@ -94,7 +94,7 @@
     @apply govbb-truncate;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .govbb-file-upload__dropzone {
       flex-direction: row;
       text-align: start;

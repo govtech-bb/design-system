@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <search aria-label="Search">
+        <form class="govbb-search" action="/search">
+          <label class="govbb-search__label" for="search-q">Search</label>
+          <input class="govbb-search__input" id="search-q" name="q" type="search" placeholder="Search government services" />
+          <button class="govbb-search__button" type="submit">Search</button>
+        </form>
+      </search>
+    </section>
+
+    <section>
+      <h2>Borderless</h2>
+      <search aria-label="Search">
+        <form class="govbb-search govbb-search--borderless" action="/search">
+          <label class="govbb-search__label" for="search-q-b">Search</label>
+          <input class="govbb-search__input" id="search-q-b" name="q" type="search" placeholder="Search government services" />
+          <button class="govbb-search__button" type="submit">Search</button>
+        </form>
+      </search>
+    </section>
+  </body>
+</html>

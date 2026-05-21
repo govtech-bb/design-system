@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Group — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Stacked form groups (.govbb-form)</h2>
+      <form class="govbb-form">
+        <div class="govbb-form-group">
+          <label class="govbb-label" for="fg-first">First name</label>
+          <div class="govbb-input-wrapper">
+            <input class="govbb-input" id="fg-first" type="text" />
+          </div>
+        </div>
+        <div class="govbb-form-group">
+          <label class="govbb-label" for="fg-last">Last name</label>
+          <div class="govbb-input-wrapper">
+            <input class="govbb-input" id="fg-last" type="text" />
+          </div>
+        </div>
+        <div class="govbb-form-group">
+          <label class="govbb-label" for="fg-email">Email</label>
+          <p class="govbb-hint" id="fg-email-hint">We never share your email</p>
+          <div class="govbb-input-wrapper">
+            <input class="govbb-input" id="fg-email" type="email" aria-describedby="fg-email-hint" />
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

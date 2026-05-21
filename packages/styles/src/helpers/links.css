@@ -76,7 +76,7 @@
 }
 
 @utility govbb-link-no-underline {
-  &:not(:hover):not(:active) {
+  &:not(:hover, :active) {
     text-decoration: none;
   }
 }

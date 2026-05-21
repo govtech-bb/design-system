@@ -1,0 +1,11 @@
+@layer base {
+  .govbb-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .govbb-back-link__icon {
+    flex-shrink: 0;
+  }
+}

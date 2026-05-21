@@ -1,6 +1,6 @@
 {
   "name": "@govtech-bb/styles",
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "description": "CSS-first design system styles for the Government of Barbados Design System",
   "type": "module",
   "files": [
@@ -28,6 +28,7 @@
     "dev:css": "tailwindcss -i ./src/build.css -o ./src/dist.css --watch",
     "serve": "browser-sync start --server ./src --files 'src/dist.css,src/*.html' --index home.html --no-open",
     "dev": "concurrently \"pnpm dev:css\" \"pnpm serve\"",
+    "lint": "stylelint 'src/**/*.css'",
     "prepublishOnly": "pnpm build"
   },
   "license": "MIT",

@@ -11,8 +11,7 @@
   .govbb-radio-item {
     display: grid;
     grid-template-columns: auto 1fr;
-    column-gap: var(--spacing-s);
-    row-gap: 0;
+    gap: 0 var(--spacing-s);
     align-items: center;
   }
 
