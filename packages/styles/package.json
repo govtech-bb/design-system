@@ -1,6 +1,6 @@
 {
   "name": "@govtech-bb/styles",
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "description": "CSS-first design system styles for the Government of Barbados Design System",
   "type": "module",
   "files": [

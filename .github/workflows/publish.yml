@@ -4,13 +4,34 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Which package to publish'
+        required: true
+        default: 'styles'
+        type: choice
+        options:
+          - styles
+          - react
+          - design
+          - all
+      tag:
+        description: 'npm dist-tag'
+        required: true
+        default: 'alpha'
+        type: choice
+        options:
+          - alpha
+          - beta
+          - latest
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required for pushing tags and creating releases
-      id-token: write # Required for provenance
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -33,16 +54,21 @@ jobs:
         run: pnpm run build --filter=@govtech-bb/react --filter=@govtech-bb/styles
 
       - name: Publish design package
-        run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
+        if: ${{ inputs.package == 'design' || inputs.package == 'all' || github.event_name == 'push' }}
+        run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks --tag ${{ inputs.tag || 'latest' }}
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react package
-        run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
+        if: ${{ inputs.package == 'react' || inputs.package == 'all' || github.event_name == 'push' }}
+        run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks --tag ${{ inputs.tag || 'latest' }}
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish styles package
-        run: pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag alpha
+        if: ${{ inputs.package == 'styles' || inputs.package == 'all' || github.event_name == 'push' }}
+        run: pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag ${{ inputs.tag || 'alpha' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
