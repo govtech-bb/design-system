@@ -4,7 +4,7 @@
   }
 
   .govbb-visually-hidden-focusable {
-    &:not(:focus):not(:focus-visible) {
+    &:not(:focus, :focus-visible) {
       @apply not-sr-only;
     }
   }

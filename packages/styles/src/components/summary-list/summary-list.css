@@ -57,7 +57,7 @@
     color: var(--color-text);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .govbb-summary-section {
       grid-template-columns: 1fr auto;
       grid-template-areas:
@@ -66,8 +66,7 @@
     }
 
     .govbb-summary-section__action {
-      justify-self: end;
-      align-self: center;
+      place-self: center end;
     }
 
     .govbb-summary-list {

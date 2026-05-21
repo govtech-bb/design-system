@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Textarea — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-msg">Message</label>
+        <p class="govbb-hint" id="f-msg-hint">Up to 500 characters</p>
+        <div class="govbb-input-wrapper">
+          <textarea class="govbb-textarea" id="f-msg" rows="5" aria-describedby="f-msg-hint"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Error</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-msg-err">Message with error</label>
+        <p class="govbb-error-message" id="f-msg-err-error" role="alert">Enter a message</p>
+        <div class="govbb-input-wrapper">
+          <textarea class="govbb-textarea" id="f-msg-err" rows="5" aria-invalid="true" aria-describedby="f-msg-err-error"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disabled</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-msg-dis">Disabled</label>
+        <div class="govbb-input-wrapper">
+          <textarea class="govbb-textarea" id="f-msg-dis" rows="5" disabled>Read only content</textarea>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

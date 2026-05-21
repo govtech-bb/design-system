@@ -1,6 +1,6 @@
 /* latin-ext */
 @font-face {
-  font-family: 'Figtree';
+  font-family: Figtree;
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
@@ -13,7 +13,7 @@
 
 /* latin */
 @font-face {
-  font-family: 'Figtree';
+  font-family: Figtree;
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;

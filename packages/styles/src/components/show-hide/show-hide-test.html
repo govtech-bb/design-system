@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show/Hide — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Closed</h2>
+      <details class="govbb-show-hide">
+        <summary class="govbb-show-hide__summary">Help with this form</summary>
+        <div class="govbb-show-hide__content">
+          <p>Fill in every field marked as required. Your progress is saved automatically.</p>
+          <p>Contact support on 555-0100 if you need assistance.</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Open by default</h2>
+      <details class="govbb-show-hide" open>
+        <summary class="govbb-show-hide__summary">More information</summary>
+        <div class="govbb-show-hide__content">
+          <p>This panel is open on page load.</p>
+        </div>
+      </details>
+    </section>
+  </body>
+</html>

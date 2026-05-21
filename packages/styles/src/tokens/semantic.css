@@ -1,16 +1,12 @@
 @theme {
   --color-brand: var(--color-blue-100);
   --color-brand-accent: var(--color-yellow-100);
-
   --color-text: var(--color-black-00);
   --color-text-muted: var(--color-mid-grey-00);
-
   --color-background: var(--color-white-00);
-
   --color-error: var(--color-red-00);
   --color-success: var(--color-green-00);
   --color-warning: var(--color-yellow-00);
-
   --color-link: var(--color-teal-00);
   --color-link-visited: var(--color-teal-00);
   --color-link-hover: var(--color-black-00);

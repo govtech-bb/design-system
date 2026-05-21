@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-parish">Parish</label>
+        <div class="govbb-select-wrapper">
+          <select class="govbb-select" id="f-parish" name="parish">
+            <option value="">Select a parish</option>
+            <option value="christ-church">Christ Church</option>
+            <option value="st-michael">St. Michael</option>
+            <option value="st-james">St. James</option>
+          </select>
+          <span class="govbb-select__chevron" aria-hidden="true">
+            <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><path d="M0 8 6 0 12 8z" /></svg>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Error</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-parish-err">Parish (error)</label>
+        <p class="govbb-error-message" id="f-parish-err-error" role="alert">Select a parish</p>
+        <div class="govbb-select-wrapper">
+          <select class="govbb-select" id="f-parish-err" aria-invalid="true" aria-describedby="f-parish-err-error">
+            <option value="">Select a parish</option>
+            <option value="christ-church">Christ Church</option>
+          </select>
+          <span class="govbb-select__chevron" aria-hidden="true">
+            <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><path d="M0 8 6 0 12 8z" /></svg>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disabled</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="f-parish-dis">Parish (disabled)</label>
+        <div class="govbb-select-wrapper">
+          <select class="govbb-select" id="f-parish-dis" disabled>
+            <option value="">Select a parish</option>
+          </select>
+          <span class="govbb-select__chevron" aria-hidden="true">
+            <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><path d="M0 8 6 0 12 8z" /></svg>
+          </span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

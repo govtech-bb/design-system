@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hint — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+      section { margin-bottom: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Standalone</h2>
+      <p class="govbb-hint">For example, 27 3 1990</p>
+    </section>
+
+    <section>
+      <h2>Paired with label/input</h2>
+      <div class="govbb-form-group">
+        <label class="govbb-label" for="h-name">Full name</label>
+        <p class="govbb-hint" id="h-name-hint">As it appears on your ID</p>
+        <div class="govbb-input-wrapper">
+          <input class="govbb-input" id="h-name" type="text" aria-describedby="h-name-hint" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Long-form hint</h2>
+      <p class="govbb-hint">Provide the full residential address, including parish and postal code. This will be used only to verify your eligibility for the service.</p>
+    </section>
+  </body>
+</html>

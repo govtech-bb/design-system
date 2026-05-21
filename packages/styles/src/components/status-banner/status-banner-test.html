@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status Banner — test</title>
+    <link rel="stylesheet" href="../../dist.css" />
+    <style>
+      body { margin: 0; padding: 0; }
+      section { padding: 1rem 0; --container-padding: 1rem; }
+      h2 { padding: 0 1rem; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Default (sharp corners)</h2>
+      <div class="govbb-status-banner govbb-status-banner--alpha" role="status" aria-live="polite">
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Alpha</a>.
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--beta" role="status" aria-live="polite">
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Beta</a>.
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--migrated" role="status" aria-live="polite">
+        <p>This content has been migrated from <a class="govbb-link govbb-link--secondary" href="#">gov.bb</a>. It may be out of date or displayed incorrectly.</p>
+        <p><a class="govbb-link govbb-link--secondary" href="#">View the original source</a>.</p>
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--service" role="status" aria-live="polite">Service</div>
+    </section>
+
+    <section>
+      <h2>Rounded variant</h2>
+      <div class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--alpha" role="status" aria-live="polite">
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Alpha</a>.
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--beta" role="status" aria-live="polite">
+        This page is in <a class="govbb-link govbb-link--secondary" href="#">Beta</a>.
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--migrated" role="status" aria-live="polite">
+        <p>This content has been migrated from <a class="govbb-link govbb-link--secondary" href="#">gov.bb</a>.</p>
+      </div>
+      <div class="govbb-status-banner govbb-status-banner--rounded govbb-status-banner--service" role="status" aria-live="polite">Service</div>
+    </section>
+  </body>
+</html>

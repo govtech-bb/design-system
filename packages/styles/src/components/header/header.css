@@ -19,7 +19,7 @@
     width: auto;
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .govbb-header__inner {
       padding-block: var(--spacing-xm);
     }

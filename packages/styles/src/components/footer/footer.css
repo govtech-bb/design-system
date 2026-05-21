@@ -61,7 +61,7 @@
     @apply govbb-font-body;
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .govbb-footer__inner {
       grid-template-columns: 1fr 1fr;
     }
