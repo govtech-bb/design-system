@@ -186,6 +186,44 @@ export const GroupWithSelection: Story = {
   ),
 };
 
+export const ConditionalReveal: Story = {
+  render: () => (
+    <RadioGroup label="How should we contact you?" description="Select one option">
+      <Radio
+        value="email"
+        id="contact-email"
+        label="Email"
+        conditional={
+          <label className="flex flex-col gap-xs text-[1.25rem] text-black-00">
+            Email address
+            <input type="email" className="border-2 border-black-00 px-3 py-2 max-w-md" />
+          </label>
+        }
+      />
+      <Radio
+        value="phone"
+        id="contact-phone"
+        label="Phone"
+        conditional={
+          <label className="flex flex-col gap-xs text-[1.25rem] text-black-00">
+            Phone number
+            <input type="tel" className="border-2 border-black-00 px-3 py-2 max-w-md" />
+          </label>
+        }
+      />
+      <Radio value="post" id="contact-post" label="Post (no follow-up needed)" />
+    </RadioGroup>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Selecting an option reveals follow-up content indented beneath it. Pure CSS via Radix `data-state` — no extra state wiring.',
+      },
+    },
+  },
+};
+
 export const MultipleGroups: Story = {
   render: () => (
     <div className="space-y-8">

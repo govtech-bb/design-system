@@ -4,31 +4,30 @@ import { cn } from '../../utils/css';
 export interface OfficialBannerProps extends HTMLAttributes<HTMLDivElement> {
   showLearnMore?: boolean;
   imageSrc: string;
+  /** Decorative by default — the banner text conveys the meaning. */
   imageAlt?: string;
+  /** Target for the "Learn more" link (how to identify official government websites). */
+  learnMoreHref?: string;
 }
 
 const OfficialBanner = forwardRef<HTMLDivElement, OfficialBannerProps>(
   (
-    { showLearnMore = true, imageSrc, imageAlt = 'Government of Barbados', className, ...props },
+    { showLearnMore = true, imageSrc, imageAlt = '', learnMoreHref = '#', className, ...props },
     ref,
   ) => {
     return (
       <div ref={ref} className={cn('bg-blue-100 w-full', className)} {...props}>
-        <div className="flex gap-2 items-center px-4 py-2">
-          <div className="shrink-0 w-4 h-4 relative">
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-          </div>
-          <p className="font-normal text-[12px] leading-4 text-white text-nowrap whitespace-pre shrink-0">
+        <div className="container flex flex-wrap gap-2 items-center py-2">
+          <img src={imageSrc} alt={imageAlt} className="block shrink-0 h-6 w-auto" />
+
+          <p className="font-normal text-caption leading-normal text-white-00">
             Official government website
           </p>
           {showLearnMore && (
             <a
-              href="#"
-              className="font-normal text-[12px] leading-4 text-white underline decoration-solid underline-offset-2 text-nowrap whitespace-pre shrink-0 hover:opacity-80 transition-opacity"
+              href={learnMoreHref}
+              aria-label="Learn how to identify an official government website"
+              className="font-normal text-caption leading-normal text-white-00 underline decoration-solid underline-offset-2 hover:opacity-80 transition-opacity"
             >
               Learn more
             </a>

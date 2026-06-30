@@ -86,7 +86,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             })}
             aria-required={required}
             className={cn(
-              'w-full min-w-0 border-2 rounded-l-sm p-s outline-none appearance-none bg-white',
+              'w-full min-w-0 border-2 rounded-l-sm p-s outline-none appearance-none bg-white-00',
               'group-hover:group-[:not(:focus-within)]:shadow-form-hover',
               'text-[1.125rem] leading-[1.56]',
               error ? 'border-red-00' : 'border-black-00',

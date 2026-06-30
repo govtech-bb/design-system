@@ -13,6 +13,8 @@ import { getAriaDescribedBy } from '../../utils/getAriaDescribedBy';
 export interface RadioProps extends RadioGroupItemProps {
   className?: string;
   label?: string;
+  /** Follow-up content revealed only while this radio is selected (conditional reveal). */
+  conditional?: ReactNode;
 }
 
 export interface RadioGroupProps extends RadioGroupPropsPrimitive {
@@ -24,7 +26,7 @@ export interface RadioGroupProps extends RadioGroupPropsPrimitive {
 }
 
 const Radio = forwardRef<HTMLButtonElement, RadioProps>(
-  ({ className, label, id, ...props }, ref) => {
+  ({ className, label, conditional, id, ...props }, ref) => {
     const radio = (
       <Item
         ref={ref}
@@ -41,21 +43,31 @@ const Radio = forwardRef<HTMLButtonElement, RadioProps>(
       </Item>
     );
 
-    if (label) {
+    const item = label ? (
+      <div className="flex gap-5 items-center">
+        {radio}
+        <label htmlFor={id} className="text-[1.25rem] leading-normal text-black-00 cursor-pointer">
+          {label}
+        </label>
+      </div>
+    ) : (
+      radio
+    );
+
+    // Conditional reveal: mirrors styles pkg `.govbb-radio-item__conditional`.
+    // Shown via Radix's `data-state="checked"` on the item — pure CSS, no state.
+    if (conditional) {
       return (
-        <div className="flex gap-5 items-center">
-          {radio}
-          <label
-            htmlFor={id}
-            className="text-[1.25rem] leading-normal text-black-00 cursor-pointer"
-          >
-            {label}
-          </label>
+        <div className="group/radio w-full">
+          {item}
+          <div className="hidden group-has-[[data-state=checked]]/radio:block mt-xs ms-5 ps-10 pb-s border-s-[8px] border-grey-00">
+            {conditional}
+          </div>
         </div>
       );
     }
 
-    return radio;
+    return item;
   },
 );
 

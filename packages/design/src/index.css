@@ -194,12 +194,6 @@
   --spacing-xl: 8rem; /* 128px */
 }
 
-@utility container {
-  margin-inline: auto;
-  width: 100%;
-  padding-inline: 1rem;
-}
-
 /* Disabled State Utility */
 /* TODO: Components dont have a disabled state on figma, need Jack to confirm what is needed. */
 @utility disabled-state {
@@ -268,13 +262,6 @@ body {
   font-family: var(--font-family-base);
 }
 
-@utility container {
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: 1rem; /* Mobile: 16px */
-
-  @media (width >= 1024px) {
-    /* Desktop */
-    padding-inline: 8rem; /* 128px */
-  }
-}
+/* No page-width container here on purpose. The consuming app owns `.container`
+ * (gov-bb apps each define their own), so components compose with it rather than
+ * the design system imposing a width model. Storybook supplies a preview `.container`. */
