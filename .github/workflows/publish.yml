@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
@@ -32,11 +32,9 @@ jobs:
       - name: Build packages
         run: pnpm run build --filter=@govtech-bb/react --filter=@govtech-bb/styles
 
-      # Recursive publish across the three public packages: pnpm skips versions
-      # already on the registry (so unchanged packages don't fail the run) and
-      # fails loudly on real errors — no continue-on-error masking failures green.
-      # Explicit --filter list so a future workspace package can't auto-publish.
+      # Recursive publish across the three public packages via OIDC trusted
+      # publishing — no NPM_TOKEN; auth comes from the id-token write permission
+      # above. pnpm skips versions already on the registry and fails loudly on
+      # real errors. Explicit --filter list so a future package can't auto-publish.
       - name: Publish packages
         run: pnpm -r --filter=@govtech-bb/design --filter=@govtech-bb/react --filter=@govtech-bb/styles publish --provenance --access public --no-git-checks --tag alpha
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
