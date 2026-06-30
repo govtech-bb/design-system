@@ -32,20 +32,38 @@ jobs:
       - name: Build packages
         run: pnpm run build --filter=@govtech-bb/react --filter=@govtech-bb/styles
 
+      # Each step skips a version that's already on npm (so unchanged packages
+      # don't fail the run) but fails loudly on a real publish error — no
+      # continue-on-error masking auth/build failures as green.
       - name: Publish design package
-        run: pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks
-        continue-on-error: true
+        run: |
+          VERSION=$(node -p "require('./packages/design/package.json').version")
+          if npm view "@govtech-bb/design@$VERSION" version > /dev/null 2>&1; then
+            echo "@govtech-bb/design@$VERSION already published — skipping"
+          else
+            pnpm publish --filter=@govtech-bb/design --provenance --access public --no-git-checks --tag alpha
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish react package
-        run: pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks
-        continue-on-error: true
+        run: |
+          VERSION=$(node -p "require('./packages/react/package.json').version")
+          if npm view "@govtech-bb/react@$VERSION" version > /dev/null 2>&1; then
+            echo "@govtech-bb/react@$VERSION already published — skipping"
+          else
+            pnpm publish --filter=@govtech-bb/react --provenance --access public --no-git-checks --tag alpha
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish styles package
-        run: pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag alpha
-        continue-on-error: true
+        run: |
+          VERSION=$(node -p "require('./packages/styles/package.json').version")
+          if npm view "@govtech-bb/styles@$VERSION" version > /dev/null 2>&1; then
+            echo "@govtech-bb/styles@$VERSION already published — skipping"
+          else
+            pnpm publish --filter=@govtech-bb/styles --provenance --access public --no-git-checks --tag alpha
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
