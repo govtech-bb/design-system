@@ -65,6 +65,7 @@ export const WithOnChangeCallback: Story = {
           <DateInput
             label="Select a date"
             description="For example, 31 3 1980"
+            name="date"
             onChange={setDate}
           />
           <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: '#f0f0f0' }}>
@@ -99,6 +100,7 @@ export const ControlledMode: Story = {
           <DateInput
             label="Select a date"
             description="For example, 31 3 1980"
+            name="date"
             value={date}
             onChange={setDate}
           />

@@ -29,7 +29,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
     return (
       <footer
         ref={ref}
-        className={cn('bg-blue-100 text-white w-full overflow-hidden', className)}
+        className={cn('bg-blue-100 text-white-00 w-full overflow-hidden', className)}
         {...props}
       >
         <div className="container">
@@ -61,7 +61,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
               </nav>
             )}
 
-            <div className="-mx-[calc(50vw-50%)] border-black/25 border-t-4 lg:hidden" />
+            <div className="-mx-[calc(50vw-50%)] border-black-00/25 border-t-4 lg:hidden" />
 
             <div className="flex flex-col items-start gap-6 justify-between pt-8 pb-4 lg:items-end lg:pb-8">
               {logoSrc && <img src={logoSrc} alt={logoAlt} className="block h-28 w-auto" />}

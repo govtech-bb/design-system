@@ -5,6 +5,7 @@ export * from './components/DateInput';
 export * from './components/ErrorSummary';
 export * from './components/FileUpload';
 export * from './components/Footer';
+export * from './components/Header';
 export * from './components/Input';
 export * from './components/Link';
 export * from './components/LinkButton';

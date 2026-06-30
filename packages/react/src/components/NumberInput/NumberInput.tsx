@@ -114,7 +114,7 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             disabled={disabled}
             required={required}
             className={cn(
-              'w-full min-w-0 border-2 rounded-l-sm p-s outline-none bg-white',
+              'w-full min-w-0 border-2 rounded-l-sm p-s outline-none bg-white-00',
               'group-hover:group-[:not(:focus-within)]:shadow-form-hover',
               '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none',
               'text-[1.125rem] leading-[1.56]',

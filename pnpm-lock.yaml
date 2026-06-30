@@ -77,8 +77,6 @@ importers:
 
   packages/design: {}
 
-  packages/js: {}
-
   packages/react:
     dependencies:
       '@govtech-bb/design':

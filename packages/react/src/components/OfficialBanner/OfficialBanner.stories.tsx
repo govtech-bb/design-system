@@ -52,7 +52,8 @@ export const InPageLayout: Story = {
   render: () => (
     <div>
       <OfficialBanner imageSrc={imagePath} />
-      <div style={{ padding: '2rem' }}>
+      {/* Body uses the same `.container` as the banner (host-app owned), so content lines up. */}
+      <div className="container" style={{ paddingBlock: '2rem' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Government Website</h1>
         <p>This demonstrates how the Official Government Banner appears at the top of a page.</p>
       </div>
